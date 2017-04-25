@@ -1,0 +1,3 @@
+rootProject.name = 'tabbedPagerCarousel'
+
+include ':app'

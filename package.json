@@ -1,0 +1,39 @@
+{
+  "name": "react-native-viewpager-carousel",
+  "version": "0.0.1",
+  "author": "Tobias Meinhardt <tobias.meinhardt89@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tobiasMeinhardt/react-native-viewpager-carousel"
+  },
+  "bugs": {
+    "url": "https://github.com/tobiasMeinhardt/react-native-viewpager-carousel/issues"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "viewpager",
+    "carousel"
+  ],
+  "tags": [
+    "react",
+    "react-native",
+    "viewpager",
+    "carousel"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "babel-jest": "19.0.0",
+    "babel-preset-react-native": "1.9.1",
+    "jest": "19.0.2",
+    "react-test-renderer": "16.0.0-alpha.6"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "tabbedPagerCarousel",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "adb": "adb reverse tcp:4000 tcp:4000 && adb reverse tcp:8081 tcp:8081 && adb reverse tcp:5678 tcp:5678",
+    "android": "react-native run-android",
+    "adbshake": "adb shell input keyevent 82",
+    "adbreload": "npm run adbshake && adb shell input tap 241 466",
+    "dev": "rm -rf ./node_modules/react-native-viewpager-carousel && npm install react-native-viewpager-carousel && npm run adbreload"
+  },
+  "dependencies": {
+    "react": "16.0.0-alpha.6",
+    "react-native": "0.43.4",
+    "react-native-viewpager-carousel": "../../"
+  },
+  "devDependencies": {
+    "babel-jest": "19.0.0",
+    "babel-preset-react-native": "1.9.1",
+    "jest": "19.0.2",
+    "react-native-cli": "^2.0.1",
+    "react-test-renderer": "16.0.0-alpha.6"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
