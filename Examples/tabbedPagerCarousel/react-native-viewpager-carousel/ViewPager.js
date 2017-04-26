@@ -3,7 +3,7 @@ import {
   StyleSheet,
   Dimensions,
   Animated,
-  View,
+  InteractionManager,
   PanResponder,
 } from 'react-native'
 
@@ -168,17 +168,17 @@ class ViewPager extends PureComponent {
         // easing: Easing.ease,
       }
     ).start(() => {
-      setTimeout(() => {
-        this._animationEnd(pageNumber)
-      }, 0)
+      this._animationEnd(pageNumber)
     })
   }
 
   _animationEnd = (pageNumber) => {
-    this.setState({
-      dataSource: [...this._prepareData(this.state.initializedData, pageNumber)],
+    InteractionManager.runAfterInteractions(() => {
+      this.setState({
+        dataSource: [...this._prepareData(this.state.initializedData, pageNumber)],
+      })
+      this.state.pan.left.setValue(this._initialLeft)
     })
-    this.state.pan.left.setValue(this._initialLeft)
   }
 
   _renderRow = ({item}) => {

@@ -42,6 +42,7 @@ export default class RnViewPager extends Component {
   _renderTabbarRow = (item, performPageSwitch) => (
     <TouchableHighlight
       key={'tb' + item.key}
+      underlayColor={'#ccc'}
       onPress={() => {
         performPageSwitch()
       }}
