@@ -4,7 +4,8 @@ import {
   View,
   Text,
   Image,
-  FlatList,
+  //FlatList,
+  ScrollView,
 } from 'react-native'
 
 
@@ -15,10 +16,18 @@ class ExamplePage extends PureComponent {
 
     this.catImageNumber = Math.floor(Math.random() * 5)
   }
+
+  setNativeProps(props) {
+    this.list.setNativeProps({
+      scrollEnabled: props.shouldBeScrollable,
+    })
+  }
   
   _renderRow = ({index}) => {
     return (
-      <View>
+      <View
+        key={index}
+      >
         <View style={styles.rowContainer}>
           <Image 
             style={styles.image}
@@ -38,14 +47,26 @@ class ExamplePage extends PureComponent {
       <View style={styles.container}>
         <Text style={styles.text}>{this.props.title}</Text>
         <View style={styles.seperator}/>
-        <FlatList 
+        {/*<FlatList 
+          ref={node => {
+            this.list = node
+          }}
           data={ROWS}
           renderItem={this._renderRow}
           keyExtractor={(item, index) => {
             return index
           }}
           onEndReachedThreshold={100}
-        />
+        />*/}
+        <ScrollView
+          ref={node => {
+            this.list = node
+          }}
+        >
+          {ROWS.map((_row, index) => {
+            return this._renderRow({index})
+          })}
+        </ScrollView>
       </View>
     )
   }

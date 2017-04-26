@@ -23,12 +23,38 @@ class Page extends PureComponent {
     this.props.shoudSwitchPage(this.props.pageNumber)
   }
 
+  onIsPanning = isPanning => {
+    if (typeof this.child.setNativeProps == 'function')
+      this.child.setNativeProps(isPanning ? {
+        shouldBeScrollable: false,
+      } : {
+        shouldBeScrollable: true,
+      })
+  }
+
+  _renderChild = () => {
+
+    const child = React.cloneElement(
+      this.props.renderChild({
+        data: this.props.childData, 
+        shouldSwitchPage: this._souldSwitchPage,
+      }),
+      {
+        ref: node => {
+          this.child = node
+        },
+      }
+    )
+
+    return child
+  }
+
   render() {
     return (
       <View
         style={styles.rowContainer}
       >
-        {this.props.renderChild(this.props.childData, this._souldSwitchPage)}
+        {this._renderChild()}
       </View>
     )
   }

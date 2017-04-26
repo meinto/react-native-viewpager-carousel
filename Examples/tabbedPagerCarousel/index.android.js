@@ -37,26 +37,28 @@ export default class RnViewPager extends Component {
         title: 'Title Seite ' + i,
       }]
     }
+
+    this.state = {
+      shouldBeScrollable: true,
+    }
   }
 
-  _renderTabbarRow = (item, performPageSwitch) => (
+  _renderTabbarRow = ({data, shouldSwitchPage}) => (
     <TouchableHighlight
-      key={'tb' + item.key}
+      key={'tb' + data.key}
       underlayColor={'#ccc'}
       onPress={() => {
-        performPageSwitch()
+        shouldSwitchPage()
       }}
     >
-      <Text style={styles.text}>{item.data}</Text>
+      <Text style={styles.text}>{data.data}</Text>
     </TouchableHighlight>
   )
 
-  _renderContentContainerRow = item => (
-    <View style={styles.contentContainer}>
-      <ExamplePage
-        title={item.title}
-      />
-    </View>
+  _renderContentContainerRow = ({data}) => (
+    <ExamplePage
+      title={data.title}
+    />
   )
 
   render() {
@@ -68,7 +70,7 @@ export default class RnViewPager extends Component {
           }}
           
           data={this.dataSource}
-          thresholdPages={2}
+          thresholdPages={1}
           renderTabbarRow={this._renderTabbarRow}
           renderContentContainerRow={this._renderContentContainerRow}
         />

@@ -32,6 +32,8 @@ class ViewPager extends PureComponent {
     this._pageWithDelta = (VIEWPORT_WIDTH - this.props.pageWidth) / 2
     this._initialLeft = this._calculateLeftByPageNumber(this.props.thresholdPages)
 
+    this.activePage = null
+
     this.state = {
       pan: {
         left: new Animated.Value(this._initialLeft),
@@ -108,7 +110,6 @@ class ViewPager extends PureComponent {
   }
 
   _handleStartShouldSetPanResponder = () => {
-    //console.log(gestureState.dx)
     return false
   }
 
@@ -117,17 +118,23 @@ class ViewPager extends PureComponent {
   }
 
   _handlePanResponderMove = (e, gestureState) => {
+    this._isPanning(true)
     this.props.onPan(gestureState.dx)
     this._setLeftValue(this._previousLeft + gestureState.dx)
   }
 
   _handlePanResponderEnd = (e, gestureState) => {
+    this._isPanning(false)
     let pageNumber = this._getPageNumber(this._previousLeft + gestureState.dx)
 
     pageNumber = (gestureState.vx > 0.1) ? pageNumber - 1 : pageNumber
     pageNumber = (gestureState.vx < -0.1) ? pageNumber + 1 : pageNumber
 
     this._animateToPageNr(pageNumber)
+  }
+
+  _isPanning = isPanning => {
+    if (this.activePage) this.activePage.onIsPanning(isPanning)
   }
 
   _setLeftValue = (left) => {
@@ -184,6 +191,11 @@ class ViewPager extends PureComponent {
   _renderRow = ({item}) => {
     return (
       <Page
+        ref={page => {
+          if (item.pageNumber === this.props.thresholdPages) {
+            this.activePage = page
+          }
+        }}
         key={item.key}
         shouldUpdate={item.shouldUpdate}
         pageNumber={item.pageNumber}
