@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "postinstall": "mkdir react-native-viewpager-carousel && ln ../../src/* ./react-native-viewpager-carousel/",
+    "relink": "ln ../../src/* ./react-native-viewpager-carousel/",
     "test": "jest",
     "adb": "adb reverse tcp:4000 tcp:4000 && adb reverse tcp:8081 tcp:8081 && adb reverse tcp:5678 tcp:5678",
     "android": "react-native run-android",
@@ -13,8 +15,7 @@
   },
   "dependencies": {
     "react": "16.0.0-alpha.6",
-    "react-native": "0.43.4",
-    "react-native-viewpager-carousel": "../../"
+    "react-native": "0.43.4"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",

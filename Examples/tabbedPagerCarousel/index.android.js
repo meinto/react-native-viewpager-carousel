@@ -10,39 +10,42 @@ import {
   StyleSheet,
   Text,
   TouchableHighlight,
-  View
+  View,
 } from 'react-native'
 
-import {TabbedPager} from 'react-native-viewpager-carousel'
-import Page from './Page'
+/*
+ * IMPORTANT
+ * ---------
+ * in live version import like follows:
+ * >>> import { TabbedPager } from 'react-native-viewpager-carousel' <<<
+ * 
+ * the following import is only to improve the developer experience
+ */
+import TabbedPager from './react-native-viewpager-carousel/TabbedPager'
 
 
-export default class rnViewPager extends Component {
+export default class RnViewPager extends Component {
 
   constructor(props) {
     super(props)
 
     this.dataSource = []
 
-    for (const i = 0; i < 100; i++) {
+    for (let i = 0; i < 100; i++) {
       this.dataSource = [...this.dataSource, {
-        title: 'Title Seite ' + i
+        title: 'Title Seite ' + i,
       }]
     }
   }
 
-  _handleTouch = (pageNumber) => {
-    this.tabbarPager.scrollToPage(pageNumber)
-  }
-
-  _renderTabbarRow = item => (
+  _renderTabbarRow = (item, performPageSwitch) => (
     <TouchableHighlight
       key={'tb' + item.key}
       onPress={() => {
-        this._handleTouch(item.pageNumber)
+        performPageSwitch()
       }}
     >
-      <Text style={styles.text}>{item.data}</Text>
+      <Text style={styles.text}>{item.data} {'' + item.pageNumber}</Text>
     </TouchableHighlight>
   )
 
@@ -59,13 +62,14 @@ export default class rnViewPager extends Component {
           ref={tabbarPager => {
             this.tabbarPager = tabbarPager
           }}
-
+          
           data={this.dataSource}
+          thresholdPages={2}
           renderTabbarRow={this._renderTabbarRow}
           renderContentContainerRow={this._renderContentContainerRow}
         />
       </View>
-    );
+    )
   }
 }
 
@@ -82,7 +86,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: '#eee',
-  }
+  },
 })
 
-AppRegistry.registerComponent('tabbedPagerCarousel', () => rnViewPager);
+AppRegistry.registerComponent('tabbedPagerCarousel', () => RnViewPager)
