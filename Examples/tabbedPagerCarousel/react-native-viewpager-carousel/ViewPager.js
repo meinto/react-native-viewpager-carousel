@@ -32,7 +32,7 @@ class ViewPager extends PureComponent {
     this._pageWithDelta = (VIEWPORT_WIDTH - this.props.pageWidth) / 2
     this._initialLeft = this._calculateLeftByPageNumber(this.props.thresholdPages)
 
-    this.activePage = null
+    this.pages = []
 
     this.state = {
       pan: {
@@ -114,7 +114,10 @@ class ViewPager extends PureComponent {
   }
 
   _handleMoveShouldSetPanResponder = (e, gestureState) => {
-    return Math.abs(gestureState.dx) > 15
+    const souldSetPanResponder = Math.abs(gestureState.dx) > 10 && Math.abs(gestureState.dy) < 10
+    if (souldSetPanResponder)
+      this._isPanning(true)
+    return souldSetPanResponder
   }
 
   _handlePanResponderMove = (e, gestureState) => {
@@ -127,14 +130,16 @@ class ViewPager extends PureComponent {
     this._isPanning(false)
     let pageNumber = this._getPageNumber(this._previousLeft + gestureState.dx)
 
-    pageNumber = (gestureState.vx > 0.1) ? pageNumber - 1 : pageNumber
-    pageNumber = (gestureState.vx < -0.1) ? pageNumber + 1 : pageNumber
+    pageNumber = (gestureState.vx > 0.2 && pageNumber === this.props.thresholdPages) ? pageNumber - 1 : pageNumber
+    pageNumber = (gestureState.vx < -0.2 && pageNumber === this.props.thresholdPages) ? pageNumber + 1 : pageNumber
 
     this._animateToPageNr(pageNumber)
   }
 
   _isPanning = isPanning => {
-    if (this.activePage) this.activePage.onIsPanning(isPanning)
+    this.pages.forEach(_page => {
+      if (_page) _page.onIsPanning(isPanning)
+    })
   }
 
   _setLeftValue = (left) => {
@@ -192,9 +197,7 @@ class ViewPager extends PureComponent {
     return (
       <Page
         ref={page => {
-          if (item.pageNumber === this.props.thresholdPages) {
-            this.activePage = page
-          }
+          this.pages.push(page)
         }}
         key={item.key}
         shouldUpdate={item.shouldUpdate}
@@ -209,6 +212,7 @@ class ViewPager extends PureComponent {
   }
 
   render() {
+    this.pages = []
     return (
       <Animated.View 
         ref={(scrollView) => {
