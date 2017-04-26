@@ -70,7 +70,7 @@ export default class RnViewPager extends Component {
           }}
           
           data={this.dataSource}
-          thresholdPages={1}
+          thresholdPages={2}
           renderTabbarRow={this._renderTabbarRow}
           renderContentContainerRow={this._renderContentContainerRow}
         />

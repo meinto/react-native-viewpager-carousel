@@ -5,6 +5,7 @@ import {
   Text,
   Image,
   //FlatList,
+  TouchableHighlight,
   ScrollView,
 } from 'react-native'
 
@@ -25,20 +26,24 @@ class ExamplePage extends PureComponent {
   
   _renderRow = ({index}) => {
     return (
-      <View
+      <TouchableHighlight
         key={index}
+        underlayColor={'#ccc'}
+        onPress={() => {}}
       >
-        <View style={styles.rowContainer}>
-          <Image 
-            style={styles.image}
-            source={{
-              uri: IMAGES[this.catImageNumber],
-            }}
-          />
-          <Text>{`Cat - ${index}`}</Text>
+        <View>
+          <View style={styles.rowContainer}>
+            <Image 
+              style={styles.image}
+              source={{
+                uri: IMAGES[this.catImageNumber],
+              }}
+            />
+            <Text>{`Cat - ${index}`}</Text>
+          </View>
+          <View style={styles.seperator}/>
         </View>
-        <View style={styles.seperator}/>
-      </View>
+      </TouchableHighlight>
     )
   }
 
@@ -109,4 +114,4 @@ const IMAGES = [
   'https://images.pexels.com/photos/66292/cat-eyes-view-face-66292.jpeg?w=100&h=100&fit=crop&auto=compress', 
 ]
 
-const ROWS = [{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}] // eslint-disable-line
+const ROWS = [{},{},{},{},{},{},{},{},{},{}] // eslint-disable-line
