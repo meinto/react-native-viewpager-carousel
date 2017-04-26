@@ -24,7 +24,6 @@ class Page extends PureComponent {
   }
 
   render() {
-    // console.warn('render')
     return (
       <View
         style={styles.rowContainer}

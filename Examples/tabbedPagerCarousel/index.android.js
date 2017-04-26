@@ -23,6 +23,7 @@ import {
  */
 import TabbedPager from './react-native-viewpager-carousel/TabbedPager'
 
+import ExamplePage from './ExamplePage'
 
 export default class RnViewPager extends Component {
 
@@ -45,13 +46,15 @@ export default class RnViewPager extends Component {
         performPageSwitch()
       }}
     >
-      <Text style={styles.text}>{item.data} {'' + item.pageNumber}</Text>
+      <Text style={styles.text}>{item.data}</Text>
     </TouchableHighlight>
   )
 
   _renderContentContainerRow = item => (
     <View style={styles.contentContainer}>
-      <Text>{item.title}</Text>
+      <ExamplePage
+        title={item.title}
+      />
     </View>
   )
 
@@ -76,6 +79,7 @@ export default class RnViewPager extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white',
   },
   text: {
     textAlign: 'center',
@@ -84,8 +88,8 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#eee',
+    borderTopWidth: 2,
+    borderTopColor: '#ccc',
   },
 })
 

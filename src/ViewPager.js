@@ -218,7 +218,6 @@ class ViewPager extends PureComponent {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    backgroundColor: '#ffffff',
     /*
      * bug in react-native
      * overflow style has to be set
@@ -244,6 +243,7 @@ ViewPager.propTypes = {
   renderRow: React.PropTypes.func,
   onPageChange: React.PropTypes.func,
   onPan: React.PropTypes.func,
+  onShouldSwitchToPage: React.PropTypes.func,
 }
 
 
