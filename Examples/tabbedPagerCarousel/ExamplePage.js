@@ -11,12 +11,6 @@ import {
 
 
 class ExamplePage extends PureComponent {
-  
-  constructor(props) {
-    super(props)
-
-    this.catImageNumber = Math.floor(Math.random() * 5)
-  }
 
   setNativeProps(props) {
     this.list.setNativeProps({
@@ -36,7 +30,7 @@ class ExamplePage extends PureComponent {
             <Image 
               style={styles.image}
               source={{
-                uri: IMAGES[this.catImageNumber],
+                uri: IMAGES[this.props.index],
               }}
             />
             <Text>{`Cat - ${index}`}</Text>
@@ -107,6 +101,26 @@ ExamplePage.propTypes = {
 export default ExamplePage
 
 const IMAGES = [
+  'https://images.pexels.com/photos/8923/pexels-photo.jpg?w=100&h=100&fit=crop&auto=compress',
+  'https://images.pexels.com/photos/54632/cat-animal-eyes-grey-54632.jpeg?w=100&h=100&fit=crop&auto=compress',
+  'https://images.pexels.com/photos/4602/jumping-cute-playing-animals.jpg?w=100&h=100&fit=crop&auto=compress',
+  'https://images.pexels.com/photos/137049/pexels-photo-137049.jpeg?w=100&h=100&fit=crop&auto=compress',
+  'https://images.pexels.com/photos/66292/cat-eyes-view-face-66292.jpeg?w=100&h=100&fit=crop&auto=compress', 
+  'https://images.pexels.com/photos/8923/pexels-photo.jpg?w=100&h=100&fit=crop&auto=compress',
+  'https://images.pexels.com/photos/54632/cat-animal-eyes-grey-54632.jpeg?w=100&h=100&fit=crop&auto=compress',
+  'https://images.pexels.com/photos/4602/jumping-cute-playing-animals.jpg?w=100&h=100&fit=crop&auto=compress',
+  'https://images.pexels.com/photos/137049/pexels-photo-137049.jpeg?w=100&h=100&fit=crop&auto=compress',
+  'https://images.pexels.com/photos/66292/cat-eyes-view-face-66292.jpeg?w=100&h=100&fit=crop&auto=compress', 
+  'https://images.pexels.com/photos/8923/pexels-photo.jpg?w=100&h=100&fit=crop&auto=compress',
+  'https://images.pexels.com/photos/54632/cat-animal-eyes-grey-54632.jpeg?w=100&h=100&fit=crop&auto=compress',
+  'https://images.pexels.com/photos/4602/jumping-cute-playing-animals.jpg?w=100&h=100&fit=crop&auto=compress',
+  'https://images.pexels.com/photos/137049/pexels-photo-137049.jpeg?w=100&h=100&fit=crop&auto=compress',
+  'https://images.pexels.com/photos/66292/cat-eyes-view-face-66292.jpeg?w=100&h=100&fit=crop&auto=compress', 
+  'https://images.pexels.com/photos/8923/pexels-photo.jpg?w=100&h=100&fit=crop&auto=compress',
+  'https://images.pexels.com/photos/54632/cat-animal-eyes-grey-54632.jpeg?w=100&h=100&fit=crop&auto=compress',
+  'https://images.pexels.com/photos/4602/jumping-cute-playing-animals.jpg?w=100&h=100&fit=crop&auto=compress',
+  'https://images.pexels.com/photos/137049/pexels-photo-137049.jpeg?w=100&h=100&fit=crop&auto=compress',
+  'https://images.pexels.com/photos/66292/cat-eyes-view-face-66292.jpeg?w=100&h=100&fit=crop&auto=compress', 
   'https://images.pexels.com/photos/8923/pexels-photo.jpg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/54632/cat-animal-eyes-grey-54632.jpeg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/4602/jumping-cute-playing-animals.jpg?w=100&h=100&fit=crop&auto=compress',

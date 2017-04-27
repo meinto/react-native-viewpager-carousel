@@ -3,8 +3,8 @@ import {
   StyleSheet,
   Dimensions,
   Animated,
+  ScrollView,
   InteractionManager,
-  PanResponder,
 } from 'react-native'
 
 import Page from './Page'
@@ -27,7 +27,7 @@ class ViewPager extends PureComponent {
   constructor(props) {
     super(props)
 
-    const initializedData = this._initializeData(this.props.data)
+    const initializedData = this._initializeData(this.props.data || [])
 
     this._pageWithDelta = (VIEWPORT_WIDTH - this.props.pageWidth) / 2
     this._initialLeft = this._calculateLeftByPageNumber(this.props.thresholdPages)
@@ -35,75 +35,32 @@ class ViewPager extends PureComponent {
     this.pages = []
 
     this.state = {
-      pan: {
-        left: new Animated.Value(this._initialLeft),
-      },
       initializedData,
-      dataSource: [...this._prepareData(initializedData, this.props.thresholdPages)],
+      dataSource: [...this._prepareData(initializedData)],
     }
   }
 
-  componentWillMount() {
-    if (this.props.disablePan) {
-      this._panResponder = {}
-    } else {
-      this._panResponder = PanResponder.create({
-        onStartShouldSetPanResponder: this._handleStartShouldSetPanResponder,
-        onMoveShouldSetPanResponder: this._handleMoveShouldSetPanResponder,
-        onPanResponderMove: this._handlePanResponderMove,
-        onPanResponderRelease: this._handlePanResponderEnd,
-        onPanResponderTerminate: this._handlePanResponderEnd,
+  componentDidMount() {
+    setTimeout(() => {
+      this.scrollView.scrollTo({
+        x: VIEWPORT_WIDTH,
+        animated: false,
       })
-    }
-
-    this._previousLeft = this._initialLeft
+    }, 0)
   }
 
   _initializeData = (data) => {
-    return data.map((_data, _index) => {
-      return Object.assign({}, _data, { index: _index })
+    return data.map((_data, index) => {
+      return Object.assign({}, _data, { index })
     })
   }
 
-  _prepareData = (data, pageIndex) => {
-
-    let pageNumber = (pageIndex < 0) ? 0 : pageIndex
-    pageNumber = (this.state && pageIndex > this.state.dataSource.length - 1) ? this.state.dataSource.length - 1 : pageNumber
-
-    const currentIndex = (this.state) ? this.state.dataSource[pageNumber].index : 0
-    const currentKey = (this.state) ? this.state.dataSource[pageNumber].key : 0
-
-    let dataArray = [
-      Object.assign({}, data[currentIndex], {
-        shouldUpdate: true,
-        key: currentKey,
-        pageNumber: this.props.thresholdPages,
-      }),
-    ]
-
-    for (let i = 1; i <= this.props.thresholdPages; i++) {
-      const indexShortener = -parseInt(i / data.length) * data.length
-      const indexBefore = (currentIndex - i >= 0) ? currentIndex - i : data.length - (i - indexShortener)
-      const indexAfter = (currentIndex + i < data.length) ? currentIndex + i : (currentIndex + (i - indexShortener)) - data.length
-
-      //console.log(indexBefore, indexAfter)
-      dataArray = [
-        Object.assign({}, data[indexBefore], {
-          shouldUpdate: false,
-          key: currentKey - i,
-          pageNumber: this.props.thresholdPages - i,
-        }),
-        ...dataArray,
-        Object.assign({}, data[indexAfter], {
-          shouldUpdate: false,
-          key: currentKey + i,
-          pageNumber: this.props.thresholdPages + i,
-        }),
-      ]
-    }
-    
-    return dataArray
+  _prepareData = (data) => {
+    return [data[data.length - 1], ...data, data[0]]
   }
+
+  ////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////
 
   _getPageNumber = (left) => {
     return parseInt(-((left - (this.props.pageWidth / 2)) / this.props.pageWidth), 10)
@@ -193,6 +150,30 @@ class ViewPager extends PureComponent {
     })
   }
 
+  ////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////
+
+
+  _onScroll = (event) => {
+    this.pageIndex = event.nativeEvent.contentOffset.x / VIEWPORT_WIDTH
+
+    if (this.pageIndex % 1 === 0) {
+      if (this.pageIndex === 0) {
+        this.scrollView.scrollTo({
+          animated: false, 
+          x: VIEWPORT_WIDTH * (this.state.dataSource.length - 2),
+        })
+      }
+
+      if (this.pageIndex === this.state.dataSource.length - 1) {
+        this.scrollView.scrollTo({
+          animated: false, 
+          x: VIEWPORT_WIDTH,
+        })
+      }
+    }
+  }
+
   _renderRow = ({item}) => {
     return (
       <Page
@@ -214,18 +195,19 @@ class ViewPager extends PureComponent {
   render() {
     this.pages = []
     return (
-      <Animated.View 
+      <ScrollView
         ref={(scrollView) => {
           this.scrollView = scrollView
         }}
-        {...this._panResponder.panHandlers}
-        style={[styles.container, this.props.contentContainerStyle, {
-          width: this.props.pageWidth * (this.props.thresholdPages * 2 + 1),
-          left: this.state.pan.left,
+        horizontal={true}
+        pagingEnabled={true}
+        onScroll={this._onScroll}
+        contentContainerStyle={[styles.container, this.props.contentContainerStyle, {
+          width: this.props.pageWidth * this.state.dataSource.length,
         }]}>
 
         {this.state.dataSource.map(item => this._renderRow({item}))}
-      </Animated.View>
+      </ScrollView>
     )
   }
 }
