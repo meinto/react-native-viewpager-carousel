@@ -44,24 +44,27 @@ export default class RnViewPager extends Component {
     }
   }
 
-  _renderTabbarRow = ({data, shouldSwitchPage}) => (
+  _renderTabbarRow = ({data}) => (
     <TouchableHighlight
-      key={'tb' + data.key}
+      key={'tb' + data.index}
       underlayColor={'#ccc'}
       onPress={() => {
-        shouldSwitchPage()
+        this.tabbarPager.scrollToPage(data.index)
       }}
     >
       <Text style={styles.text}>{data.data}</Text>
     </TouchableHighlight>
   )
 
-  _renderContentContainerRow = ({data}) => (
-    <ExamplePage
-      index={data.index}
-      title={data.title}
-    />
-  )
+  _renderContentContainerRow = ({data}) => {
+    return (
+      <ExamplePage
+        mirrorChildren={true}
+        index={data.index}
+        title={data.title}
+      />
+    )
+  }
 
   render() {
     return (

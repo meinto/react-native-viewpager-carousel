@@ -53,3 +53,5 @@ fastlane/Preview.html
 fastlane/screenshots
 
 .vscode
+
+Examples/tabbedPagerCarousel/react-native-viewpager-carousel/
