@@ -27,6 +27,9 @@
     "carousel"
   ],
   "license": "MIT",
+  "dependencies": {
+    "react-native-mirror": "0.0.16"
+  },
   "devDependencies": {
     "babel-jest": "19.0.0",
     "babel-preset-react-native": "1.9.1",

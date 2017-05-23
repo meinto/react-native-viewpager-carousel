@@ -3,10 +3,11 @@ import {
   StyleSheet,
   Dimensions,
   View,
+  ScrollView,
+  Text,
 } from 'react-native'
 
 import ViewPager from './ViewPager'
-
 
 const VIEWPORT_WIDTH = Dimensions.get('window').width
 
@@ -32,7 +33,7 @@ class TabbedPager extends PureComponent {
         case 'contentContainerStyle':
         case 'renderRow':
         case 'onPageChange':
-        case 'onPan':
+        case 'onScroll':
           isContentProp = false
       }
 
@@ -54,6 +55,10 @@ class TabbedPager extends PureComponent {
     this.contentPager.scrollToPage(pageNumber)
   }
 
+  _renderTabbarRow = (item) => {
+    return this.props.renderTabbarRow(item)
+  }
+
   _getTabbarData = () => {
     return this.props.data.map(_data => {
       return {
@@ -62,16 +67,12 @@ class TabbedPager extends PureComponent {
     })
   }
 
-  _onContentPageChange = pageNumber => {
-    this.tabbar.scrollToPage(pageNumber)
+  _onPageChange = pageNumber => {
+    // this.tabbar.scrollToPage(pageNumber)
   }
 
-  _onContentPan = dx => {
-    this.tabbar.panRelative(dx, VIEWPORT_WIDTH / (VIEWPORT_WIDTH / 2))
-  }
-
-  _renderTabbarRow = (item, performPageSwitch) => {
-    return this.props.renderTabbarRow(item, performPageSwitch)
+  _onScroll = dx => {
+    this.tabbar.scroll(dx)
   }
 
   _renderContentContainerRow = (item) => {
@@ -88,20 +89,23 @@ class TabbedPager extends PureComponent {
           data={this._getTabbarData()}
           renderRow={this._renderTabbarRow}
           pageWidth={VIEWPORT_WIDTH / 2}
+          pagingEnabled={false}
           onShouldSwitchToPage={this.scrollToPage}
           disablePan={true}
           {...this._getContentProps()}
+          thresholdPages={2}
         />
         <ViewPager
           ref={contentPager => {
             this.contentPager = contentPager
           }}
           data={this.props.data}
-          contentContainerStyle={styles.contentContainer}
+          containerStyle={styles.contentContainer}
           renderRow={this._renderContentContainerRow}
-          onPageChange={this._onContentPageChange}
-          onPan={this._onContentPan}
+          onPageChange={this._onPageChange}
+          onScroll={this._onScroll}
           {...this._getContentProps()}
+          thresholdPages={1}
         />
       </View>
     )
