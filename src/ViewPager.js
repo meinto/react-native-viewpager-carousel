@@ -120,14 +120,51 @@ class ViewPager extends PureComponent {
     })
   }
 
-  _renderRow = ({item}) => {
-    return (
-      <View style={{
-        width: this.props.pageWidth,
-      }}>
+  _renderRow = ({item, index}) => {
+
+    let row = (
+      <View 
+        key={index}
+        style={[styles.rowContainer, {
+          width: this.props.pageWidth,
+        }]}
+      >
         {this.props.renderRow({data: item})}
       </View>
     )
+
+    if (index <= this.props.thresholdPages) {
+      row = (
+        <Mirror
+          key={index}
+          connectionId={'mirror-' + index}
+          containerStyle={styles.mirror}
+          mirroredProps={[
+            scrollviewBootstrap,
+          ]}
+        >
+          {row}
+        </Mirror>
+      )
+    }
+
+    if (index >= this.state.dataSource.length - this.props.thresholdPages - 1) {
+      const idIndex = index - (this.state.dataSource.length - this.props.thresholdPages - 1)
+      row = (
+        <Mirror
+          key={index}
+          connectionId={'mirror-' + idIndex}
+          containerStyle={styles.mirror}
+          mirroredProps={[
+            scrollviewBootstrap,
+          ]}
+        >
+          {row}
+        </Mirror>
+      )
+    }
+
+    return row
   }
 
   render() {
@@ -145,8 +182,8 @@ class ViewPager extends PureComponent {
             width: this.props.pageWidth * this.state.dataSource.length,
           }]}>
 
-          {this.state.dataSource.map((item) => {
-            return this._renderRow({item})
+          {this.state.dataSource.map((item, index) => {
+            return this._renderRow({item, index})
           })}
         </ScrollView>
       </View>
@@ -164,6 +201,12 @@ const styles = StyleSheet.create({
      * https://github.com/facebook/react-native/issues/12926
      */
     overflow: 'scroll',
+  },
+  rowContainer: {
+    flexGrow: 1,
+  },
+  mirror: {
+    flexGrow: 1,
   },
 })
 
