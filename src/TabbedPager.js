@@ -3,10 +3,11 @@ import {
   StyleSheet,
   Dimensions,
   View,
+  ScrollView,
+  Text,
 } from 'react-native'
 
 import ViewPager from './ViewPager'
-
 
 const VIEWPORT_WIDTH = Dimensions.get('window').width
 
@@ -99,7 +100,7 @@ class TabbedPager extends PureComponent {
             this.contentPager = contentPager
           }}
           data={this.props.data}
-          contentContainerStyle={styles.contentContainer}
+          containerStyle={styles.contentContainer}
           renderRow={this._renderContentContainerRow}
           onPageChange={this._onPageChange}
           onScroll={this._onScroll}
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   contentContainer: {
-    //flex: 1,
+    flex: 1,
   },
 })
 

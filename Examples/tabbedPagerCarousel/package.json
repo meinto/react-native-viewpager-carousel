@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "react": "16.0.0-alpha.6",
-    "react-native": "0.43.4",
-    "react-native-mirror": "0.0.10"
+    "react-native": "0.44.0",
+    "react-native-mirror": "0.0.11"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",

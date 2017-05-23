@@ -122,7 +122,9 @@ class ViewPager extends PureComponent {
 
   _renderRow = ({item}) => {
     return (
-      <View style={{flex: 1}}>
+      <View style={{
+        width: this.props.pageWidth,
+      }}>
         {this.props.renderRow({data: item})}
       </View>
     )
@@ -131,21 +133,23 @@ class ViewPager extends PureComponent {
   render() {
     this.pages = []
     return (
-      <ScrollView
-        ref={(scrollView) => {
-          this.scrollView = scrollView
-        }}
-        horizontal={true}
-        pagingEnabled={this.props.pagingEnabled}
-        onScroll={this._onScroll}
-        contentContainerStyle={[styles.container, this.props.contentContainerStyle, {
-          width: this.props.pageWidth * this.state.dataSource.length,
-        }]}>
+      <View style={this.props.containerStyle}>
+        <ScrollView
+          ref={(scrollView) => {
+            this.scrollView = scrollView
+          }}
+          horizontal={true}
+          pagingEnabled={this.props.pagingEnabled}
+          onScroll={this._onScroll}
+          contentContainerStyle={[styles.container, this.props.contentContainerStyle, {
+            width: this.props.pageWidth * this.state.dataSource.length,
+          }]}>
 
-        {this.state.dataSource.map((item) => {
-          return this._renderRow({item})
-        })}
-      </ScrollView>
+          {this.state.dataSource.map((item) => {
+            return this._renderRow({item})
+          })}
+        </ScrollView>
+      </View>
     )
   }
 }
@@ -161,14 +165,12 @@ const styles = StyleSheet.create({
      */
     overflow: 'scroll',
   },
-  rowContainer: {
-    flex: 1,
-  },
 })
 
 
 ViewPager.propTypes = {
   contentContainerStyle: React.PropTypes.any,
+  containerStyle: React.PropTypes.any,
   data: React.PropTypes.arrayOf(
     React.PropTypes.object
   ),
