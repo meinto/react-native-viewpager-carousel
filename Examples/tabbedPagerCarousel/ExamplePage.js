@@ -75,7 +75,6 @@ class ExamplePage extends PureComponent {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'red',
   },
   seperator: {
     height: 1,

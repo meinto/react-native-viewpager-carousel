@@ -122,11 +122,11 @@ class ViewPager extends PureComponent {
 
   _renderRow = ({item}) => {
     return (
-      <View style={{
-        width: this.props.pageWidth,
-      }}>
-        {this.props.renderRow({data: item})}
-      </View>
+        <View style={[styles.rowContainer, {
+          width: this.props.pageWidth,
+        }]}>
+          {this.props.renderRow({data: item})}
+        </View>
     )
   }
 
@@ -164,6 +164,9 @@ const styles = StyleSheet.create({
      * https://github.com/facebook/react-native/issues/12926
      */
     overflow: 'scroll',
+  },
+  rowContainer: {
+    flexGrow: 1,
   },
 })
 
