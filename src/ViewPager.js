@@ -24,6 +24,7 @@ class ViewPager extends PureComponent {
     disablePan: false,
     data: [],
     experimentalMirroring: false,
+    showNativeScrollIndicator: false,
   }
 
   constructor(props) {
@@ -185,6 +186,8 @@ class ViewPager extends PureComponent {
           }}
           horizontal={true}
           pagingEnabled={this.props.pagingEnabled}
+          showsHorizontalScrollIndicator={this.props.showNativeScrollIndicator}
+          showsVerticalScrollIndicator={this.props.showNativeScrollIndicator}
           onScroll={this._onScroll}
           contentContainerStyle={[styles.container, this.props.contentContainerStyle, {
             width: this.props.pageWidth * this.state.dataSource.length,
@@ -230,6 +233,7 @@ ViewPager.propTypes = {
   disablePan: React.PropTypes.bool,
   pagingEnabled: React.PropTypes.bool,
   experimentalMirroring: React.PropTypes.bool,
+  showNativeScrollIndicator: React.PropTypes.bool,
 
   renderRow: React.PropTypes.func,
   onPageChange: React.PropTypes.func,
