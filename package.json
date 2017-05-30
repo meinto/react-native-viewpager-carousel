@@ -1,6 +1,6 @@
 {
   "name": "react-native-viewpager-carousel",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Tobias Meinhardt <tobias.meinhardt89@gmail.com>",
   "main": "index.js",
   "scripts": {
