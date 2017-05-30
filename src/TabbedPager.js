@@ -14,6 +14,7 @@ class TabbedPager extends PureComponent {
   static defaultProps = {
     tabbarPropName: 'title',
     data: [],
+    onPageChange: () => {},
   }
 
   constructor(props) {
@@ -57,15 +58,8 @@ class TabbedPager extends PureComponent {
     return this.props.renderTabbarRow({data, _pageIndex: _pageIndex - 1})
   }
 
-  _getTabbarData = () => {
-    return this.props.data.map(_data => {
-      return {
-        data: (_data[this.props.tabbarPropName]) ? _data[this.props.tabbarPropName] : '',
-      }
-    })
-  }
-
   _onPageChange = pageNumber => {
+    this.props.onPageChange(pageNumber)
     // this.tabbar.scrollToPage(pageNumber)
   }
 
@@ -129,6 +123,7 @@ TabbedPager.propTypes = Object.assign({}, ViewPager.propTypes, {
 
   renderContentContainerRow: React.PropTypes.func,
   renderTabbarRow: React.PropTypes.func,
+  onPageChange: React.PropTypes.func,
 })
 
 export default TabbedPager
