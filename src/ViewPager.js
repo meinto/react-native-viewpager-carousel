@@ -23,6 +23,7 @@ class ViewPager extends PureComponent {
     onScroll: () => {},
     disablePan: false,
     data: [],
+    experimentalMirroring: false,
   }
 
   constructor(props) {
@@ -139,35 +140,37 @@ class ViewPager extends PureComponent {
       </View>
     )
 
-    if (index <= this.props.thresholdPages) {
-      row = (
-        <Mirror
-          key={index}
-          connectionId={'mirror-' + index}
-          containerStyle={styles.mirror}
-          mirroredProps={[
-            scrollviewBootstrap,
-          ]}
-        >
-          {row}
-        </Mirror>
-      )
-    }
+    if (this.props.experimentalMirroring === true) {
+      if (index <= this.props.thresholdPages) {
+        row = (
+          <Mirror
+            key={index}
+            connectionId={'mirror-' + index}
+            containerStyle={styles.mirror}
+            mirroredProps={[
+              scrollviewBootstrap,
+            ]}
+          >
+            {row}
+          </Mirror>
+        )
+      }
 
-    if (index >= this.state.dataSource.length - this.props.thresholdPages - 1) {
-      const idIndex = index - (this.state.dataSource.length - this.props.thresholdPages - 1)
-      row = (
-        <Mirror
-          key={index}
-          connectionId={'mirror-' + idIndex}
-          containerStyle={styles.mirror}
-          mirroredProps={[
-            scrollviewBootstrap,
-          ]}
-        >
-          {row}
-        </Mirror>
-      )
+      if (index >= this.state.dataSource.length - this.props.thresholdPages - 1) {
+        const idIndex = index - (this.state.dataSource.length - this.props.thresholdPages - 1)
+        row = (
+          <Mirror
+            key={index}
+            connectionId={'mirror-' + idIndex}
+            containerStyle={styles.mirror}
+            mirroredProps={[
+              scrollviewBootstrap,
+            ]}
+          >
+            {row}
+          </Mirror>
+        )
+      }
     }
 
     return row
@@ -227,6 +230,7 @@ ViewPager.propTypes = {
   pageWidth: React.PropTypes.number,
   disablePan: React.PropTypes.bool,
   pagingEnabled: React.PropTypes.bool,
+  experimentalMirroring: React.PropTypes.bool,
 
   renderRow: React.PropTypes.func,
   onPageChange: React.PropTypes.func,
