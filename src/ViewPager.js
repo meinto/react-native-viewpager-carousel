@@ -56,16 +56,22 @@ class ViewPager extends PureComponent {
   }
 
   _prepareData = (data) => {
-    let preparedData = []
-    for (let i = (data.length - 1); i > (data.length - 1) - this.props.thresholdPages; i--) {
-      preparedData = [data[i], ...preparedData]
+    
+    const multiplicator = Math.ceil(this.props.thresholdPages / data.length)
+
+    let thresholdDataFront = []
+    let thresholdDataEnd = []
+
+    for (let i = 0; i < multiplicator; i++) {
+      thresholdDataFront = [...thresholdDataFront, ...[...data].reverse()]
+      thresholdDataEnd = [...thresholdDataEnd, ...data]
     }
 
-    preparedData = [...preparedData, ...data]
+    const thresholdFront = thresholdDataFront.slice(0, this.props.thresholdPages).reverse()
 
-    for (let i = 0; i < this.props.thresholdPages; i++) {
-      preparedData = [...preparedData, data[i]]
-    }
+    const thresholdEnd = thresholdDataEnd.slice(0, this.props.thresholdPages)
+
+    const preparedData = [...thresholdFront, ...data, ...thresholdEnd]
 
     return [...preparedData]
   }
