@@ -44,15 +44,15 @@ export default class RnViewPager extends Component {
     }
   }
 
-  _renderTabbarRow = ({data}) => (
+  _renderTabbarRow = ({data, _pageIndex}) => (
     <TouchableHighlight
       key={'tb' + data.index}
       underlayColor={'#ccc'}
       onPress={() => {
-        this.tabbarPager.scrollToPage(data.index)
+        this.tabbarPager.scrollToPage(_pageIndex)
       }}
     >
-      <Text style={styles.text}>{data.data}</Text>
+      <Text style={styles.text}>{data.title}</Text>
     </TouchableHighlight>
   )
 
@@ -73,7 +73,7 @@ export default class RnViewPager extends Component {
           ref={tabbarPager => {
             this.tabbarPager = tabbarPager
           }}
-          
+          experimentalMirroring={true}
           data={this.dataSource}
           thresholdPages={2}
           renderTabbarRow={this._renderTabbarRow}

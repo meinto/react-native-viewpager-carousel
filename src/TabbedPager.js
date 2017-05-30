@@ -3,8 +3,6 @@ import {
   StyleSheet,
   Dimensions,
   View,
-  ScrollView,
-  Text,
 } from 'react-native'
 
 import ViewPager from './ViewPager'
@@ -94,6 +92,7 @@ class TabbedPager extends PureComponent {
           disablePan={true}
           {...this._getContentProps()}
           thresholdPages={2}
+          experimentalMirroring={false}
         />
         <ViewPager
           ref={contentPager => {
