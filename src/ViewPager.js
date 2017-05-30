@@ -86,7 +86,7 @@ class ViewPager extends PureComponent {
     const offsetX = event.nativeEvent.contentOffset.x
     this.props.onScroll(offsetX)
 
-    this.pageIndex = offsetX / VIEWPORT_WIDTH
+    this.pageIndex = Math.ceil((offsetX / VIEWPORT_WIDTH) * 100) / 100
 
     if (this.pageIndex % 1 === 0) {
       if (this.pageIndex === 0) {
