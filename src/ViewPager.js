@@ -29,15 +29,12 @@ class ViewPager extends PureComponent {
   constructor(props) {
     super(props)
 
-    const initializedData = this._initializeData(this.props.data || [])
-
     this._pageWithDelta = (VIEWPORT_WIDTH - this.props.pageWidth) / 2
 
     this.pages = []
 
     this.state = {
-      initializedData,
-      dataSource: [...this._prepareData(initializedData)],
+      dataSource: [...this._prepareData(this.props.data || [])],
     }
   }
 
@@ -51,8 +48,8 @@ class ViewPager extends PureComponent {
   }
 
   _initializeData = (data) => {
-    return data.map((_data, index) => {
-      return Object.assign({}, _data, { index })
+    return data.map((data, index) => {
+      return Object.assign({}, data, { _pageIndex: index + 1 })
     })
   }
 
@@ -60,19 +57,21 @@ class ViewPager extends PureComponent {
     
     const multiplicator = Math.ceil(this.props.thresholdPages / data.length)
 
+    const initializedData = this._initializeData(data)
+
     let thresholdDataFront = []
     let thresholdDataEnd = []
 
     for (let i = 0; i < multiplicator; i++) {
-      thresholdDataFront = [...thresholdDataFront, ...[...data].reverse()]
-      thresholdDataEnd = [...thresholdDataEnd, ...data]
+      thresholdDataFront = [...thresholdDataFront, ...[...initializedData].reverse()]
+      thresholdDataEnd = [...thresholdDataEnd, ...initializedData]
     }
 
     const thresholdFront = thresholdDataFront.slice(0, this.props.thresholdPages).reverse()
 
     const thresholdEnd = thresholdDataEnd.slice(0, this.props.thresholdPages)
 
-    const preparedData = [...thresholdFront, ...data, ...thresholdEnd]
+    const preparedData = [...thresholdFront, ...initializedData, ...thresholdEnd]
 
     return [...preparedData]
   }
@@ -127,7 +126,7 @@ class ViewPager extends PureComponent {
     })
   }
 
-  _renderRow = ({item, index}) => {
+  _renderRow = (item, index) => {
 
     let row = (
       <View 
@@ -136,7 +135,7 @@ class ViewPager extends PureComponent {
           width: this.props.pageWidth,
         }]}
       >
-        {this.props.renderRow({data: item})}
+        {this.props.renderRow({data: item, _pageIndex: item._pageIndex})}
       </View>
     )
 
@@ -192,7 +191,7 @@ class ViewPager extends PureComponent {
           }]}>
 
           {this.state.dataSource.map((item, index) => {
-            return this._renderRow({item, index})
+            return this._renderRow(item, index)
           })}
         </ScrollView>
       </View>
