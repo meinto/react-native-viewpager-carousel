@@ -48,6 +48,12 @@ class ViewPager extends PureComponent {
     }, 0)
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      dataSource: [...this._prepareData(nextProps.data || [])],
+    })
+  }
+
   _initializeData = (data) => {
     return data.map((data, index) => {
       return Object.assign({}, data, { _pageIndex: index + 1 })
