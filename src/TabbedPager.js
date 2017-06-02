@@ -54,8 +54,12 @@ class TabbedPager extends PureComponent {
     this.contentPager.scrollToPage(pageNumber)
   }
 
+  scrollToIndex = pageIndex => {
+    this.contentPager.scrollToIndex(pageIndex - 1)
+  }
+
   _renderTabbarRow = ({data, _pageIndex}) => {
-    return this.props.renderTabbarRow({data, _pageIndex: _pageIndex - 1})
+    return this.props.renderTabbarRow({data, _pageIndex})
   }
 
   _onPageChange = pageNumber => {

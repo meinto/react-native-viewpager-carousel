@@ -32,7 +32,7 @@ export default class RnViewPager extends Component {
 
     this.dataSource = []
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 2; i++) {
       this.dataSource = [...this.dataSource, {
         index: i,
         title: 'Title Seite ' + i,
@@ -49,7 +49,7 @@ export default class RnViewPager extends Component {
       key={'tb' + data.index}
       underlayColor={'#ccc'}
       onPress={() => {
-        this.tabbarPager.scrollToPage(_pageIndex)
+        this.tabbarPager.scrollToIndex(_pageIndex)
       }}
     >
       <Text style={styles.text}>{data.title}</Text>

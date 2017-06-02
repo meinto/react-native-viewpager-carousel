@@ -54,9 +54,19 @@ class ViewPager extends PureComponent {
     })
   }
 
-  _initializeData = (data) => {
-    return data.map((data, index) => {
-      return Object.assign({}, data, { _pageIndex: index + 1 })
+  _setPageNumber = (data) => {
+    return data.map((_data, index) => {
+      return Object.assign({}, _data, {
+        _pageNumber: index + 1,
+      })
+    })
+  }
+
+  _setPageIndex = data => {
+    return data.map((_data, index) => {
+      return Object.assign({}, _data, {
+        _pageIndex: index,
+      })
     })
   }
 
@@ -64,7 +74,7 @@ class ViewPager extends PureComponent {
     
     const multiplicator = Math.ceil(this.props.thresholdPages / data.length)
 
-    const initializedData = this._initializeData(data)
+    const initializedData = this._setPageNumber(data)
 
     let thresholdDataFront = []
     let thresholdDataEnd = []
@@ -78,7 +88,8 @@ class ViewPager extends PureComponent {
 
     const thresholdEnd = thresholdDataEnd.slice(0, this.props.thresholdPages)
 
-    const preparedData = [...thresholdFront, ...initializedData, ...thresholdEnd]
+    let preparedData = [...thresholdFront, ...initializedData, ...thresholdEnd]
+    preparedData = this._setPageIndex(preparedData)
 
     return [...preparedData]
   }
@@ -133,6 +144,13 @@ class ViewPager extends PureComponent {
     })
   }
 
+  scrollToIndex = pageIndex => {
+    this.scrollView.scrollTo({
+      animated: true, 
+      x: pageIndex * VIEWPORT_WIDTH,
+    })
+  }
+
   _renderRow = (item, index) => {
 
     let row = (
@@ -142,7 +160,11 @@ class ViewPager extends PureComponent {
           width: this.props.pageWidth,
         }]}
       >
-        {this.props.renderRow({data: item, _pageIndex: item._pageIndex})}
+        {this.props.renderRow({
+          data: item, 
+          _pageNumber: item._pageNumber,
+          _pageIndex: item._pageIndex,
+        })}
       </View>
     )
 
