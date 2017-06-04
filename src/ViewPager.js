@@ -34,6 +34,7 @@ class ViewPager extends PureComponent {
     this._pageWithDelta = (VIEWPORT_WIDTH - this.props.pageWidth) / 2
 
     this.pages = []
+    this.pageNumberBeforeDrag = 1
 
     this.state = {
       dataSource: [...this._prepareData(this.props.data || [])],
