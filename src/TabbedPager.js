@@ -12,7 +12,6 @@ const VIEWPORT_WIDTH = Dimensions.get('window').width
 class TabbedPager extends PureComponent {
 
   static defaultProps = {
-    tabbarPropName: 'title',
     data: [],
     onPageChange: () => {},
   }
@@ -122,7 +121,6 @@ TabbedPager.propTypes = Object.assign({}, ViewPager.propTypes, {
   data: React.PropTypes.arrayOf(
     React.PropTypes.object
   ),
-  tabbarPropName: React.PropTypes.string,
 
   renderPage: React.PropTypes.func,
   renderTab: React.PropTypes.func,

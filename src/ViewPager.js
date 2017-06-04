@@ -26,6 +26,24 @@ class ViewPager extends PureComponent {
     showNativeScrollIndicator: false,
   }
 
+  static propTypes = {
+    contentContainerStyle: React.PropTypes.any,
+    containerStyle: React.PropTypes.any,
+    data: React.PropTypes.arrayOf(
+      React.PropTypes.object
+    ),
+    thresholdPages: React.PropTypes.number,
+    pageWidth: React.PropTypes.number,
+    scrollEnabled: React.PropTypes.bool,
+    pagingEnabled: React.PropTypes.bool,
+    experimentalMirroring: React.PropTypes.bool,
+    showNativeScrollIndicator: React.PropTypes.bool,
+
+    renderPage: React.PropTypes.func,
+    onPageChange: React.PropTypes.func,
+    onScroll: React.PropTypes.func,
+  }
+
   constructor(props) {
     super(props)
 
@@ -273,25 +291,6 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
 })
-
-
-ViewPager.propTypes = {
-  contentContainerStyle: React.PropTypes.any,
-  containerStyle: React.PropTypes.any,
-  data: React.PropTypes.arrayOf(
-    React.PropTypes.object
-  ),
-  thresholdPages: React.PropTypes.number,
-  pageWidth: React.PropTypes.number,
-  scrollEnabled: React.PropTypes.bool,
-  pagingEnabled: React.PropTypes.bool,
-  experimentalMirroring: React.PropTypes.bool,
-  showNativeScrollIndicator: React.PropTypes.bool,
-
-  renderPage: React.PropTypes.func,
-  onPageChange: React.PropTypes.func,
-  onScroll: React.PropTypes.func,
-}
 
 
 export default ViewPager
