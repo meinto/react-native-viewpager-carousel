@@ -18,7 +18,6 @@ class ViewPager extends PureComponent {
     pagingEnabled: true,
     contentContainerStyle: {},
     renderPage: () => {},
-    onPan: () => {},
     onPageChange: () => {},
     onScroll: () => {},
     scrollEnabled: true,
@@ -291,8 +290,6 @@ ViewPager.propTypes = {
 
   renderPage: React.PropTypes.func,
   onPageChange: React.PropTypes.func,
-  onPan: React.PropTypes.func,
-  onShouldSwitchToPage: React.PropTypes.func,
   onScroll: React.PropTypes.func,
 }
 
