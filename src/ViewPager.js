@@ -21,7 +21,7 @@ class ViewPager extends PureComponent {
     onPan: () => {},
     onPageChange: () => {},
     onScroll: () => {},
-    disablePan: false,
+    scrollEnabled: true,
     data: [],
     experimentalMirroring: false,
     showNativeScrollIndicator: false,
@@ -238,6 +238,7 @@ class ViewPager extends PureComponent {
           onMomentumScrollEnd={this._onMomentumScrollEnd}
           horizontal={true}
           pagingEnabled={this.props.pagingEnabled}
+          scrollEnabled={this.props.scrollEnabled}
           showsHorizontalScrollIndicator={this.props.showNativeScrollIndicator}
           showsVerticalScrollIndicator={this.props.showNativeScrollIndicator}
           onScroll={this._onScroll}
@@ -283,7 +284,7 @@ ViewPager.propTypes = {
   ),
   thresholdPages: React.PropTypes.number,
   pageWidth: React.PropTypes.number,
-  disablePan: React.PropTypes.bool,
+  scrollEnabled: React.PropTypes.bool,
   pagingEnabled: React.PropTypes.bool,
   experimentalMirroring: React.PropTypes.bool,
   showNativeScrollIndicator: React.PropTypes.bool,

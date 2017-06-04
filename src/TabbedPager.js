@@ -86,7 +86,7 @@ class TabbedPager extends PureComponent {
           pageWidth={VIEWPORT_WIDTH / 2}
           pagingEnabled={false}
           onShouldSwitchToPage={this.scrollToPage}
-          disablePan={true}
+          scrollEnabled={false}
           {...this._getContentProps()}
           thresholdPages={2}
           experimentalMirroring={false}
