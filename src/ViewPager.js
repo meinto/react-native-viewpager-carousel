@@ -4,7 +4,6 @@ import {
   Dimensions,
   ScrollView,
   View,
-  PanResponder,
 } from 'react-native'
 import Mirror, { scrollviewBootstrap } from 'react-native-mirror'
 
@@ -39,23 +38,6 @@ class ViewPager extends PureComponent {
     this.state = {
       dataSource: [...this._prepareData(this.props.data || [])],
     }
-  }
-
-  componentWillMount() {
-    this._panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: () => {
-        console.warn('onStartShouldSetPanResponder')
-        return true
-      },
-      onMoveShouldSetPanResponderCapture: () => {
-        console.warn('onMoveShouldSetPanResponderCapture')
-        return true
-      },
-      onPanResponderRelease: () => {
-        console.warn('onPanResponderRelease')
-        return true
-      },
-    })
   }
 
   componentDidMount() {
