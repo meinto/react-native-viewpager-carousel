@@ -44,7 +44,7 @@ export default class RnViewPager extends Component {
     }
   }
 
-  _renderTabbarRow = ({data, _pageIndex}) => (
+  _renderTab = ({data, _pageIndex}) => (
     <TouchableHighlight
       key={'tb' + data.index}
       underlayColor={'#ccc'}
@@ -56,7 +56,7 @@ export default class RnViewPager extends Component {
     </TouchableHighlight>
   )
 
-  _renderContentContainerRow = ({data}) => {
+  _renderPage = ({data}) => {
     return (
       <ExamplePage
         mirrorChildren={true}
@@ -76,8 +76,8 @@ export default class RnViewPager extends Component {
           experimentalMirroring={true}
           data={this.dataSource}
           thresholdPages={2}
-          renderTabbarRow={this._renderTabbarRow}
-          renderContentContainerRow={this._renderContentContainerRow}
+          renderTab={this._renderTab}
+          renderPage={this._renderPage}
         />
       </View>
     )
