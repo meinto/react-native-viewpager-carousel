@@ -175,6 +175,7 @@ class ViewPager extends PureComponent {
             key={index}
             connectionId={'mirror-' + index}
             containerStyle={styles.mirror}
+            experimentalComponentDetection={true}
             mirroredProps={[
               scrollviewBootstrap,
             ]}
@@ -191,6 +192,7 @@ class ViewPager extends PureComponent {
             key={index}
             connectionId={'mirror-' + idIndex}
             containerStyle={styles.mirror}
+            experimentalComponentDetection={true}
             mirroredProps={[
               scrollviewBootstrap,
             ]}
