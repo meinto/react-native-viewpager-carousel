@@ -4,6 +4,7 @@ import {
   Dimensions,
   ScrollView,
   View,
+  PanResponder,
 } from 'react-native'
 import Mirror, { scrollviewBootstrap } from 'react-native-mirror'
 
@@ -37,6 +38,23 @@ class ViewPager extends PureComponent {
     this.state = {
       dataSource: [...this._prepareData(this.props.data || [])],
     }
+  }
+
+  componentWillMount() {
+    this._panResponder = PanResponder.create({
+      onStartShouldSetPanResponder: () => {
+        console.warn('onStartShouldSetPanResponder')
+        return true
+      },
+      onMoveShouldSetPanResponderCapture: () => {
+        console.warn('onMoveShouldSetPanResponderCapture')
+        return true
+      },
+      onPanResponderRelease: () => {
+        console.warn('onPanResponderRelease')
+        return true
+      },
+    })
   }
 
   componentDidMount() {
@@ -95,9 +113,10 @@ class ViewPager extends PureComponent {
   }
 
   _getPageNumberByIndex = index => {
-    if (index === 0) return this.state.dataSource.length - 1
-    if (index === this.state.dataSource.length - 1) return 1
-    return index
+    const roundedIndex = Math.round(index)
+    if (roundedIndex === 0) return this.state.dataSource.length - 1
+    if (roundedIndex === this.state.dataSource.length - 1) return 1
+    return roundedIndex
   }
 
   _onScroll = (event) => {
@@ -121,14 +140,26 @@ class ViewPager extends PureComponent {
           x: VIEWPORT_WIDTH,
         })
 
-      } else {
-
-        const pageNumber = this._getPageNumberByIndex(this.pageIndex)
-        this.props.onPageChange(pageNumber)
-
-      }
+      } 
     }
   }
+
+  _onScrollBeginDrag = () => {
+    const pageNumber = this._getPageNumberByIndex(this.pageIndex)
+    this.pageNumberBeforeDrag = pageNumber
+  }
+  
+  _onMomentumScrollEnd = () => {
+    const pageNumber = this._getPageNumberByIndex(this.pageIndex)
+    if (this.pageNumberBeforeDrag !== pageNumber) {
+      this.scrollToPage(pageNumber)
+      this.props.onPageChange(pageNumber)
+    }
+  }
+
+  /*
+   * public methods
+   */
 
   scroll = dx => {
     this.scrollView.scrollTo({
@@ -140,7 +171,7 @@ class ViewPager extends PureComponent {
   scrollToPage = pageNumber => {
     this.scrollView.scrollTo({
       animated: true, 
-      x: (pageNumber + this.props.thresholdPages) * VIEWPORT_WIDTH,
+      x: ((pageNumber - 1) + this.props.thresholdPages) * VIEWPORT_WIDTH,
     })
   }
 
@@ -150,6 +181,10 @@ class ViewPager extends PureComponent {
       x: pageIndex * VIEWPORT_WIDTH,
     })
   }
+
+  /*
+   * render parts
+   */
 
   _renderRow = (item, index) => {
 
@@ -209,11 +244,15 @@ class ViewPager extends PureComponent {
   render() {
     this.pages = []
     return (
-      <View style={this.props.containerStyle}>
+      <View 
+        style={this.props.containerStyle}
+      >
         <ScrollView
           ref={(scrollView) => {
             this.scrollView = scrollView
           }}
+          onScrollBeginDrag={this._onScrollBeginDrag}
+          onMomentumScrollEnd={this._onMomentumScrollEnd}
           horizontal={true}
           pagingEnabled={this.props.pagingEnabled}
           showsHorizontalScrollIndicator={this.props.showNativeScrollIndicator}
