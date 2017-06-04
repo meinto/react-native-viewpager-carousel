@@ -17,7 +17,7 @@ class ViewPager extends PureComponent {
     pageWidth: VIEWPORT_WIDTH,
     pagingEnabled: true,
     contentContainerStyle: {},
-    renderRow: () => {},
+    renderPage: () => {},
     onPan: () => {},
     onPageChange: () => {},
     onScroll: () => {},
@@ -169,7 +169,7 @@ class ViewPager extends PureComponent {
    * render parts
    */
 
-  _renderRow = (item, index) => {
+  _renderPage = (item, index) => {
 
     let row = (
       <View 
@@ -178,7 +178,7 @@ class ViewPager extends PureComponent {
           width: this.props.pageWidth,
         }]}
       >
-        {this.props.renderRow({
+        {this.props.renderPage({
           data: item, 
           _pageNumber: item._pageNumber,
           _pageIndex: item._pageIndex,
@@ -247,7 +247,7 @@ class ViewPager extends PureComponent {
           }]}>
 
           {this.state.dataSource.map((item, index) => {
-            return this._renderRow(item, index)
+            return this._renderPage(item, index)
           })}
         </ScrollView>
       </View>
@@ -288,7 +288,7 @@ ViewPager.propTypes = {
   experimentalMirroring: React.PropTypes.bool,
   showNativeScrollIndicator: React.PropTypes.bool,
 
-  renderRow: React.PropTypes.func,
+  renderPage: React.PropTypes.func,
   onPageChange: React.PropTypes.func,
   onPan: React.PropTypes.func,
   onShouldSwitchToPage: React.PropTypes.func,

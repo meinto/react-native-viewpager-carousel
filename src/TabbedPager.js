@@ -30,7 +30,7 @@ class TabbedPager extends PureComponent {
       switch (_key) {
         case 'data':
         case 'contentContainerStyle':
-        case 'renderRow':
+        case 'renderPage':
         case 'onPageChange':
         case 'onScroll':
           isContentProp = false
@@ -58,8 +58,8 @@ class TabbedPager extends PureComponent {
     this.contentPager.scrollToIndex(pageIndex - 1)
   }
 
-  _renderTabbarRow = ({data, _pageIndex}) => {
-    return this.props.renderTabbarRow({data, _pageIndex})
+  _renderTab = ({data, _pageIndex}) => {
+    return this.props.renderTab({data, _pageIndex})
   }
 
   _onPageChange = pageNumber => {
@@ -70,8 +70,8 @@ class TabbedPager extends PureComponent {
     this.tabbar.scroll(dx)
   }
 
-  _renderContentContainerRow = (item) => {
-    return this.props.renderContentContainerRow(item)
+  _renderPage = (item) => {
+    return this.props.renderPage(item)
   }
 
   render() { 
@@ -82,7 +82,7 @@ class TabbedPager extends PureComponent {
             this.tabbar = tabbar
           }}
           data={this.props.data}
-          renderRow={this._renderTabbarRow}
+          renderPage={this._renderTab}
           pageWidth={VIEWPORT_WIDTH / 2}
           pagingEnabled={false}
           onShouldSwitchToPage={this.scrollToPage}
@@ -97,7 +97,7 @@ class TabbedPager extends PureComponent {
           }}
           data={this.props.data}
           containerStyle={styles.contentContainer}
-          renderRow={this._renderContentContainerRow}
+          renderPage={this._renderPage}
           onPageChange={this._onPageChange}
           onScroll={this._onScroll}
           {...this._getContentProps()}
@@ -124,8 +124,8 @@ TabbedPager.propTypes = Object.assign({}, ViewPager.propTypes, {
   ),
   tabbarPropName: React.PropTypes.string,
 
-  renderContentContainerRow: React.PropTypes.func,
-  renderTabbarRow: React.PropTypes.func,
+  renderPage: React.PropTypes.func,
+  renderTab: React.PropTypes.func,
   onPageChange: React.PropTypes.func,
 })
 
