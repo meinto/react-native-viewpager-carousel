@@ -217,6 +217,7 @@ class ViewPager extends PureComponent {
           showsHorizontalScrollIndicator={this.props.showNativeScrollIndicator}
           showsVerticalScrollIndicator={this.props.showNativeScrollIndicator}
           onScroll={this._onScroll}
+          scrollEventThrottle={1}
           contentContainerStyle={[styles.container, this.props.contentContainerStyle, {
             width: this.props.pageWidth * this.state.dataSource.length,
           }]}>

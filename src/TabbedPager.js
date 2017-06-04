@@ -64,7 +64,6 @@ class TabbedPager extends PureComponent {
 
   _onPageChange = pageNumber => {
     this.props.onPageChange(pageNumber)
-    // this.tabbar.scrollToPage(pageNumber)
   }
 
   _onScroll = dx => {
@@ -75,7 +74,7 @@ class TabbedPager extends PureComponent {
     return this.props.renderContentContainerRow(item)
   }
 
-  render() {
+  render() { 
     return (
       <View style={styles.container}>
         <ViewPager
