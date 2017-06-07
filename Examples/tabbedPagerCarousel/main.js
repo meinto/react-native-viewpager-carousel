@@ -32,7 +32,7 @@ export default class RnViewPager extends Component {
 
     this.dataSource = []
 
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 20; i++) {
       this.dataSource = [...this.dataSource, {
         index: i,
         title: 'Title Seite ' + i,
@@ -78,6 +78,7 @@ export default class RnViewPager extends Component {
           thresholdPages={2}
           renderTab={this._renderTab}
           renderPage={this._renderPage}
+          lazyload={true}
         />
       </View>
     )

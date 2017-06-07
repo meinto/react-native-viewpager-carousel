@@ -6,6 +6,7 @@ import {
   View,
 } from 'react-native'
 import Mirror, { scrollviewBootstrap } from 'react-native-mirror'
+import Page from './Page'
 
 
 const VIEWPORT_WIDTH = Dimensions.get('window').width
@@ -24,6 +25,7 @@ class ViewPager extends PureComponent {
     data: [],
     experimentalMirroring: false,
     showNativeScrollIndicator: false,
+    lazyload: false,
   }
 
   static propTypes = {
@@ -38,6 +40,7 @@ class ViewPager extends PureComponent {
     pagingEnabled: React.PropTypes.bool,
     experimentalMirroring: React.PropTypes.bool,
     showNativeScrollIndicator: React.PropTypes.bool,
+    lazyload: React.PropTypes.bool,
 
     renderPage: React.PropTypes.func,
     onPageChange: React.PropTypes.func,
@@ -49,7 +52,7 @@ class ViewPager extends PureComponent {
 
     this._pageWithDelta = (VIEWPORT_WIDTH - this.props.pageWidth) / 2
 
-    this.pages = []
+    this.pageReferences = {}
     this.pageNumberBeforeDrag = 1
 
     this.state = {
@@ -151,10 +154,21 @@ class ViewPager extends PureComponent {
   
   _onMomentumScrollEnd = () => {
     const pageNumber = this._getPageNumberByIndex(this.pageIndex)
+    for (const key in this.pageReferences) {
+      this.pageReferences[key].onPageChange(pageNumber)
+    }
     if (this.pageNumberBeforeDrag !== pageNumber) {
       this.scrollToPage(pageNumber)
       this.props.onPageChange(pageNumber)
     }
+  }
+
+  _triggerOnMomentumScrollEnd = () => {
+    if (this._onMomentumScrollEndTimeout) 
+      clearTimeout(this._onMomentumScrollEndTimeout)
+    this._onMomentumScrollEndTimeout = setTimeout(() => {
+      this._onMomentumScrollEnd()
+    }, 500)
   }
 
   /*
@@ -169,6 +183,7 @@ class ViewPager extends PureComponent {
   }
 
   scrollToPage = pageNumber => {
+    this._triggerOnMomentumScrollEnd()
     this.scrollView.scrollTo({
       animated: true, 
       x: ((pageNumber - 1) + this.props.thresholdPages) * VIEWPORT_WIDTH,
@@ -176,6 +191,7 @@ class ViewPager extends PureComponent {
   }
 
   scrollToIndex = pageIndex => {
+    this._triggerOnMomentumScrollEnd()
     this.scrollView.scrollTo({
       animated: true, 
       x: pageIndex * VIEWPORT_WIDTH,
@@ -242,7 +258,6 @@ class ViewPager extends PureComponent {
   }
 
   render() {
-    this.pages = []
     return (
       <View 
         style={this.props.containerStyle}
@@ -263,9 +278,20 @@ class ViewPager extends PureComponent {
           contentContainerStyle={[styles.container, this.props.contentContainerStyle, {
             width: this.props.pageWidth * this.state.dataSource.length,
           }]}>
-
           {this.state.dataSource.map((item, index) => {
-            return this._renderPage(item, index)
+            return (
+              <Page
+                key={index}
+                ref={_page => {
+                  this.pageReferences[index] = _page
+                }}
+                pageNumber={item._pageNumber}
+                lazyload={this.props.lazyload}
+                pageWidth={this.props.pageWidth}
+              >
+                {this._renderPage(item, index)}
+              </Page>
+            )
           })}
         </ScrollView>
       </View>

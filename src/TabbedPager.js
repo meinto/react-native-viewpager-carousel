@@ -14,6 +14,7 @@ class TabbedPager extends PureComponent {
   static defaultProps = {
     data: [],
     onPageChange: () => {},
+    lazyload: false,
   }
 
   constructor(props) {
@@ -94,6 +95,7 @@ class TabbedPager extends PureComponent {
           ref={contentPager => {
             this.contentPager = contentPager
           }}
+          lazyload={this.props.lazyload}
           data={this.props.data}
           containerStyle={styles.contentContainer}
           renderPage={this._renderPage}
@@ -121,6 +123,7 @@ TabbedPager.propTypes = Object.assign({}, ViewPager.propTypes, {
   data: React.PropTypes.arrayOf(
     React.PropTypes.object
   ),
+  lazyload: React.PropTypes.bool,
 
   renderPage: React.PropTypes.func,
   renderTab: React.PropTypes.func,
