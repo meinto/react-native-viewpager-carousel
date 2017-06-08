@@ -11,10 +11,24 @@ const VIEWPORT_WIDTH = Dimensions.get('window').width
 
 class TabbedPager extends PureComponent {
 
+  static propTypes = {
+    data: React.PropTypes.arrayOf(
+      React.PropTypes.object
+    ),
+    lazyload: React.PropTypes.bool,
+    experimentalMirroring: React.PropTypes.bool,
+
+    renderPage: React.PropTypes.func.isRequired,
+    renderTab: React.PropTypes.func.isRequired,
+    onPageChange: React.PropTypes.func,
+  }
+  
   static defaultProps = {
     data: [],
-    onPageChange: () => {},
     lazyload: false,
+    experimentalMirroring: false,
+    
+    onPageChange: () => {},
   }
 
   constructor(props) {
@@ -103,6 +117,7 @@ class TabbedPager extends PureComponent {
           onScroll={this._onScroll}
           {...this._getContentProps()}
           thresholdPages={1}
+          experimentalMirroring={this.props.experimentalMirroring}
         />
       </View>
     )
@@ -117,17 +132,6 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
   },
-})
-
-TabbedPager.propTypes = Object.assign({}, ViewPager.propTypes, {
-  data: React.PropTypes.arrayOf(
-    React.PropTypes.object
-  ),
-  lazyload: React.PropTypes.bool,
-
-  renderPage: React.PropTypes.func,
-  renderTab: React.PropTypes.func,
-  onPageChange: React.PropTypes.func,
 })
 
 export default TabbedPager
