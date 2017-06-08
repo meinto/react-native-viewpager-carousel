@@ -15,7 +15,7 @@ class TabbedPager extends PureComponent {
     data: React.PropTypes.arrayOf(
       React.PropTypes.object
     ),
-    lazyload: React.PropTypes.bool,
+    lazyrender: React.PropTypes.bool,
     experimentalMirroring: React.PropTypes.bool,
 
     renderPage: React.PropTypes.func.isRequired,
@@ -25,7 +25,7 @@ class TabbedPager extends PureComponent {
   
   static defaultProps = {
     data: [],
-    lazyload: false,
+    lazyrender: false,
     experimentalMirroring: false,
     
     onPageChange: () => {},
@@ -109,7 +109,7 @@ class TabbedPager extends PureComponent {
           ref={contentPager => {
             this.contentPager = contentPager
           }}
-          lazyload={this.props.lazyload}
+          lazyrender={this.props.lazyrender}
           data={this.props.data}
           containerStyle={styles.contentContainer}
           renderPage={this._renderPage}

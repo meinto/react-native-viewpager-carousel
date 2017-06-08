@@ -25,7 +25,7 @@ class ViewPager extends PureComponent {
     data: [],
     experimentalMirroring: false,
     showNativeScrollIndicator: false,
-    lazyload: false,
+    lazyrender: false,
   }
 
   static propTypes = {
@@ -40,7 +40,7 @@ class ViewPager extends PureComponent {
     pagingEnabled: React.PropTypes.bool,
     experimentalMirroring: React.PropTypes.bool,
     showNativeScrollIndicator: React.PropTypes.bool,
-    lazyload: React.PropTypes.bool,
+    lazyrender: React.PropTypes.bool,
 
     renderPage: React.PropTypes.func,
     onPageChange: React.PropTypes.func,
@@ -286,7 +286,7 @@ class ViewPager extends PureComponent {
                   this.pageReferences[index] = _page
                 }}
                 pageNumber={item._pageNumber}
-                lazyload={this.props.lazyload}
+                lazyrender={this.props.lazyrender}
                 pageWidth={this.props.pageWidth}
               >
                 {this._renderPage(item, index)}

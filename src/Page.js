@@ -11,14 +11,14 @@ export default class Page extends PureComponent {
 
   static propTypes = {
     children: React.PropTypes.any,
-    lazyload: React.PropTypes.bool,
+    lazyrender: React.PropTypes.bool,
     pageNumber: React.PropTypes.number,
     pageWidth: React.PropTypes.number,
   }
 
   static defaultProps = {
     children: null,
-    lazyload: false,
+    lazyrender: false,
     pageNumber: 0,
     pageWidth: VIEWPORT_WIDTH,
   }
@@ -27,13 +27,13 @@ export default class Page extends PureComponent {
     super(props)
 
     this.state = {
-      render: !this.props.lazyload || (this.props.lazyload && this.props.pageNumber === 1),
+      render: !this.props.lazyrender || (this.props.lazyrender && this.props.pageNumber === 1),
     }
   }
 
   onPageChange = (pageNumber) => {
     if (
-      this.props.lazyload === true && 
+      this.props.lazyrender === true && 
       pageNumber === this.props.pageNumber &&
       this.state.render === false
     ) {
