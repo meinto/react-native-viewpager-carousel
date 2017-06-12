@@ -258,6 +258,9 @@ class ViewPager extends PureComponent {
   }
 
   render() {
+
+    this.pageReferences = {}
+
     return (
       <View 
         style={this.props.containerStyle}
