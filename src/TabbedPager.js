@@ -18,6 +18,10 @@ class TabbedPager extends PureComponent {
     lazyrender: React.PropTypes.bool,
     experimentalMirroring: React.PropTypes.bool,
 
+    showTabIndicator: React.PropTypes.bool,
+    tabIndicatorColor: React.PropTypes.string,
+    tabIndicatorHeight: React.PropTypes.number,
+
     renderPage: React.PropTypes.func.isRequired,
     renderTab: React.PropTypes.func.isRequired,
     onPageChange: React.PropTypes.func,
@@ -27,6 +31,10 @@ class TabbedPager extends PureComponent {
     data: [],
     lazyrender: false,
     experimentalMirroring: false,
+
+    showTabIndicator: true,
+    tabIndicatorColor: 'transparent',
+    tabIndicatorHeight: 2,
     
     onPageChange: () => {},
   }
@@ -105,6 +113,18 @@ class TabbedPager extends PureComponent {
           thresholdPages={2}
           experimentalMirroring={false}
         />
+        {this.props.showTabIndicator && (
+          <View 
+            style={[
+              styles.tabIndicator,
+              {
+                width: VIEWPORT_WIDTH / 2,
+                height: this.props.tabIndicatorHeight,
+                backgroundColor: this.props.tabIndicatorColor
+              }
+            ]}
+          />
+        )}
         <ViewPager
           ref={contentPager => {
             this.contentPager = contentPager
@@ -131,6 +151,9 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
+  },
+  tabIndicator: {
+    alignSelf: 'center',
   },
 })
 
