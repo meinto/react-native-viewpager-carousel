@@ -158,7 +158,7 @@ class ViewPager extends PureComponent {
       this.pageReferences[key].onPageChange(pageNumber)
     }
     if (this.pageNumberBeforeDrag !== pageNumber) {
-      this.scrollToPage(pageNumber)
+      this.pageNumberBeforeDrag = pageNumber
       this.props.onPageChange(pageNumber)
     }
   }
