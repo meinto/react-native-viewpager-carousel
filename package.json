@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "cross-env NODE_ENV=test jest --silent --collectCoverageFrom='[\"src/**/*.{js}\"]'"
   },
   "repository": {
     "type": "git",
@@ -28,15 +28,22 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "react": "16.0.0-alpha.12",
+    "react-native": "0.45.1",
     "react-native-mirror": "0.0.19"
   },
   "devDependencies": {
-    "babel-jest": "19.0.0",
-    "babel-preset-react-native": "1.9.1",
-    "jest": "19.0.2",
-    "react-test-renderer": "16.0.0-alpha.6"
+    "babel-jest": "20.0.3",
+    "babel-preset-react-native": "1.9.2",
+    "cross-env": "^5.0.0",
+    "jasmine-reporters": "2.2.1",
+    "jest-cli": "20.0.4",
+    "react-native-cli": "^2.0.1",
+    "react-test-renderer": "16.0.0-alpha.13"
   },
   "jest": {
+    "collectCoverage": true,
+    "setupTestFrameworkScriptFile": "./setup-jasmine-env.js",
     "preset": "react-native"
   }
 }

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ViewPager /> tests snapshots the component without props 1`] = `
+<View
+  style={undefined}
+>
+  <RCTScrollView
+    contentContainerStyle={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "overflow": "scroll",
+        },
+        Object {},
+        Object {
+          "width": 0,
+        },
+      ]
+    }
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    pagingEnabled={true}
+    scrollEnabled={true}
+    scrollEventThrottle={1}
+    showsHorizontalScrollIndicator={false}
+    showsVerticalScrollIndicator={false}
+  >
+    <View />
+  </RCTScrollView>
+</View>
+`;

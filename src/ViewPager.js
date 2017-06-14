@@ -93,7 +93,7 @@ class ViewPager extends PureComponent {
 
   _prepareData = (data) => {
     
-    const multiplicator = Math.ceil(this.props.thresholdPages / data.length)
+    const multiplicator = data.length > 0 ? Math.ceil(this.props.thresholdPages / data.length) : 0
 
     const initializedData = this._setPageNumber(data)
 
