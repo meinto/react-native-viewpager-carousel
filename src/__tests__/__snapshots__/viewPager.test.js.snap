@@ -1,5 +1,206 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
+<View
+  style={
+    Object {
+      "containerStyle": "containerStyle",
+    }
+  }
+>
+  <RCTScrollView
+    contentContainerStyle={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "overflow": "scroll",
+        },
+        Object {
+          "contentContainerStyle": "contentContainerStyle",
+        },
+        Object {
+          "width": 4500,
+        },
+      ]
+    }
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    pagingEnabled={true}
+    scrollEnabled={true}
+    scrollEventThrottle={1}
+    showsHorizontalScrollIndicator={false}
+    showsVerticalScrollIndicator={false}
+  >
+    <View>
+      <Page
+        lazyrender={false}
+        pageNumber={4}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 4 | pageIndex: 0
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={1}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 1 | pageIndex: 1
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={2}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 2 | pageIndex: 2
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={3}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 3 | pageIndex: 3
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={4}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 4 | pageIndex: 4
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={1}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 1 | pageIndex: 5
+          </Text>
+        </View>
+      </Page>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
 exports[`<ViewPager /> tests snapshots the component without props 1`] = `
 <View
   style={undefined}
@@ -30,4 +231,1481 @@ exports[`<ViewPager /> tests snapshots the component without props 1`] = `
     <View />
   </RCTScrollView>
 </View>
+`;
+
+exports[`<ViewPager /> tests tests a set pageWidth of 50 1`] = `
+<View
+  style={
+    Object {
+      "containerStyle": "containerStyle",
+    }
+  }
+>
+  <RCTScrollView
+    contentContainerStyle={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "overflow": "scroll",
+        },
+        Object {
+          "contentContainerStyle": "contentContainerStyle",
+        },
+        Object {
+          "width": 300,
+        },
+      ]
+    }
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    pagingEnabled={true}
+    scrollEnabled={true}
+    scrollEventThrottle={1}
+    showsHorizontalScrollIndicator={false}
+    showsVerticalScrollIndicator={false}
+  >
+    <View>
+      <Page
+        lazyrender={false}
+        pageNumber={4}
+        pageWidth={50}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 50,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 4 | pageIndex: 0
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={1}
+        pageWidth={50}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 50,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 1 | pageIndex: 1
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={2}
+        pageWidth={50}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 50,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 2 | pageIndex: 2
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={3}
+        pageWidth={50}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 50,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 3 | pageIndex: 3
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={4}
+        pageWidth={50}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 50,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 4 | pageIndex: 4
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={1}
+        pageWidth={50}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 50,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 1 | pageIndex: 5
+          </Text>
+        </View>
+      </Page>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the outer views within a <Mirror /> component 1`] = `
+<View
+  style={
+    Object {
+      "containerStyle": "containerStyle",
+    }
+  }
+>
+  <RCTScrollView
+    contentContainerStyle={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "overflow": "scroll",
+        },
+        Object {
+          "contentContainerStyle": "contentContainerStyle",
+        },
+        Object {
+          "width": 4500,
+        },
+      ]
+    }
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    pagingEnabled={true}
+    scrollEnabled={true}
+    scrollEventThrottle={1}
+    showsHorizontalScrollIndicator={false}
+    showsVerticalScrollIndicator={false}
+  >
+    <View>
+      <Page
+        lazyrender={false}
+        pageNumber={4}
+        pageWidth={750}
+      >
+        <Mirror
+          connectionId="mirror-0"
+          containerStyle={
+            Object {
+              "flexGrow": 1,
+            }
+          }
+          experimentalComponentDetection={true}
+          mirroredProps={
+            Array [
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "flexGrow": 1,
+                },
+                Object {
+                  "width": 750,
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+            >
+              mock page 4 | pageIndex: 0
+            </Text>
+          </View>
+        </Mirror>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={1}
+        pageWidth={750}
+      >
+        <Mirror
+          connectionId="mirror-1"
+          containerStyle={
+            Object {
+              "flexGrow": 1,
+            }
+          }
+          experimentalComponentDetection={true}
+          mirroredProps={
+            Array [
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "flexGrow": 1,
+                },
+                Object {
+                  "width": 750,
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+            >
+              mock page 1 | pageIndex: 1
+            </Text>
+          </View>
+        </Mirror>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={2}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 2 | pageIndex: 2
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={3}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 3 | pageIndex: 3
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={4}
+        pageWidth={750}
+      >
+        <Mirror
+          connectionId="mirror-0"
+          containerStyle={
+            Object {
+              "flexGrow": 1,
+            }
+          }
+          experimentalComponentDetection={true}
+          mirroredProps={
+            Array [
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "flexGrow": 1,
+                },
+                Object {
+                  "width": 750,
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+            >
+              mock page 4 | pageIndex: 4
+            </Text>
+          </View>
+        </Mirror>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={1}
+        pageWidth={750}
+      >
+        <Mirror
+          connectionId="mirror-1"
+          containerStyle={
+            Object {
+              "flexGrow": 1,
+            }
+          }
+          experimentalComponentDetection={true}
+          mirroredProps={
+            Array [
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "flexGrow": 1,
+                },
+                Object {
+                  "width": 750,
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+            >
+              mock page 1 | pageIndex: 5
+            </Text>
+          </View>
+        </Mirror>
+      </Page>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
+<View
+  style={
+    Object {
+      "containerStyle": "containerStyle",
+    }
+  }
+>
+  <RCTScrollView
+    contentContainerStyle={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "overflow": "scroll",
+        },
+        Object {
+          "contentContainerStyle": "contentContainerStyle",
+        },
+        Object {
+          "width": 4500,
+        },
+      ]
+    }
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    pagingEnabled={true}
+    scrollEnabled={true}
+    scrollEventThrottle={1}
+    showsHorizontalScrollIndicator={false}
+    showsVerticalScrollIndicator={false}
+  >
+    <View>
+      <Page
+        lazyrender={true}
+        pageNumber={4}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 4 | pageIndex: 0
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={true}
+        pageNumber={1}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 1 | pageIndex: 1
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={true}
+        pageNumber={2}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 2 | pageIndex: 2
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={true}
+        pageNumber={3}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 3 | pageIndex: 3
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={true}
+        pageNumber={4}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 4 | pageIndex: 4
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={true}
+        pageNumber={1}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 1 | pageIndex: 5
+          </Text>
+        </View>
+      </Page>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
+<View
+  style={
+    Object {
+      "containerStyle": "containerStyle",
+    }
+  }
+>
+  <RCTScrollView
+    contentContainerStyle={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "overflow": "scroll",
+        },
+        Object {
+          "contentContainerStyle": "contentContainerStyle",
+        },
+        Object {
+          "width": 4500,
+        },
+      ]
+    }
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    pagingEnabled={false}
+    scrollEnabled={true}
+    scrollEventThrottle={1}
+    showsHorizontalScrollIndicator={false}
+    showsVerticalScrollIndicator={false}
+  >
+    <View>
+      <Page
+        lazyrender={false}
+        pageNumber={4}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 4 | pageIndex: 0
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={1}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 1 | pageIndex: 1
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={2}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 2 | pageIndex: 2
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={3}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 3 | pageIndex: 3
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={4}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 4 | pageIndex: 4
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={1}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 1 | pageIndex: 5
+          </Text>
+        </View>
+      </Page>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
+<View
+  style={
+    Object {
+      "containerStyle": "containerStyle",
+    }
+  }
+>
+  <RCTScrollView
+    contentContainerStyle={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "overflow": "scroll",
+        },
+        Object {
+          "contentContainerStyle": "contentContainerStyle",
+        },
+        Object {
+          "width": 4500,
+        },
+      ]
+    }
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    pagingEnabled={true}
+    scrollEnabled={false}
+    scrollEventThrottle={1}
+    showsHorizontalScrollIndicator={false}
+    showsVerticalScrollIndicator={false}
+  >
+    <View>
+      <Page
+        lazyrender={false}
+        pageNumber={4}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 4 | pageIndex: 0
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={1}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 1 | pageIndex: 1
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={2}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 2 | pageIndex: 2
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={3}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 3 | pageIndex: 3
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={4}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 4 | pageIndex: 4
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={1}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 1 | pageIndex: 5
+          </Text>
+        </View>
+      </Page>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properly 1`] = `
+<View
+  style={
+    Object {
+      "containerStyle": "containerStyle",
+    }
+  }
+>
+  <RCTScrollView
+    contentContainerStyle={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "overflow": "scroll",
+        },
+        Object {
+          "contentContainerStyle": "contentContainerStyle",
+        },
+        Object {
+          "width": 4500,
+        },
+      ]
+    }
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    pagingEnabled={true}
+    scrollEnabled={true}
+    scrollEventThrottle={1}
+    showsHorizontalScrollIndicator={false}
+    showsVerticalScrollIndicator={false}
+  >
+    <View>
+      <Page
+        lazyrender={false}
+        pageNumber={4}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 4 | pageIndex: 0
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={1}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 1 | pageIndex: 1
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={2}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 2 | pageIndex: 2
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={3}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 3 | pageIndex: 3
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={4}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 4 | pageIndex: 4
+          </Text>
+        </View>
+      </Page>
+      <Page
+        lazyrender={false}
+        pageNumber={1}
+        pageWidth={750}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 1 | pageIndex: 5
+          </Text>
+        </View>
+      </Page>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`<ViewPager /> tests tests threshold with 0 1`] = `
+Object {
+  "dataSource": Array [
+    Object {
+      "_pageIndex": 0,
+      "_pageNumber": 1,
+      "title": "mock page 1",
+    },
+    Object {
+      "_pageIndex": 1,
+      "_pageNumber": 2,
+      "title": "mock page 2",
+    },
+    Object {
+      "_pageIndex": 2,
+      "_pageNumber": 3,
+      "title": "mock page 3",
+    },
+    Object {
+      "_pageIndex": 3,
+      "_pageNumber": 4,
+      "title": "mock page 4",
+    },
+  ],
+}
+`;
+
+exports[`<ViewPager /> tests tests threshold with 3 1`] = `
+Object {
+  "dataSource": Array [
+    Object {
+      "_pageIndex": 0,
+      "_pageNumber": 2,
+      "title": "mock page 2",
+    },
+    Object {
+      "_pageIndex": 1,
+      "_pageNumber": 3,
+      "title": "mock page 3",
+    },
+    Object {
+      "_pageIndex": 2,
+      "_pageNumber": 4,
+      "title": "mock page 4",
+    },
+    Object {
+      "_pageIndex": 3,
+      "_pageNumber": 1,
+      "title": "mock page 1",
+    },
+    Object {
+      "_pageIndex": 4,
+      "_pageNumber": 2,
+      "title": "mock page 2",
+    },
+    Object {
+      "_pageIndex": 5,
+      "_pageNumber": 3,
+      "title": "mock page 3",
+    },
+    Object {
+      "_pageIndex": 6,
+      "_pageNumber": 4,
+      "title": "mock page 4",
+    },
+    Object {
+      "_pageIndex": 7,
+      "_pageNumber": 1,
+      "title": "mock page 1",
+    },
+    Object {
+      "_pageIndex": 8,
+      "_pageNumber": 2,
+      "title": "mock page 2",
+    },
+    Object {
+      "_pageIndex": 9,
+      "_pageNumber": 3,
+      "title": "mock page 3",
+    },
+  ],
+}
+`;
+
+exports[`<ViewPager /> tests tests threshold with 10 1`] = `
+Object {
+  "dataSource": Array [
+    Object {
+      "_pageIndex": 0,
+      "_pageNumber": 3,
+      "title": "mock page 3",
+    },
+    Object {
+      "_pageIndex": 1,
+      "_pageNumber": 4,
+      "title": "mock page 4",
+    },
+    Object {
+      "_pageIndex": 2,
+      "_pageNumber": 1,
+      "title": "mock page 1",
+    },
+    Object {
+      "_pageIndex": 3,
+      "_pageNumber": 2,
+      "title": "mock page 2",
+    },
+    Object {
+      "_pageIndex": 4,
+      "_pageNumber": 3,
+      "title": "mock page 3",
+    },
+    Object {
+      "_pageIndex": 5,
+      "_pageNumber": 4,
+      "title": "mock page 4",
+    },
+    Object {
+      "_pageIndex": 6,
+      "_pageNumber": 1,
+      "title": "mock page 1",
+    },
+    Object {
+      "_pageIndex": 7,
+      "_pageNumber": 2,
+      "title": "mock page 2",
+    },
+    Object {
+      "_pageIndex": 8,
+      "_pageNumber": 3,
+      "title": "mock page 3",
+    },
+    Object {
+      "_pageIndex": 9,
+      "_pageNumber": 4,
+      "title": "mock page 4",
+    },
+    Object {
+      "_pageIndex": 10,
+      "_pageNumber": 1,
+      "title": "mock page 1",
+    },
+    Object {
+      "_pageIndex": 11,
+      "_pageNumber": 2,
+      "title": "mock page 2",
+    },
+    Object {
+      "_pageIndex": 12,
+      "_pageNumber": 3,
+      "title": "mock page 3",
+    },
+    Object {
+      "_pageIndex": 13,
+      "_pageNumber": 4,
+      "title": "mock page 4",
+    },
+    Object {
+      "_pageIndex": 14,
+      "_pageNumber": 1,
+      "title": "mock page 1",
+    },
+    Object {
+      "_pageIndex": 15,
+      "_pageNumber": 2,
+      "title": "mock page 2",
+    },
+    Object {
+      "_pageIndex": 16,
+      "_pageNumber": 3,
+      "title": "mock page 3",
+    },
+    Object {
+      "_pageIndex": 17,
+      "_pageNumber": 4,
+      "title": "mock page 4",
+    },
+    Object {
+      "_pageIndex": 18,
+      "_pageNumber": 1,
+      "title": "mock page 1",
+    },
+    Object {
+      "_pageIndex": 19,
+      "_pageNumber": 2,
+      "title": "mock page 2",
+    },
+    Object {
+      "_pageIndex": 20,
+      "_pageNumber": 3,
+      "title": "mock page 3",
+    },
+    Object {
+      "_pageIndex": 21,
+      "_pageNumber": 4,
+      "title": "mock page 4",
+    },
+    Object {
+      "_pageIndex": 22,
+      "_pageNumber": 1,
+      "title": "mock page 1",
+    },
+    Object {
+      "_pageIndex": 23,
+      "_pageNumber": 2,
+      "title": "mock page 2",
+    },
+  ],
+}
 `;
