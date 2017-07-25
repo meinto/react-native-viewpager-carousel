@@ -62,7 +62,7 @@ class ViewPager extends PureComponent {
 
   componentDidMount() {
     setTimeout(() => {
-      this.scrollView.scrollTo({
+      this._scrollTo({
         x: (VIEWPORT_WIDTH - this._pageWithDelta) * this.props.thresholdPages,
         animated: false,
       })
@@ -122,6 +122,12 @@ class ViewPager extends PureComponent {
     return roundedIndex
   }
 
+  _scrollTo = (options) => {
+    if (this.scrollView) {
+      this.scrollView.scrollTo(options)
+    }
+  }
+
   _onScroll = (event) => {
     const offsetX = event.nativeEvent.contentOffset.x
     this.props.onScroll(offsetX)
@@ -131,14 +137,14 @@ class ViewPager extends PureComponent {
     if (this.pageIndex % 1 === 0) {
       if (this.pageIndex === 0) {
 
-        this.scrollView.scrollTo({
+        this._scrollTo({
           animated: false, 
           x: VIEWPORT_WIDTH * (this.state.dataSource.length - 2),
         })
 
       } else if (this.pageIndex === this.state.dataSource.length - 1) {
 
-        this.scrollView.scrollTo({
+        this._scrollTo({
           animated: false, 
           x: VIEWPORT_WIDTH,
         })
@@ -176,7 +182,7 @@ class ViewPager extends PureComponent {
    */
 
   scroll = dx => {
-    this.scrollView.scrollTo({
+    this._scrollTo({
       animated: false, 
       x: dx / (VIEWPORT_WIDTH / (VIEWPORT_WIDTH / 2)) - this.props.pageWidth / 2 + (VIEWPORT_WIDTH / this.props.thresholdPages),
     })
@@ -184,7 +190,7 @@ class ViewPager extends PureComponent {
 
   scrollToPage = pageNumber => {
     this._triggerOnMomentumScrollEnd()
-    this.scrollView.scrollTo({
+    this._scrollTo({
       animated: true, 
       x: ((pageNumber - 1) + this.props.thresholdPages) * VIEWPORT_WIDTH,
     })
@@ -192,7 +198,7 @@ class ViewPager extends PureComponent {
 
   scrollToIndex = pageIndex => {
     this._triggerOnMomentumScrollEnd()
-    this.scrollView.scrollTo({
+    this._scrollTo({
       animated: true, 
       x: pageIndex * VIEWPORT_WIDTH,
     })
