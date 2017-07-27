@@ -196,10 +196,13 @@ class ViewPager extends PureComponent {
    */
 
   scroll = dx => {
-    const thresholdOffset = this.props.renderAsCarousel ? (VIEWPORT_WIDTH / this.thresholdPages) : 0
+    const centerPageDelta = Math.trunc(VIEWPORT_WIDTH / this.props.pageWidth) % 2 === 0 
+      ? -(this.props.pageWidth / 2 + this.props.pageWidth * (Math.trunc(VIEWPORT_WIDTH / this.props.pageWidth) / 2 - 1)) 
+      : -this.props.pageWidth * (Math.floor(Math.trunc(VIEWPORT_WIDTH / this.props.pageWidth) / 2))
+    const thresholdOffset = this.props.renderAsCarousel ? (this.props.pageWidth * this.thresholdPages + centerPageDelta) : 0
     this._scrollTo({
       animated: false, 
-      x: dx / (VIEWPORT_WIDTH / (VIEWPORT_WIDTH / 2)) - this.props.pageWidth / 2 + thresholdOffset,
+      x: dx / ((VIEWPORT_WIDTH / this.props.pageWidth)) - this.props.pageWidth + thresholdOffset,
     })
   }
 

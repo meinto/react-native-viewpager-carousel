@@ -19,8 +19,10 @@ class TabbedPager extends PureComponent {
     renderAsCarousel: React.PropTypes.bool,
     experimentalMirroring: React.PropTypes.bool,
 
-    showTabIndicator: React.PropTypes.bool,
     tabContainerPosition: React.PropTypes.string,
+    scrollTabsEnabled: React.PropTypes.bool,
+    staticTabWidth: React.PropTypes.number,
+    showTabIndicator: React.PropTypes.bool,
     tabIndicatorColor: React.PropTypes.string,
     tabIndicatorHeight: React.PropTypes.number,
 
@@ -32,11 +34,13 @@ class TabbedPager extends PureComponent {
   static defaultProps = {
     data: [],
     lazyrender: false,
-    renderAsCarousel: false,
+    renderAsCarousel: true,
     experimentalMirroring: false,
 
-    showTabIndicator: true,
     tabContainerPosition: 'top',
+    scrollTabsEnabled: false,
+    staticTabWidth: VIEWPORT_WIDTH / 2,
+    showTabIndicator: true,
     tabIndicatorColor: 'transparent',
     tabIndicatorHeight: 2,
     
@@ -108,12 +112,12 @@ class TabbedPager extends PureComponent {
             renderAsCarousel={this.props.renderAsCarousel}
             data={this.props.data}
             renderPage={this._renderTab}
-            pageWidth={VIEWPORT_WIDTH / 2}
+            pageWidth={this.props.staticTabWidth}
             pagingEnabled={false}
             onShouldSwitchToPage={this.scrollToPage}
-            scrollEnabled={false}
+            scrollEnabled={this.props.scrollTabsEnabled}
             {...this._getContentProps()}
-            thresholdPages={2}
+            thresholdPages={Math.ceil((VIEWPORT_WIDTH / this.props.staticTabWidth) / 2) + 1}
             experimentalMirroring={false}
           />
           {this.props.showTabIndicator && (
@@ -121,7 +125,7 @@ class TabbedPager extends PureComponent {
               style={[
                 styles.tabIndicator,
                 {
-                  width: VIEWPORT_WIDTH / 2,
+                  width: this.props.staticTabWidth,
                   height: this.props.tabIndicatorHeight,
                   backgroundColor: this.props.tabIndicatorColor
                 }

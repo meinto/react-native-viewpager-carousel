@@ -113,7 +113,9 @@ class ExampleCarousel extends PureComponent {
 | data                  | array     | []            | a data array of objects |
 | lazyrender            | boolean   | false         | lazyrender renders the active page only when its in the viewport |
 | renderAsCarousel      | boolean   | true          | renders the <TabbedPager /> as endless carousel |
-| tabContainerPosition  | string    | 'top' \|\| 'bottom' | places the tab container on top of the viewpager or on the bottom side |  
+| tabContainerPosition  | string    | 'top'         | could be 'top' \|\| 'bottom' - places the tab container on top of the viewpager or on the bottom side |  
+| scrollTabsEnabled     | boolean   | false         |  |
+| staticTabWidth        | number    | {{screen width of device / 2}} | |
 | showTabIndicator      | boolean   | true          | toggles the tab indicator |
 | tabIndicatorColor     | string    | 'transparent' | changes the color of the tab indicator |
 | tabIndicatorHeight    | number    | 2             | height of tab indicator |
