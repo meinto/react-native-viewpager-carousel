@@ -111,6 +111,7 @@ class ExampleCarousel extends PureComponent {
 | --------------------- | --------- | ------------- | ------------- |
 | data                  | array     | []            | a data array of objects |
 | lazyrender            | boolean   | false         | lazyrender renders the active page only when its in the viewport |
+| tabContainerPosition  | string    | 'top' \|\| 'bottom' | places the tab container on top of the viewpager or on the bottom side |  
 | showTabIndicator      | boolean   | true          | toggles the tab indicator |
 | tabIndicatorColor     | string    | 'transparent' | changes the color of the tab indicator |
 | tabIndicatorHeight    | number    | 2             | height of tab indicator |

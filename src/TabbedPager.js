@@ -19,6 +19,7 @@ class TabbedPager extends PureComponent {
     experimentalMirroring: React.PropTypes.bool,
 
     showTabIndicator: React.PropTypes.bool,
+    tabContainerPosition: React.PropTypes.string,
     tabIndicatorColor: React.PropTypes.string,
     tabIndicatorHeight: React.PropTypes.number,
 
@@ -33,10 +34,16 @@ class TabbedPager extends PureComponent {
     experimentalMirroring: false,
 
     showTabIndicator: true,
+    tabContainerPosition: 'top',
     tabIndicatorColor: 'transparent',
     tabIndicatorHeight: 2,
     
     onPageChange: () => {},
+  }
+
+  static TABCONTAINER_POSITION = {
+    TOP: 'top',
+    BOTTOM: 'bottom',
   }
 
   constructor(props) {
@@ -80,16 +87,51 @@ class TabbedPager extends PureComponent {
     this.contentPager.scrollToIndex(pageIndex - 1)
   }
 
-  _renderTab = ({data, _pageIndex}) => {
-    return this.props.renderTab({data, _pageIndex})
-  }
-
   _onPageChange = pageNumber => {
     this.props.onPageChange(pageNumber)
   }
 
   _onScroll = dx => {
     this.tabbar.scroll(dx)
+  }
+
+  _renderTabsContainer = (position) => {
+    return position === this.props.tabContainerPosition 
+      ? (
+        <View>
+          <ViewPager
+            ref={tabbar => {
+              this.tabbar = tabbar
+            }}
+            data={this.props.data}
+            renderPage={this._renderTab}
+            pageWidth={VIEWPORT_WIDTH / 2}
+            pagingEnabled={false}
+            onShouldSwitchToPage={this.scrollToPage}
+            scrollEnabled={false}
+            {...this._getContentProps()}
+            thresholdPages={2}
+            experimentalMirroring={false}
+          />
+          {this.props.showTabIndicator && (
+            <View 
+              style={[
+                styles.tabIndicator,
+                {
+                  width: VIEWPORT_WIDTH / 2,
+                  height: this.props.tabIndicatorHeight,
+                  backgroundColor: this.props.tabIndicatorColor
+                }
+              ]}
+            />
+          )}
+        </View>
+      )
+    : null
+  }
+
+  _renderTab = ({data, _pageIndex}) => {
+    return this.props.renderTab({data, _pageIndex})
   }
 
   _renderPage = (item) => {
@@ -99,32 +141,7 @@ class TabbedPager extends PureComponent {
   render() { 
     return (
       <View style={styles.container}>
-        <ViewPager
-          ref={tabbar => {
-            this.tabbar = tabbar
-          }}
-          data={this.props.data}
-          renderPage={this._renderTab}
-          pageWidth={VIEWPORT_WIDTH / 2}
-          pagingEnabled={false}
-          onShouldSwitchToPage={this.scrollToPage}
-          scrollEnabled={false}
-          {...this._getContentProps()}
-          thresholdPages={2}
-          experimentalMirroring={false}
-        />
-        {this.props.showTabIndicator && (
-          <View 
-            style={[
-              styles.tabIndicator,
-              {
-                width: VIEWPORT_WIDTH / 2,
-                height: this.props.tabIndicatorHeight,
-                backgroundColor: this.props.tabIndicatorColor
-              }
-            ]}
-          />
-        )}
+        {this._renderTabsContainer(TabbedPager.TABCONTAINER_POSITION.TOP)}
         <ViewPager
           ref={contentPager => {
             this.contentPager = contentPager
@@ -139,6 +156,7 @@ class TabbedPager extends PureComponent {
           thresholdPages={1}
           experimentalMirroring={this.props.experimentalMirroring}
         />
+        {this._renderTabsContainer(TabbedPager.TABCONTAINER_POSITION.BOTTOM)}
       </View>
     )
   }
