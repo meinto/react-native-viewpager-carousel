@@ -60,6 +60,7 @@ class ExampleCarousel extends PureComponent {
 | containerStyle        | style     | {}      | the component is wrapped into a ```<View />```. Styles to this ```<View />``` can be assigned through this property |
 | contentContainerStyle | style     | {}      | posibility to set styles to the content container (the entire scrollable area) |
 | data                  | array     | []      | a data array of objects |
+| renderAsCarousel      | boolean   | true    | renders the <ViewPager /> as endless carousel |
 | thresholdPages        | number    | 1       | number of pages left and right of the scrollable content (sneak preview) |
 | pageWidth             | number    | {{screen width of device}} | width of page |
 | scrollEnabled         | boolean   | true    | decleares wether the ViewPager sould be able to scroll by user or not |
@@ -111,6 +112,7 @@ class ExampleCarousel extends PureComponent {
 | --------------------- | --------- | ------------- | ------------- |
 | data                  | array     | []            | a data array of objects |
 | lazyrender            | boolean   | false         | lazyrender renders the active page only when its in the viewport |
+| renderAsCarousel      | boolean   | true          | renders the <TabbedPager /> as endless carousel |
 | tabContainerPosition  | string    | 'top' \|\| 'bottom' | places the tab container on top of the viewpager or on the bottom side |  
 | showTabIndicator      | boolean   | true          | toggles the tab indicator |
 | tabIndicatorColor     | string    | 'transparent' | changes the color of the tab indicator |

@@ -15,6 +15,7 @@ class ViewPager extends PureComponent {
 
   static defaultProps = {
     thresholdPages: 1,
+    renderAsCarousel: true,
     pageWidth: VIEWPORT_WIDTH,
     pagingEnabled: true,
     contentContainerStyle: {},
@@ -34,6 +35,7 @@ class ViewPager extends PureComponent {
     data: React.PropTypes.arrayOf(
       React.PropTypes.object
     ),
+    renderAsCarousel: React.PropTypes.bool,
     thresholdPages: React.PropTypes.number,
     pageWidth: React.PropTypes.number,
     scrollEnabled: React.PropTypes.bool,
@@ -54,6 +56,7 @@ class ViewPager extends PureComponent {
 
     this.pageReferences = {}
     this.pageNumberBeforeDrag = 1
+    this.thresholdPages = this.props.renderAsCarousel ? this.props.thresholdPages : 0
 
     this.state = {
       dataSource: [...this._prepareData(this.props.data || [])],
@@ -63,7 +66,7 @@ class ViewPager extends PureComponent {
   componentDidMount() {
     setTimeout(() => {
       this._scrollTo({
-        x: (VIEWPORT_WIDTH - this._pageWithDelta) * this.props.thresholdPages,
+        x: (VIEWPORT_WIDTH - this._pageWithDelta) * this.thresholdPages,
         animated: false,
       })
     }, 0)
@@ -92,24 +95,35 @@ class ViewPager extends PureComponent {
   }
 
   _prepareData = (data) => {
-    
-    const multiplicator = data.length > 0 ? Math.ceil(this.props.thresholdPages / data.length) : 0
 
     const initializedData = this._setPageNumber(data)
 
-    let thresholdDataFront = []
-    let thresholdDataEnd = []
+    let preparedData = []
 
-    for (let i = 0; i < multiplicator; i++) {
-      thresholdDataFront = [...thresholdDataFront, ...[...initializedData].reverse()]
-      thresholdDataEnd = [...thresholdDataEnd, ...initializedData]
+    if (this.props.renderAsCarousel) {
+
+      const multiplicator = data.length > 0 ? Math.ceil(this.thresholdPages / data.length) : 0
+
+      let thresholdDataFront = []
+      let thresholdDataEnd = []
+
+      for (let i = 0; i < multiplicator; i++) {
+        thresholdDataFront = [...thresholdDataFront, ...[...initializedData].reverse()]
+        thresholdDataEnd = [...thresholdDataEnd, ...initializedData]
+      }
+
+      const thresholdFront = thresholdDataFront.slice(0, this.thresholdPages).reverse()
+
+      const thresholdEnd = thresholdDataEnd.slice(0, this.thresholdPages)
+
+      preparedData = [...thresholdFront, ...initializedData, ...thresholdEnd]
+
+    } else {
+
+      preparedData = [...initializedData]
+
     }
 
-    const thresholdFront = thresholdDataFront.slice(0, this.props.thresholdPages).reverse()
-
-    const thresholdEnd = thresholdDataEnd.slice(0, this.props.thresholdPages)
-
-    let preparedData = [...thresholdFront, ...initializedData, ...thresholdEnd]
     preparedData = this._setPageIndex(preparedData)
 
     return [...preparedData]
@@ -134,7 +148,7 @@ class ViewPager extends PureComponent {
 
     this.pageIndex = Math.ceil((offsetX / VIEWPORT_WIDTH) * 100) / 100
 
-    if (this.pageIndex % 1 === 0) {
+    if (this.props.renderAsCarousel && this.pageIndex % 1 === 0) {
       if (this.pageIndex === 0) {
 
         this._scrollTo({
@@ -182,9 +196,10 @@ class ViewPager extends PureComponent {
    */
 
   scroll = dx => {
+    const thresholdOffset = this.props.renderAsCarousel ? (VIEWPORT_WIDTH / this.thresholdPages) : 0
     this._scrollTo({
       animated: false, 
-      x: dx / (VIEWPORT_WIDTH / (VIEWPORT_WIDTH / 2)) - this.props.pageWidth / 2 + (VIEWPORT_WIDTH / this.props.thresholdPages),
+      x: dx / (VIEWPORT_WIDTH / (VIEWPORT_WIDTH / 2)) - this.props.pageWidth / 2 + thresholdOffset,
     })
   }
 
@@ -192,7 +207,7 @@ class ViewPager extends PureComponent {
     this._triggerOnMomentumScrollEnd()
     this._scrollTo({
       animated: true, 
-      x: ((pageNumber - 1) + this.props.thresholdPages) * VIEWPORT_WIDTH,
+      x: ((pageNumber - 1) + this.thresholdPages) * VIEWPORT_WIDTH,
     })
   }
 
@@ -225,8 +240,8 @@ class ViewPager extends PureComponent {
       </View>
     )
 
-    if (this.props.experimentalMirroring === true) {
-      if (index <= this.props.thresholdPages) {
+    if (this.props.renderAsCarousel && this.props.experimentalMirroring === true) {
+      if (index <= this.thresholdPages) {
         row = (
           <Mirror
             key={index}
@@ -242,8 +257,8 @@ class ViewPager extends PureComponent {
         )
       }
 
-      if (index >= this.state.dataSource.length - this.props.thresholdPages - 1) {
-        const idIndex = index - (this.state.dataSource.length - this.props.thresholdPages - 1)
+      if (index >= this.state.dataSource.length - this.thresholdPages - 1) {
+        const idIndex = index - (this.state.dataSource.length - this.thresholdPages - 1)
         row = (
           <Mirror
             key={index}

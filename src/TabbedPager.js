@@ -16,6 +16,7 @@ class TabbedPager extends PureComponent {
       React.PropTypes.object
     ),
     lazyrender: React.PropTypes.bool,
+    renderAsCarousel: React.PropTypes.bool,
     experimentalMirroring: React.PropTypes.bool,
 
     showTabIndicator: React.PropTypes.bool,
@@ -31,6 +32,7 @@ class TabbedPager extends PureComponent {
   static defaultProps = {
     data: [],
     lazyrender: false,
+    renderAsCarousel: false,
     experimentalMirroring: false,
 
     showTabIndicator: true,
@@ -103,6 +105,7 @@ class TabbedPager extends PureComponent {
             ref={tabbar => {
               this.tabbar = tabbar
             }}
+            renderAsCarousel={this.props.renderAsCarousel}
             data={this.props.data}
             renderPage={this._renderTab}
             pageWidth={VIEWPORT_WIDTH / 2}
@@ -146,6 +149,7 @@ class TabbedPager extends PureComponent {
           ref={contentPager => {
             this.contentPager = contentPager
           }}
+          renderAsCarousel={this.props.renderAsCarousel}
           lazyrender={this.props.lazyrender}
           data={this.props.data}
           containerStyle={styles.contentContainer}
