@@ -107,9 +107,14 @@ class ExampleCarousel extends PureComponent {
 
 ### API
 
-| prop name             | data type | default | functionality |
-| --------------------- | --------- | ------- | ------------- |
-| data                  | array     | []      | a data array of objects |
-| renderPage            | function  | () => {} | render callback for content page |
-| renderTab             | function  | () => {} | render callback for the tab |
-| onPageChange          | function  | () => {} | callback when the page changes -> retuns the current pageNumber as first argument |
+| prop name             | data type | default       | functionality |
+| --------------------- | --------- | ------------- | ------------- |
+| data                  | array     | []            | a data array of objects |
+| lazyrender            | boolean   | false         | lazyrender renders the active page only when its in the viewport |
+| showTabIndicator      | boolean   | true          | toggles the tab indicator |
+| tabIndicatorColor     | string    | 'transparent' | changes the color of the tab indicator |
+| tabIndicatorHeight    | number    | 2             | height of tab indicator |
+| renderPage            | function  | () => {}      | render callback for content page |
+| renderTab             | function  | () => {}      | render callback for the tab |
+| onPageChange          | function  | () => {}      | callback when the page changes -> retuns the current pageNumber as first argument |
+| experimentalMirroring | boolean   | false         | toggles the mirroring of the scrollposition of the threshold views - more information [here](https://github.com/tobiasMeinhardt/react-native-mirror) |
