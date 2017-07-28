@@ -28,6 +28,8 @@ class TabbedPager extends PureComponent {
     tabIndicatorColor: React.PropTypes.string,
     tabIndicatorHeight: React.PropTypes.number,
 
+    DividerComponent: React.PropTypes.any,
+
     renderPage: React.PropTypes.func.isRequired,
     renderTab: React.PropTypes.func.isRequired,
     onPageChange: React.PropTypes.func,
@@ -149,6 +151,12 @@ class TabbedPager extends PureComponent {
     : null
   }
 
+  _renderDividerComponent = (position) => {
+    return position === this.props.tabContainerPosition 
+      ? this.props.DividerComponent
+      : null
+  }
+
   _renderTab = ({data, _pageIndex}) => {
     return this.props.renderTab({data, _pageIndex})
   }
@@ -161,6 +169,7 @@ class TabbedPager extends PureComponent {
     return (
       <View style={this.props.fullScreen ? styles.fullScreen : null}>
         {this._renderTabsContainer(TabbedPager.TABCONTAINER_POSITION.TOP)}
+        {this._renderDividerComponent(TabbedPager.TABCONTAINER_POSITION.TOP)}
         <ViewPager
           ref={contentPager => {
             this.contentPager = contentPager
@@ -177,6 +186,7 @@ class TabbedPager extends PureComponent {
           thresholdPages={this.contentThresholdPages}
           experimentalMirroring={this.props.experimentalMirroring}
         />
+        {this._renderDividerComponent(TabbedPager.TABCONTAINER_POSITION.BOTTOM)}
         {this._renderTabsContainer(TabbedPager.TABCONTAINER_POSITION.BOTTOM)}
       </View>
     )
