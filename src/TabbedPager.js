@@ -19,6 +19,7 @@ class TabbedPager extends PureComponent {
     lazyrender: React.PropTypes.bool,
     renderAsCarousel: React.PropTypes.bool,
     experimentalMirroring: React.PropTypes.bool,
+    fullScreen: React.PropTypes.bool,
 
     tabContainerPosition: React.PropTypes.string,
     scrollTabsEnabled: React.PropTypes.bool,
@@ -38,6 +39,7 @@ class TabbedPager extends PureComponent {
     lazyrender: false,
     renderAsCarousel: true,
     experimentalMirroring: false,
+    fullScreen: true,
 
     tabContainerPosition: 'top',
     scrollTabsEnabled: false,
@@ -157,7 +159,7 @@ class TabbedPager extends PureComponent {
 
   render() { 
     return (
-      <View style={styles.container}>
+      <View style={this.props.fullScreen ? styles.fullScreen : null}>
         {this._renderTabsContainer(TabbedPager.TABCONTAINER_POSITION.TOP)}
         <ViewPager
           ref={contentPager => {
@@ -167,7 +169,7 @@ class TabbedPager extends PureComponent {
           renderAsCarousel={this.props.renderAsCarousel}
           lazyrender={this.props.lazyrender}
           data={this.props.data}
-          containerStyle={styles.contentContainer}
+          containerStyle={this.props.fullScreen ? styles.fullScreen : null}
           renderPage={this._renderPage}
           onPageChange={this._onPageChange}
           onScroll={this._onScroll}
@@ -183,10 +185,7 @@ class TabbedPager extends PureComponent {
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  contentContainer: {
+  fullScreen: {
     flex: 1,
   },
   tabIndicator: {
