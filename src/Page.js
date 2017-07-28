@@ -14,9 +14,11 @@ export default class Page extends PureComponent {
     lazyrender: React.PropTypes.bool,
     pageNumber: React.PropTypes.number,
     pageWidth: React.PropTypes.number,
+    dev: React.PropTypes.bool,
   }
 
   static defaultProps = {
+    dev: false,
     children: null,
     lazyrender: false,
     pageNumber: 0,
@@ -48,6 +50,7 @@ export default class Page extends PureComponent {
       <View
         style={{
           width: this.props.pageWidth,
+          borderWidth: this.props.dev ? 1 : 0
         }}
       >
         {this.state.render && this.props.children}

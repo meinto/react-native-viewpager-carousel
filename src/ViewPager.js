@@ -14,6 +14,7 @@ const VIEWPORT_WIDTH = Dimensions.get('window').width
 class ViewPager extends PureComponent {
 
   static defaultProps = {
+    dev: false,
     thresholdPages: 1,
     renderAsCarousel: true,
     pageWidth: VIEWPORT_WIDTH,
@@ -35,6 +36,7 @@ class ViewPager extends PureComponent {
     data: React.PropTypes.arrayOf(
       React.PropTypes.object
     ),
+    dev: React.PropTypes.bool,
     renderAsCarousel: React.PropTypes.bool,
     thresholdPages: React.PropTypes.number,
     pageWidth: React.PropTypes.number,
@@ -312,6 +314,7 @@ class ViewPager extends PureComponent {
                 ref={_page => {
                   this.pageReferences[index] = _page
                 }}
+                dev={this.props.dev}
                 pageNumber={item._pageNumber}
                 lazyrender={this.props.lazyrender}
                 pageWidth={this.props.pageWidth}

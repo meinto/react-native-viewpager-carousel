@@ -15,6 +15,7 @@ class TabbedPager extends PureComponent {
     data: React.PropTypes.arrayOf(
       React.PropTypes.object
     ),
+    dev: React.PropTypes.bool,
     lazyrender: React.PropTypes.bool,
     renderAsCarousel: React.PropTypes.bool,
     experimentalMirroring: React.PropTypes.bool,
@@ -33,6 +34,7 @@ class TabbedPager extends PureComponent {
   
   static defaultProps = {
     data: [],
+    dev: false,
     lazyrender: false,
     renderAsCarousel: true,
     experimentalMirroring: false,
@@ -54,6 +56,13 @@ class TabbedPager extends PureComponent {
 
   constructor(props) {
     super(props)
+
+    this.tabThresholdPages = this.props.renderAsCarousel 
+      ? Math.ceil((VIEWPORT_WIDTH / this.props.staticTabWidth) / 2) + 1
+      : 0
+    this.contentThresholdPages = this.props.renderAsCarousel  
+      ? 1
+      : 0
   }
 
   _getContentProps = () => {
@@ -90,7 +99,7 @@ class TabbedPager extends PureComponent {
   }
 
   scrollToIndex = pageIndex => {
-    this.contentPager.scrollToIndex(pageIndex - 1)
+    this.contentPager.scrollToIndex(pageIndex - this.tabThresholdPages + this.contentThresholdPages)
   }
 
   _onPageChange = pageNumber => {
@@ -109,6 +118,7 @@ class TabbedPager extends PureComponent {
             ref={tabbar => {
               this.tabbar = tabbar
             }}
+            dev={this.props.dev}
             renderAsCarousel={this.props.renderAsCarousel}
             data={this.props.data}
             renderPage={this._renderTab}
@@ -117,7 +127,7 @@ class TabbedPager extends PureComponent {
             onShouldSwitchToPage={this.scrollToPage}
             scrollEnabled={this.props.scrollTabsEnabled}
             {...this._getContentProps()}
-            thresholdPages={Math.ceil((VIEWPORT_WIDTH / this.props.staticTabWidth) / 2) + 1}
+            thresholdPages={this.tabThresholdPages}
             experimentalMirroring={false}
           />
           {this.props.showTabIndicator && (
@@ -153,6 +163,7 @@ class TabbedPager extends PureComponent {
           ref={contentPager => {
             this.contentPager = contentPager
           }}
+          dev={this.props.dev}
           renderAsCarousel={this.props.renderAsCarousel}
           lazyrender={this.props.lazyrender}
           data={this.props.data}
@@ -161,7 +172,7 @@ class TabbedPager extends PureComponent {
           onPageChange={this._onPageChange}
           onScroll={this._onScroll}
           {...this._getContentProps()}
-          thresholdPages={1}
+          thresholdPages={this.contentThresholdPages}
           experimentalMirroring={this.props.experimentalMirroring}
         />
         {this._renderTabsContainer(TabbedPager.TABCONTAINER_POSITION.BOTTOM)}
