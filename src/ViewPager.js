@@ -133,9 +133,12 @@ class ViewPager extends PureComponent {
 
   _getPageNumberByIndex = index => {
     const roundedIndex = Math.round(index)
-    if (roundedIndex === 0) return this.state.dataSource.length - 1
-    if (roundedIndex === this.state.dataSource.length - 1) return 1
-    return roundedIndex
+    if (this.props.renderAsCarousel) {
+      if (roundedIndex === 0) return this.state.dataSource.length - 1
+      if (roundedIndex === this.state.dataSource.length - 1) return 1
+    }
+    const pageNumber = this.state.dataSource[roundedIndex] ? this.state.dataSource[roundedIndex]._pageNumber : 1
+    return pageNumber
   }
 
   _scrollTo = (options) => {
