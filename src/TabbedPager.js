@@ -123,7 +123,7 @@ class TabbedPager extends PureComponent {
               this.tabbar = tabbar
             }}
             dev={this.props.dev}
-            renderAsCarousel={this.props.renderAsCarousel}
+            renderAsCarousel={this.props.renderAsCarousel && this.props.data.length > 1}
             data={this.props.data}
             renderPage={this._renderTab}
             pageWidth={this.props.staticTabWidth}
@@ -175,7 +175,7 @@ class TabbedPager extends PureComponent {
             this.contentPager = contentPager
           }}
           dev={this.props.dev}
-          renderAsCarousel={this.props.renderAsCarousel}
+          renderAsCarousel={this.props.renderAsCarousel && this.props.data.length > 1}
           lazyrender={this.props.lazyrender}
           data={this.props.data}
           containerStyle={this.props.fullScreen ? styles.fullScreen : null}

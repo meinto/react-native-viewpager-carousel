@@ -292,7 +292,7 @@ class ViewPager extends PureComponent {
 
     return (
       <View 
-        style={this.props.containerStyle}
+        style={[styles.container, this.props.containerStyle]}
       >
         <ScrollView
           ref={(scrollView) => {
@@ -307,7 +307,7 @@ class ViewPager extends PureComponent {
           showsVerticalScrollIndicator={this.props.showNativeScrollIndicator}
           onScroll={this._onScroll}
           scrollEventThrottle={1}
-          contentContainerStyle={[styles.container, this.props.contentContainerStyle, {
+          contentContainerStyle={[styles.scrollViewContainer, this.props.contentContainerStyle, {
             width: this.props.pageWidth * this.state.dataSource.length,
           }]}>
           {this.state.dataSource.map((item, index) => {
@@ -335,6 +335,9 @@ class ViewPager extends PureComponent {
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: 'center',
+  },
+  scrollViewContainer: {
     flexDirection: 'row',
     /*
      * bug in react-native
