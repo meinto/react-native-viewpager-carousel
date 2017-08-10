@@ -186,7 +186,8 @@ class ViewPager extends PureComponent {
   _onMomentumScrollEnd = () => {
     const pageNumber = this._getPageNumberByIndex(this.pageIndex)
     for (const key in this.pageReferences) {
-      this.pageReferences[key].onPageChange(pageNumber)
+      if (this.pageReferences[key])
+        this.pageReferences[key].onPageChange(pageNumber)
     }
     if (this.pageNumberBeforeDrag !== pageNumber) {
       this.pageNumberBeforeDrag = pageNumber

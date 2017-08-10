@@ -99,11 +99,13 @@ class TabbedPager extends PureComponent {
   }
 
   scrollToPage = pageNumber => {
-    this.contentPager.scrollToPage(pageNumber)
+    if (this.contentPager)
+      this.contentPager.scrollToPage(pageNumber)
   }
 
   scrollToIndex = pageIndex => {
-    this.contentPager.scrollToIndex(pageIndex - this.tabThresholdPages + this.contentThresholdPages)
+    if (this.contentPager)
+      this.contentPager.scrollToIndex(pageIndex - this.tabThresholdPages + this.contentThresholdPages)
   }
 
   _onPageChange = pageNumber => {
@@ -111,7 +113,8 @@ class TabbedPager extends PureComponent {
   }
 
   _onScroll = dx => {
-    this.tabbar.scroll(dx)
+    if (this.tabbar)
+      this.tabbar.scroll(dx)
   }
 
   _renderTabsContainer = (position) => {
@@ -122,6 +125,7 @@ class TabbedPager extends PureComponent {
             ref={tabbar => {
               this.tabbar = tabbar
             }}
+            log={false}
             dev={this.props.dev}
             renderAsCarousel={this.props.renderAsCarousel && this.props.data.length > 1}
             data={this.props.data}
@@ -174,6 +178,7 @@ class TabbedPager extends PureComponent {
           ref={contentPager => {
             this.contentPager = contentPager
           }}
+          log={true}
           dev={this.props.dev}
           renderAsCarousel={this.props.renderAsCarousel && this.props.data.length > 1}
           lazyrender={this.props.lazyrender}
