@@ -15,6 +15,7 @@ class ViewPager extends PureComponent {
 
   static defaultProps = {
     dev: false,
+    log: false,
     thresholdPages: 1,
     renderAsCarousel: true,
     pageWidth: VIEWPORT_WIDTH,
@@ -37,6 +38,7 @@ class ViewPager extends PureComponent {
       React.PropTypes.object
     ),
     dev: React.PropTypes.bool,
+    log: React.PropTypes.bool,
     renderAsCarousel: React.PropTypes.bool,
     thresholdPages: React.PropTypes.number,
     pageWidth: React.PropTypes.number,
@@ -151,17 +153,19 @@ class ViewPager extends PureComponent {
     const offsetX = event.nativeEvent.contentOffset.x
     this.props.onScroll(offsetX)
 
-    this.pageIndex = Math.ceil((offsetX / VIEWPORT_WIDTH) * 100) / 100
 
-    if (this.props.renderAsCarousel && this.pageIndex % 1 === 0) {
-      if (this.pageIndex === 0) {
+    this.pageIndex = Math.ceil(((offsetX + this._pageWithDelta) / this.props.pageWidth) * 100) / 100
+  
+
+    if (this.props.renderAsCarousel && this.pageIndex % 1 < 0.03) {
+      if (Math.trunc(this.pageIndex) === 0) {
 
         this._scrollTo({
           animated: false, 
           x: VIEWPORT_WIDTH * (this.state.dataSource.length - 2),
         })
 
-      } else if (this.pageIndex === this.state.dataSource.length - 1) {
+      } else if (Math.trunc(this.pageIndex) === this.state.dataSource.length - 1) {
 
         this._scrollTo({
           animated: false, 
@@ -170,6 +174,8 @@ class ViewPager extends PureComponent {
 
       } 
     }
+
+    this.pageIndex = Math.round(this.pageIndex)
   }
 
   _onScrollBeginDrag = () => {
