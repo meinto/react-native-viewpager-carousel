@@ -70,7 +70,7 @@ class ViewPager extends PureComponent {
   componentDidMount() {
     setTimeout(() => {
       this._scrollTo({
-        x: (VIEWPORT_WIDTH - this._pageWithDelta / 2) * this.thresholdPages,
+        x: this.props.pageWidth * this.thresholdPages - this._pageWithDelta,
         animated: false,
       })
     }, 0)
