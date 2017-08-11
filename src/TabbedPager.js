@@ -20,6 +20,7 @@ class TabbedPager extends PureComponent {
     renderAsCarousel: React.PropTypes.bool,
     experimentalMirroring: React.PropTypes.bool,
     fullScreen: React.PropTypes.bool,
+    forceRerenderOnPageChange: React.PropTypes.bool,
 
     tabContainerPosition: React.PropTypes.string,
     scrollTabsEnabled: React.PropTypes.bool,
@@ -51,6 +52,7 @@ class TabbedPager extends PureComponent {
     tabIndicatorHeight: 2,
     
     onPageChange: () => {},
+    forceRerenderOnPageChange: false,
   }
 
   static TABCONTAINER_POSITION = {
@@ -110,6 +112,8 @@ class TabbedPager extends PureComponent {
 
   _onPageChange = pageNumber => {
     this.props.onPageChange(pageNumber)
+    if (this.props.forceRerenderOnPageChange === true)
+      this.forceUpdate()
   }
 
   _onScroll = dx => {
