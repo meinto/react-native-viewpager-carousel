@@ -9,10 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tobiasMeinhardt/react-native-viewpager-carousel"
+    "url": "https://github.com/meinto/react-native-viewpager-carousel"
   },
   "bugs": {
-    "url": "https://github.com/tobiasMeinhardt/react-native-viewpager-carousel/issues"
+    "url": "https://github.com/meinto/react-native-viewpager-carousel/issues"
   },
   "keywords": [
     "react",
