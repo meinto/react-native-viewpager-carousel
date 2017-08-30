@@ -76,6 +76,11 @@ class TabbedPager extends PureComponent {
       this.data.length > 1 
       ? 1
       : 0
+    
+    this.pageCount = this.props.data.length
+
+    this.summedTabsWidthOverflow = (this.pageCount + this.tabThresholdPages) * this.props.staticTabWidth
+      > VIEWPORT_WIDTH
   }
 
   _getContentProps = () => {
@@ -124,9 +129,10 @@ class TabbedPager extends PureComponent {
   }
 
   _onScroll = dx => {
-    if (this.tabbar)
+    if (this.tabbar && this.summedTabsWidthOverflow)
       this.tabbar.scroll(dx)
   }
+
 
   _renderTabsContainer = (position) => {
     return position === this.props.tabContainerPosition 
