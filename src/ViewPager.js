@@ -60,7 +60,18 @@ class ViewPager extends PureComponent {
 
     this.pageReferences = {}
     this.pageNumberBeforeDrag = 1
-    this.thresholdPages = this.props.renderAsCarousel ? this.props.thresholdPages : 0
+    this.data = this.props.data || []
+    this.pageCount = this.data.length
+    this.thresholdPages = 
+      this.props.renderAsCarousel && 
+      this.pageCount > 1 
+      ? this.props.thresholdPages : 0
+
+    this.scrollEnabled = (
+      this.props.scrollEnabled && 
+      this.pageCount > 1 &&
+      (this.pageCount + this.thresholdPages) * this.props.pageWidth > VIEWPORT_WIDTH
+    )
 
     this.state = {
       dataSource: [...this._prepareData(this.props.data || [])],
@@ -311,7 +322,7 @@ class ViewPager extends PureComponent {
           onMomentumScrollEnd={this._onMomentumScrollEnd}
           horizontal={true}
           pagingEnabled={this.props.pagingEnabled}
-          scrollEnabled={this.props.scrollEnabled}
+          scrollEnabled={this.scrollEnabled}
           showsHorizontalScrollIndicator={this.props.showNativeScrollIndicator}
           showsVerticalScrollIndicator={this.props.showNativeScrollIndicator}
           onScroll={this._onScroll}

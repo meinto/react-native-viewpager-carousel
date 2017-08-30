@@ -63,10 +63,17 @@ class TabbedPager extends PureComponent {
   constructor(props) {
     super(props)
 
-    this.tabThresholdPages = this.props.renderAsCarousel 
+    this.data = this.props.data || []
+
+    this.tabThresholdPages = 
+      this.props.renderAsCarousel &&
+      this.data.length > 1 
       ? Math.ceil((VIEWPORT_WIDTH / this.props.staticTabWidth) / 2) + 1
       : 0
-    this.contentThresholdPages = this.props.renderAsCarousel  
+
+    this.contentThresholdPages = 
+      this.props.renderAsCarousel && 
+      this.data.length > 1 
       ? 1
       : 0
   }
@@ -149,8 +156,8 @@ class TabbedPager extends PureComponent {
                 {
                   width: this.props.staticTabWidth,
                   height: this.props.tabIndicatorHeight,
-                  backgroundColor: this.props.tabIndicatorColor
-                }
+                  backgroundColor: this.props.tabIndicatorColor,
+                },
               ]}
             />
           )}
