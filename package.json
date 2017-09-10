@@ -36,17 +36,19 @@
     "prop-types": "*"
   },
   "devDependencies": {
-    "babel-jest": "^20.0.3",
-    "babel-preset-react-native": "1.9.2",
+    "babel-jest": "^21.0.2",
+    "babel-preset-react-native": "^3.0.2",
     "cross-env": "^5.0.0",
     "jasmine-reporters": "^2.2.1",
-    "jest-cli": "^20.0.4",
+    "jest-cli": "^21.0.2",
     "react-native-cli": "^2.0.1",
     "react-test-renderer": "16.0.0-alpha.13"
   },
   "jest": {
     "collectCoverage": true,
-    "modulePathIgnorePatterns": ["<rootDir>/Examples/"],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/Examples/"
+    ],
     "setupTestFrameworkScriptFile": "./setup-jasmine-env.js",
     "preset": "react-native"
   }
