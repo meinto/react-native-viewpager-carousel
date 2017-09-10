@@ -22,6 +22,7 @@ class TabbedPager extends PureComponent {
     experimentalMirroring: PropTypes.bool,
     fullScreen: PropTypes.bool,
     forceRerenderOnPageChange: PropTypes.bool,
+    initialPage: PropTypes.object,
 
     tabContainerPosition: PropTypes.string,
     scrollTabsEnabled: PropTypes.bool,
@@ -44,6 +45,7 @@ class TabbedPager extends PureComponent {
     renderAsCarousel: true,
     experimentalMirroring: false,
     fullScreen: true,
+    initialPage: {},
 
     tabContainerPosition: 'top',
     scrollTabsEnabled: false,
@@ -203,6 +205,7 @@ class TabbedPager extends PureComponent {
           data={this.props.data}
           containerStyle={this.props.fullScreen ? styles.fullScreen : null}
           renderPage={this._renderPage}
+          initialPage={this.props.initialPage}
           onPageChange={this._onPageChange}
           onScroll={this._onScroll}
           {...this._getContentProps()}

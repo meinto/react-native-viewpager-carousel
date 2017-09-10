@@ -64,6 +64,7 @@ class ExampleCarousel extends PureComponent {
 | renderAsCarousel      | boolean   | true    | renders the <ViewPager /> as endless carousel |
 | thresholdPages        | number    | 1       | number of pages left and right of the scrollable content (sneak preview) |
 | pageWidth             | number    | {{screen width of device}} | width of page |
+| initialPage           | object    | {}      | key value pair of initial page: e. g. data=[{key:'page-a'}, {key:'page-b'}] & initialPage={{key:'page-b}} |
 | scrollEnabled         | boolean   | true    | decleares wether the ViewPager sould be able to scroll by user or not |
 | pageingEnabled        | boolean   | true    |  |
 | experimentalMirroring | boolean   | false   | toggles the mirroring of the scrollposition of the threshold views - more information [here](https://github.com/tobiasMeinhardt/react-native-mirror) |
@@ -119,6 +120,7 @@ class ExampleCarousel extends PureComponent {
 | tabContainerPosition  | string    | 'top'         | could be 'top' \|\| 'bottom' - places the tab container on top of the viewpager or on the bottom side |  
 | scrollTabsEnabled     | boolean   | false         |  |
 | staticTabWidth        | number    | {{screen width of device / 2}} | |
+| initialPage           | object    | {}      | key value pair of initial page: e. g. data=[{key:'page-a'}, {key:'page-b'}] & initialPage={{key:'page-b}} |
 | showTabIndicator      | boolean   | true          | toggles the tab indicator |
 | tabIndicatorColor     | string    | 'transparent' | changes the color of the tab indicator |
 | tabIndicatorHeight    | number    | 2             | height of tab indicator |

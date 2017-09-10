@@ -30,6 +30,7 @@ class ViewPager extends PureComponent {
     experimentalMirroring: false,
     showNativeScrollIndicator: false,
     lazyrender: false,
+    initialPage: {},
   }
 
   static propTypes = {
@@ -40,6 +41,7 @@ class ViewPager extends PureComponent {
     ),
     dev: PropTypes.bool,
     log: PropTypes.bool,
+    initialPage: PropTypes.object,
     renderAsCarousel: PropTypes.bool,
     thresholdPages: PropTypes.number,
     pageWidth: PropTypes.number,
@@ -74,12 +76,16 @@ class ViewPager extends PureComponent {
   }
 
   componentDidMount() {
-    if (this.props.renderAsCarousel) {
+    if (this.props.renderAsCarousel && Object.keys(this.props.initialPage).length === 0) {
       setTimeout(() => {
         this._scrollTo({
           x: this.props.pageWidth * this.thresholdPages - this._pageWithDelta,
           animated: false,
         })
+      }, 0)
+    } else {
+      setTimeout(() => {
+        this.scrollToPageWithKeyValuePair(this.props.initialPage)
       }, 0)
     }
   }
@@ -149,6 +155,18 @@ class ViewPager extends PureComponent {
     }
     const pageNumber = this.state.dataSource[roundedIndex] ? this.state.dataSource[roundedIndex]._pageNumber : 1
     return pageNumber
+  }
+
+  _getPageIndexByKeyValuePair = keyValuePair => {
+    const key = Object.keys(keyValuePair)[0]
+    const value = keyValuePair[key]
+    const pageWithKeyValuePair = this.state.dataSource.find(page => {
+      return page[key] && page[key] === value
+    })
+    let pageIndex = 0
+    if (pageWithKeyValuePair) 
+      pageIndex = pageWithKeyValuePair._pageIndex
+    return pageIndex
   }
 
   _scrollTo = (options) => {
@@ -252,6 +270,11 @@ class ViewPager extends PureComponent {
       animated: true, 
       x: ((pageNumber - 1) + this.thresholdPages) * VIEWPORT_WIDTH,
     })
+  }
+
+  scrollToPageWithKeyValuePair = keyValuePair => {
+    const pageIndex = this._getPageIndexByKeyValuePair(keyValuePair)
+    this.scrollToIndex(pageIndex)
   }
 
   scrollToIndex = pageIndex => {
