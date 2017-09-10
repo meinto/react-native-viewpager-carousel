@@ -5,6 +5,7 @@ import {
   ScrollView,
   View,
 } from 'react-native'
+import PropTypes from 'prop-types'
 import Mirror, { scrollviewBootstrap } from 'react-native-mirror'
 import Page from './Page'
 
@@ -32,25 +33,25 @@ class ViewPager extends PureComponent {
   }
 
   static propTypes = {
-    contentContainerStyle: React.PropTypes.any,
-    containerStyle: React.PropTypes.any,
-    data: React.PropTypes.arrayOf(
-      React.PropTypes.object
+    contentContainerStyle: PropTypes.any,
+    containerStyle: PropTypes.any,
+    data: PropTypes.arrayOf(
+      PropTypes.object
     ),
-    dev: React.PropTypes.bool,
-    log: React.PropTypes.bool,
-    renderAsCarousel: React.PropTypes.bool,
-    thresholdPages: React.PropTypes.number,
-    pageWidth: React.PropTypes.number,
-    scrollEnabled: React.PropTypes.bool,
-    pagingEnabled: React.PropTypes.bool,
-    experimentalMirroring: React.PropTypes.bool,
-    showNativeScrollIndicator: React.PropTypes.bool,
-    lazyrender: React.PropTypes.bool,
+    dev: PropTypes.bool,
+    log: PropTypes.bool,
+    renderAsCarousel: PropTypes.bool,
+    thresholdPages: PropTypes.number,
+    pageWidth: PropTypes.number,
+    scrollEnabled: PropTypes.bool,
+    pagingEnabled: PropTypes.bool,
+    experimentalMirroring: PropTypes.bool,
+    showNativeScrollIndicator: PropTypes.bool,
+    lazyrender: PropTypes.bool,
 
-    renderPage: React.PropTypes.func,
-    onPageChange: React.PropTypes.func,
-    onScroll: React.PropTypes.func,
+    renderPage: PropTypes.func,
+    onPageChange: PropTypes.func,
+    onScroll: PropTypes.func,
   }
 
   constructor(props) {
@@ -65,13 +66,7 @@ class ViewPager extends PureComponent {
     this.thresholdPages = 
       this.props.renderAsCarousel && 
       this.pageCount > 1 
-      ? this.props.thresholdPages : 0
-
-    this.scrollEnabled = (
-      this.props.scrollEnabled && 
-      this.pageCount > 1 &&
-      (this.pageCount + this.thresholdPages) * this.props.pageWidth > VIEWPORT_WIDTH
-    )
+        ? this.props.thresholdPages : 0
 
     this.state = {
       dataSource: [...this._prepareData(this.props.data || [])],
@@ -216,6 +211,14 @@ class ViewPager extends PureComponent {
     }, 500)
   }
 
+  _getScrollEnabled = () => {
+    return (
+      this.props.scrollEnabled && 
+      this.pageCount > 1 &&
+      (this.pageCount + this.thresholdPages) * this.props.pageWidth > VIEWPORT_WIDTH
+    )
+  }
+
   /*
    * public methods
    */
@@ -325,16 +328,16 @@ class ViewPager extends PureComponent {
     return (
       <View 
         style={[styles.container, this.props.containerStyle]}
-      >
+      > 
         <ScrollView
           ref={(scrollView) => {
             this.scrollView = scrollView
           }}
-          onScrollBeginDrag={this._onScrollBeginDrag}
+          onScrollBeginDrag={this._onScrollBeginDrag} 
           onMomentumScrollEnd={this._onMomentumScrollEnd}
           horizontal={true}
           pagingEnabled={this.props.pagingEnabled}
-          scrollEnabled={this.scrollEnabled}
+          scrollEnabled={this._getScrollEnabled()}
           showsHorizontalScrollIndicator={this.props.showNativeScrollIndicator}
           showsVerticalScrollIndicator={this.props.showNativeScrollIndicator}
           onScroll={this._onScroll}

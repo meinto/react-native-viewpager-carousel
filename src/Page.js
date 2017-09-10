@@ -3,6 +3,7 @@ import {
   View,
   Dimensions,
 } from 'react-native'
+import PropTypes from 'prop-types'
 
 
 const VIEWPORT_WIDTH = Dimensions.get('window').width
@@ -10,11 +11,11 @@ const VIEWPORT_WIDTH = Dimensions.get('window').width
 export default class Page extends PureComponent {
 
   static propTypes = {
-    children: React.PropTypes.any,
-    lazyrender: React.PropTypes.bool,
-    pageNumber: React.PropTypes.number,
-    pageWidth: React.PropTypes.number,
-    dev: React.PropTypes.bool,
+    children: PropTypes.any,
+    lazyrender: PropTypes.bool,
+    pageNumber: PropTypes.number,
+    pageWidth: PropTypes.number,
+    dev: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -46,11 +47,12 @@ export default class Page extends PureComponent {
   }
 
   render() {
+    const borderWidth = this.props.dev ? 1 : 0
     return (
       <View
         style={{
           width: this.props.pageWidth,
-          borderWidth: this.props.dev ? 1 : 0
+          borderWidth,
         }}
       >
         {this.state.render && this.props.children}

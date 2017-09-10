@@ -32,7 +32,8 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "prop-types": "*"
   },
   "devDependencies": {
     "babel-jest": "^20.0.3",

@@ -4,6 +4,7 @@ import {
   Dimensions,
   View,
 } from 'react-native'
+import PropTypes from 'prop-types'
 
 import ViewPager from './ViewPager'
 
@@ -12,28 +13,28 @@ const VIEWPORT_WIDTH = Dimensions.get('window').width
 class TabbedPager extends PureComponent {
 
   static propTypes = {
-    data: React.PropTypes.arrayOf(
-      React.PropTypes.object
+    data: PropTypes.arrayOf(
+      PropTypes.object
     ),
-    dev: React.PropTypes.bool,
-    lazyrender: React.PropTypes.bool,
-    renderAsCarousel: React.PropTypes.bool,
-    experimentalMirroring: React.PropTypes.bool,
-    fullScreen: React.PropTypes.bool,
-    forceRerenderOnPageChange: React.PropTypes.bool,
+    dev: PropTypes.bool,
+    lazyrender: PropTypes.bool,
+    renderAsCarousel: PropTypes.bool,
+    experimentalMirroring: PropTypes.bool,
+    fullScreen: PropTypes.bool,
+    forceRerenderOnPageChange: PropTypes.bool,
 
-    tabContainerPosition: React.PropTypes.string,
-    scrollTabsEnabled: React.PropTypes.bool,
-    staticTabWidth: React.PropTypes.number,
-    showTabIndicator: React.PropTypes.bool,
-    tabIndicatorColor: React.PropTypes.string,
-    tabIndicatorHeight: React.PropTypes.number,
+    tabContainerPosition: PropTypes.string,
+    scrollTabsEnabled: PropTypes.bool,
+    staticTabWidth: PropTypes.number,
+    showTabIndicator: PropTypes.bool,
+    tabIndicatorColor: PropTypes.string,
+    tabIndicatorHeight: PropTypes.number,
 
-    DividerComponent: React.PropTypes.any,
+    DividerComponent: PropTypes.any,
 
-    renderPage: React.PropTypes.func.isRequired,
-    renderTab: React.PropTypes.func.isRequired,
-    onPageChange: React.PropTypes.func,
+    renderPage: PropTypes.func.isRequired,
+    renderTab: PropTypes.func.isRequired,
+    onPageChange: PropTypes.func,
   }
   
   static defaultProps = {
@@ -68,14 +69,14 @@ class TabbedPager extends PureComponent {
     this.tabThresholdPages = 
       this.props.renderAsCarousel &&
       this.data.length > 1 
-      ? Math.ceil((VIEWPORT_WIDTH / this.props.staticTabWidth) / 2) + 1
-      : 0
+        ? Math.ceil((VIEWPORT_WIDTH / this.props.staticTabWidth) / 2) + 1
+        : 0
 
     this.contentThresholdPages = 
       this.props.renderAsCarousel && 
       this.data.length > 1 
-      ? 1
-      : 0
+        ? 1
+        : 0
     
     this.pageCount = this.props.data.length
 
@@ -169,7 +170,7 @@ class TabbedPager extends PureComponent {
           )}
         </View>
       )
-    : null
+      : null
   }
 
   _renderDividerComponent = (position) => {
