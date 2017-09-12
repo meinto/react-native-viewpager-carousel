@@ -18,7 +18,7 @@ import {
  * ---------
  * in live version import like follows:
  * >>> import { TabbedPager } from 'react-native-viewpager-carousel' <<<
- * 
+ *
  * the following import is only to improve the developer experience
  */
 import TabbedPager from './react-native-viewpager-carousel/TabbedPager'
@@ -69,6 +69,13 @@ export default class RnViewPager extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <TouchableHighlight onPress={() => {
+          this.setState({
+            shouldBeScrollable: !this.state.shouldBeScrollable
+          })
+        }}>
+          <Text>toggle ScrollEnable: {this.state.shouldBeScrollable?'enable': 'disable'}</Text>
+        </TouchableHighlight>
         <TabbedPager
           ref={tabbarPager => {
             this.tabbarPager = tabbarPager
@@ -79,6 +86,7 @@ export default class RnViewPager extends Component {
           renderTab={this._renderTab}
           renderPage={this._renderPage}
           lazyload={true}
+          scrollEnabled={this.state.shouldBeScrollable}
         />
       </View>
     )
