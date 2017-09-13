@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { 
+import {
   View,
   Dimensions,
 } from 'react-native'
@@ -16,9 +16,11 @@ export default class Page extends PureComponent {
     pageNumber: PropTypes.number,
     pageWidth: PropTypes.number,
     dev: PropTypes.bool,
+    lazyRenderCount: PropTypes.number
   }
 
   static defaultProps = {
+    lazyRenderCount: 2,
     dev: false,
     children: null,
     lazyrender: false,
@@ -26,24 +28,96 @@ export default class Page extends PureComponent {
     pageWidth: VIEWPORT_WIDTH,
   }
 
+
+
   constructor(props) {
     super(props)
+    const isRendering = false //this._renderThisPage(this.props.pageNumber, 1)
 
     this.state = {
-      render: !this.props.lazyrender || (this.props.lazyrender && this.props.pageNumber === 1),
+      render: isRendering,
     }
   }
 
-  onPageChange = (pageNumber) => {
-    if (
-      this.props.lazyrender === true && 
-      pageNumber === this.props.pageNumber &&
-      this.state.render === false
-    ) {
-      this.setState({
-        render: true,
-      })
+  // _getNextPage = (pageNumber, count) => {
+  //   let nextPage = pageNumber
+  //   for (let i = 0, l = count;  i < l ; i++){
+  //     nextPage += 1
+  //     if (nextPage === this.props.maxPageNumber + 1 ){
+  //       nextPage = 1
+  //     }
+  //
+  //   }
+  //   return nextPage
+  // }
+
+  _getNextPage = (pageNumber, count) => {
+
+    const nextPage = pageNumber + count
+    if (nextPage > this.props.maxPageNumber){
+      return nextPage - this.props.maxPageNumber
     }
+    return nextPage
+  }
+
+  _getLastPage = (pageNumber, count) => {
+    const lastPage = pageNumber - count
+    if (lastPage <= 0){
+      return this.props.maxPageNumber + lastPage
+    }
+    return lastPage
+  }
+
+  // _renderThisPage = (pageNumber, numberOfCurrentVisiblePage ) => {
+  //   if (!this.props.lazyrender){
+  //     return true
+  //   }
+  //
+  //   if (pageNumber === numberOfCurrentVisiblePage){
+  //     return true
+  //   }
+  //   if(pageNumber > numberOfCurrentVisiblePage){
+  //     if(pageNumber-numberOfCurrentVisiblePage === this.props.lazyRenderCount){
+  //       return true
+  //     }
+  //   }
+  //   if(pageNumber < numberOfCurrentVisiblePage){
+  //     console.log(this.props.maxPageNumber, numberOfCurrentVisiblePage, this.props.lazyRenderCount)
+  //     if(this.props.maxPageNumber - (this.props.maxPageNumber - numberOfCurrentVisiblePage) === this.props.lazyRenderCount){
+  //       return true
+  //     }
+  //   }
+  //
+  //
+  //
+  //   return false
+  // }
+
+  _renderThisPage = (pageNumber, numberOfCurrentVisiblePage ) => {
+    if (!this.props.lazyrender){
+      return true
+    }
+
+    if (pageNumber === numberOfCurrentVisiblePage){
+      return true
+    }
+
+    for (let i = 1; i <= this.props.lazyRenderCount; i++){
+
+      if (pageNumber === this._getNextPage(numberOfCurrentVisiblePage, i)){
+        return true
+      }
+      if (pageNumber === this._getLastPage(numberOfCurrentVisiblePage, i)){
+        return true
+      }
+    }
+    return false
+  }
+
+  onPageChange = (pageNumber) => {
+    this.setState({
+      render: this._renderThisPage(this.props.pageNumber, pageNumber),
+    })
   }
 
   render() {
