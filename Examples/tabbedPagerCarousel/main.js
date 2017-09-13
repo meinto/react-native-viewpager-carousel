@@ -85,7 +85,7 @@ export default class RnViewPager extends Component {
           thresholdPages={2}
           renderTab={this._renderTab}
           renderPage={this._renderPage}
-          lazyload={true}
+          lazyrender={true}
           scrollEnabled={this.state.shouldBeScrollable}
         />
       </View>

@@ -65,9 +65,9 @@ class ViewPager extends PureComponent {
     this.pageNumberBeforeDrag = 1
     this.data = this.props.data || []
     this.pageCount = this.data.length
-    this.thresholdPages = 
-      this.props.renderAsCarousel && 
-      this.pageCount > 1 
+    this.thresholdPages =
+      this.props.renderAsCarousel &&
+      this.pageCount > 1
         ? this.props.thresholdPages : 0
 
     this.state = {
@@ -164,7 +164,7 @@ class ViewPager extends PureComponent {
       return page[key] && page[key] === value
     })
     let pageIndex = 0
-    if (pageWithKeyValuePair) 
+    if (pageWithKeyValuePair)
       pageIndex = pageWithKeyValuePair._pageIndex
     return pageIndex
   }
@@ -181,24 +181,24 @@ class ViewPager extends PureComponent {
 
 
     this.pageIndex = Math.ceil(((offsetX + this._pageWithDelta) / this.props.pageWidth) * 100) / 100
-  
+
 
     if (this.props.renderAsCarousel && this.pageIndex % 1 < 0.03) {
       if (Math.trunc(this.pageIndex) === 0) {
 
         this._scrollTo({
-          animated: false, 
+          animated: false,
           x: VIEWPORT_WIDTH * (this.state.dataSource.length - 2),
         })
 
       } else if (Math.trunc(this.pageIndex) === this.state.dataSource.length - 1) {
 
         this._scrollTo({
-          animated: false, 
+          animated: false,
           x: VIEWPORT_WIDTH,
         })
 
-      } 
+      }
     }
 
     this.pageIndex = Math.round(this.pageIndex)
@@ -208,7 +208,7 @@ class ViewPager extends PureComponent {
     const pageNumber = this._getPageNumberByIndex(this.pageIndex)
     this.pageNumberBeforeDrag = pageNumber
   }
-  
+
   _onMomentumScrollEnd = () => {
     const pageNumber = this._getPageNumberByIndex(this.pageIndex)
     for (const key in this.pageReferences) {
@@ -222,7 +222,7 @@ class ViewPager extends PureComponent {
   }
 
   _triggerOnMomentumScrollEnd = () => {
-    if (this._onMomentumScrollEndTimeout) 
+    if (this._onMomentumScrollEndTimeout)
       clearTimeout(this._onMomentumScrollEndTimeout)
     this._onMomentumScrollEndTimeout = setTimeout(() => {
       this._onMomentumScrollEnd()
@@ -231,7 +231,7 @@ class ViewPager extends PureComponent {
 
   _getScrollEnabled = () => {
     return (
-      this.props.scrollEnabled && 
+      this.props.scrollEnabled &&
       this.pageCount > 1 &&
       (this.pageCount + this.thresholdPages) * this.props.pageWidth > VIEWPORT_WIDTH
     )
@@ -242,14 +242,14 @@ class ViewPager extends PureComponent {
    */
 
   scroll = dx => {
-    const centerPageDelta = Math.trunc(VIEWPORT_WIDTH / this.props.pageWidth) % 2 === 0 
-      ? -(this.props.pageWidth / 2 + this.props.pageWidth * (Math.trunc(VIEWPORT_WIDTH / this.props.pageWidth) / 2 - 1)) 
+    const centerPageDelta = Math.trunc(VIEWPORT_WIDTH / this.props.pageWidth) % 2 === 0
+      ? -(this.props.pageWidth / 2 + this.props.pageWidth * (Math.trunc(VIEWPORT_WIDTH / this.props.pageWidth) / 2 - 1))
       : -this.props.pageWidth * (Math.floor(Math.trunc(VIEWPORT_WIDTH / this.props.pageWidth) / 2))
     const thresholdOffset = this.props.renderAsCarousel ? (this.props.pageWidth * this.thresholdPages + centerPageDelta) : 0
 
     let centeredScrollX = dx / ((VIEWPORT_WIDTH / this.props.pageWidth)) - this.props.pageWidth + thresholdOffset
     const xBiggerThanZero = centeredScrollX > 0
-    const xBiggerThanScrollViewWitdh = (centeredScrollX + VIEWPORT_WIDTH) 
+    const xBiggerThanScrollViewWitdh = (centeredScrollX + VIEWPORT_WIDTH)
       > (this.pageCount + this.thresholdPages) * this.props.pageWidth
 
     if (!xBiggerThanZero && !this.props.renderAsCarousel)
@@ -259,7 +259,7 @@ class ViewPager extends PureComponent {
       centeredScrollX = ((this.pageCount + this.thresholdPages) * this.props.pageWidth) - VIEWPORT_WIDTH
 
     this._scrollTo({
-      animated: false, 
+      animated: false,
       x: centeredScrollX,
     })
   }
@@ -267,7 +267,7 @@ class ViewPager extends PureComponent {
   scrollToPage = pageNumber => {
     this._triggerOnMomentumScrollEnd()
     this._scrollTo({
-      animated: true, 
+      animated: true,
       x: ((pageNumber - 1) + this.thresholdPages) * VIEWPORT_WIDTH,
     })
   }
@@ -280,7 +280,7 @@ class ViewPager extends PureComponent {
   scrollToIndex = pageIndex => {
     this._triggerOnMomentumScrollEnd()
     this._scrollTo({
-      animated: true, 
+      animated: true,
       x: pageIndex * VIEWPORT_WIDTH,
     })
   }
@@ -292,14 +292,14 @@ class ViewPager extends PureComponent {
   _renderPage = (item, index) => {
 
     let row = (
-      <View 
+      <View
         key={index}
         style={[styles.rowContainer, {
           width: this.props.pageWidth,
         }]}
       >
         {this.props.renderPage({
-          data: item, 
+          data: item,
           _pageNumber: item._pageNumber,
           _pageIndex: item._pageIndex,
         })}
@@ -349,14 +349,14 @@ class ViewPager extends PureComponent {
     this.pageReferences = {}
 
     return (
-      <View 
+      <View
         style={[styles.container, this.props.containerStyle]}
-      > 
+      >
         <ScrollView
           ref={(scrollView) => {
             this.scrollView = scrollView
           }}
-          onScrollBeginDrag={this._onScrollBeginDrag} 
+          onScrollBeginDrag={this._onScrollBeginDrag}
           onMomentumScrollEnd={this._onMomentumScrollEnd}
           horizontal={true}
           pagingEnabled={this.props.pagingEnabled}
@@ -376,6 +376,7 @@ class ViewPager extends PureComponent {
                   this.pageReferences[index] = _page
                 }}
                 dev={this.props.dev}
+                maxPageNumber={this.props.data.length}
                 pageNumber={item._pageNumber}
                 lazyrender={this.props.lazyrender}
                 pageWidth={this.props.pageWidth}
