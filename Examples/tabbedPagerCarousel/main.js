@@ -86,7 +86,7 @@ export default class RnViewPager extends Component {
           renderTab={this._renderTab}
           renderPage={this._renderPage}
           lazyrender={true}
-          scrollEnabled={this.state.shouldBeScrollable}
+          lazyRenderCount={2}
         />
       </View>
     )
