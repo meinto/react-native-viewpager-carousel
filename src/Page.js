@@ -32,7 +32,7 @@ export default class Page extends PureComponent {
 
   constructor(props) {
     super(props)
-    const isRendering = false //this._renderThisPage(this.props.pageNumber, 1)
+    const isRendering = this._renderThisPage(this.props.pageNumber, 1)
 
     this.state = {
       render: isRendering,
