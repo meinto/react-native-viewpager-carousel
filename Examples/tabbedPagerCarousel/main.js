@@ -69,6 +69,13 @@ export default class RnViewPager extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <TouchableHighlight onPress={() => {
+          this.setState({
+            shouldBeScrollable: !this.state.shouldBeScrollable
+          })
+        }}>
+          <Text>toggle ScrollEnable: {this.state.shouldBeScrollable?'enable': 'disable'}</Text>
+        </TouchableHighlight>
         <TabbedPager
           ref={tabbarPager => {
             this.tabbarPager = tabbarPager

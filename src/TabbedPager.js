@@ -37,7 +37,7 @@ class TabbedPager extends PureComponent {
     renderTab: PropTypes.func.isRequired,
     onPageChange: PropTypes.func,
   }
-  
+
   static defaultProps = {
     data: [],
     dev: false,
@@ -53,7 +53,7 @@ class TabbedPager extends PureComponent {
     showTabIndicator: true,
     tabIndicatorColor: 'transparent',
     tabIndicatorHeight: 2,
-    
+
     onPageChange: () => {},
     forceRerenderOnPageChange: false,
   }
@@ -68,18 +68,18 @@ class TabbedPager extends PureComponent {
 
     this.data = this.props.data || []
 
-    this.tabThresholdPages = 
+    this.tabThresholdPages =
       this.props.renderAsCarousel &&
-      this.data.length > 1 
+      this.data.length > 1
         ? Math.ceil((VIEWPORT_WIDTH / this.props.staticTabWidth) / 2) + 1
         : 0
 
-    this.contentThresholdPages = 
-      this.props.renderAsCarousel && 
-      this.data.length > 1 
+    this.contentThresholdPages =
+      this.props.renderAsCarousel &&
+      this.data.length > 1
         ? 1
         : 0
-    
+
     this.pageCount = this.props.data.length
 
     this.summedTabsWidthOverflow = (this.pageCount + this.tabThresholdPages) * this.props.staticTabWidth
@@ -88,7 +88,7 @@ class TabbedPager extends PureComponent {
 
   _getContentProps = () => {
     let contentProps = {}
-    
+
     Object.keys(this.props).forEach(_key => {
 
       let isContentProp = true
@@ -138,10 +138,11 @@ class TabbedPager extends PureComponent {
 
 
   _renderTabsContainer = (position) => {
-    return position === this.props.tabContainerPosition 
+    return position === this.props.tabContainerPosition
       ? (
         <View>
           <ViewPager
+            {...this._getContentProps()}
             ref={tabbar => {
               this.tabbar = tabbar
             }}
@@ -154,12 +155,11 @@ class TabbedPager extends PureComponent {
             pagingEnabled={false}
             onShouldSwitchToPage={this.scrollToPage}
             scrollEnabled={this.props.scrollTabsEnabled}
-            {...this._getContentProps()}
             thresholdPages={this.tabThresholdPages}
             experimentalMirroring={false}
           />
           {this.props.showTabIndicator && (
-            <View 
+            <View
               style={[
                 styles.tabIndicator,
                 {
@@ -176,7 +176,7 @@ class TabbedPager extends PureComponent {
   }
 
   _renderDividerComponent = (position) => {
-    return position === this.props.tabContainerPosition 
+    return position === this.props.tabContainerPosition
       ? this.props.DividerComponent
       : null
   }
@@ -189,7 +189,7 @@ class TabbedPager extends PureComponent {
     return this.props.renderPage(item)
   }
 
-  render() { 
+  render() {
     return (
       <View style={this.props.fullScreen ? styles.fullScreen : null}>
         {this._renderTabsContainer(TabbedPager.TABCONTAINER_POSITION.TOP)}
