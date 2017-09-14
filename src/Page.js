@@ -39,18 +39,6 @@ export default class Page extends PureComponent {
     }
   }
 
-  // _getNextPage = (pageNumber, count) => {
-  //   let nextPage = pageNumber
-  //   for (let i = 0, l = count;  i < l ; i++){
-  //     nextPage += 1
-  //     if (nextPage === this.props.maxPageNumber + 1 ){
-  //       nextPage = 1
-  //     }
-  //
-  //   }
-  //   return nextPage
-  // }
-
   _getNextPage = (pageNumber, count) => {
 
     const nextPage = pageNumber + count
