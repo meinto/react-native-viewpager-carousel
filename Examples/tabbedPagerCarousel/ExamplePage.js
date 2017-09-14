@@ -17,7 +17,7 @@ class ExamplePage extends PureComponent {
       scrollEnabled: props.shouldBeScrollable,
     })
   }
-  
+
   _renderRow = ({index}) => {
     return (
       <TouchableHighlight
@@ -27,7 +27,7 @@ class ExamplePage extends PureComponent {
       >
         <View>
           <View style={styles.rowContainer}>
-            <Image 
+            <Image
               style={styles.image}
               source={{
                 uri: IMAGES[this.props.index],
@@ -46,7 +46,7 @@ class ExamplePage extends PureComponent {
       <View style={styles.container}>
         <Text style={styles.text}>{this.props.title}</Text>
         <View style={styles.seperator}/>
-        {/*<FlatList 
+        {/*<FlatList
           ref={node => {
             this.list = node
           }}
@@ -108,27 +108,27 @@ const IMAGES = [
   'https://images.pexels.com/photos/54632/cat-animal-eyes-grey-54632.jpeg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/4602/jumping-cute-playing-animals.jpg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/137049/pexels-photo-137049.jpeg?w=100&h=100&fit=crop&auto=compress',
-  'https://images.pexels.com/photos/66292/cat-eyes-view-face-66292.jpeg?w=100&h=100&fit=crop&auto=compress', 
+  'https://images.pexels.com/photos/66292/cat-eyes-view-face-66292.jpeg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/8923/pexels-photo.jpg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/54632/cat-animal-eyes-grey-54632.jpeg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/4602/jumping-cute-playing-animals.jpg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/137049/pexels-photo-137049.jpeg?w=100&h=100&fit=crop&auto=compress',
-  'https://images.pexels.com/photos/66292/cat-eyes-view-face-66292.jpeg?w=100&h=100&fit=crop&auto=compress', 
+  'https://images.pexels.com/photos/66292/cat-eyes-view-face-66292.jpeg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/8923/pexels-photo.jpg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/54632/cat-animal-eyes-grey-54632.jpeg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/4602/jumping-cute-playing-animals.jpg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/137049/pexels-photo-137049.jpeg?w=100&h=100&fit=crop&auto=compress',
-  'https://images.pexels.com/photos/66292/cat-eyes-view-face-66292.jpeg?w=100&h=100&fit=crop&auto=compress', 
+  'https://images.pexels.com/photos/66292/cat-eyes-view-face-66292.jpeg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/8923/pexels-photo.jpg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/54632/cat-animal-eyes-grey-54632.jpeg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/4602/jumping-cute-playing-animals.jpg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/137049/pexels-photo-137049.jpeg?w=100&h=100&fit=crop&auto=compress',
-  'https://images.pexels.com/photos/66292/cat-eyes-view-face-66292.jpeg?w=100&h=100&fit=crop&auto=compress', 
+  'https://images.pexels.com/photos/66292/cat-eyes-view-face-66292.jpeg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/8923/pexels-photo.jpg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/54632/cat-animal-eyes-grey-54632.jpeg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/4602/jumping-cute-playing-animals.jpg?w=100&h=100&fit=crop&auto=compress',
   'https://images.pexels.com/photos/137049/pexels-photo-137049.jpeg?w=100&h=100&fit=crop&auto=compress',
-  'https://images.pexels.com/photos/66292/cat-eyes-view-face-66292.jpeg?w=100&h=100&fit=crop&auto=compress', 
+  'https://images.pexels.com/photos/66292/cat-eyes-view-face-66292.jpeg?w=100&h=100&fit=crop&auto=compress',
 ]
 
 const ROWS = [{},{},{},{},{},{},{},{},{},{}] // eslint-disable-line
