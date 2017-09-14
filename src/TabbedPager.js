@@ -23,7 +23,7 @@ class TabbedPager extends PureComponent {
     fullScreen: PropTypes.bool,
     forceRerenderOnPageChange: PropTypes.bool,
     initialPage: PropTypes.object,
-
+    lazyRenderCount: PropTypes.number,
     tabContainerPosition: PropTypes.string,
     scrollTabsEnabled: PropTypes.bool,
     staticTabWidth: PropTypes.number,
@@ -46,7 +46,7 @@ class TabbedPager extends PureComponent {
     experimentalMirroring: false,
     fullScreen: true,
     initialPage: {},
-
+    lazyRenderCount: 2,
     tabContainerPosition: 'top',
     scrollTabsEnabled: false,
     staticTabWidth: VIEWPORT_WIDTH / 2,
@@ -85,7 +85,7 @@ class TabbedPager extends PureComponent {
     this.summedTabsWidthOverflow = (this.pageCount + this.tabThresholdPages) * this.props.staticTabWidth
       > VIEWPORT_WIDTH
   }
-
+  
   scrollToPage = pageNumber => {
     if (this.contentPager)
       this.contentPager.scrollToPage(pageNumber)
