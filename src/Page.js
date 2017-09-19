@@ -113,7 +113,6 @@ export default class Page extends PureComponent {
   }
 
   render() {
-    console.log('render')
     const borderWidth = this.props.dev ? 1 : 0
     return (
       <View
