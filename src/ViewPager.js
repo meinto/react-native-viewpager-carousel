@@ -78,18 +78,16 @@ class ViewPager extends PureComponent {
   }
 
   componentDidMount() {
-    if (this.props.renderAsCarousel && Object.keys(this.props.initialPage).length === 0) {
-      setTimeout(() => {
+    setTimeout(() => {
+      if (this.props.renderAsCarousel && Object.keys(this.props.initialPage).length === 0) {
         this._scrollTo({
           x: this.props.pageWidth * this.thresholdPages - this._pageWithDelta,
           animated: false,
         })
-      }, 0)
-    } else {
-      setTimeout(() => {
+      } else {
         this.scrollToPageWithKeyValuePair(this.props.initialPage)
-      }, 0)
-    }
+      }
+    }, 0)
   }
 
   componentWillReceiveProps(nextProps) {

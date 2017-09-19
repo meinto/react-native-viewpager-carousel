@@ -34,6 +34,7 @@ export default class Page extends PureComponent {
     super(props)
     const isRendering = this._renderThisPage(this.props.pageNumber, 1)
 
+
     this.state = {
       render: isRendering,
     }
@@ -103,12 +104,16 @@ export default class Page extends PureComponent {
   }
 
   onPageChange = (pageNumber) => {
-    this.setState({
-      render: this._renderThisPage(this.props.pageNumber, pageNumber),
-    })
+    const newRender = this._renderThisPage(this.props.pageNumber, pageNumber)
+    if (this.state.render !== newRender){
+      this.setState({
+        render: newRender
+      })
+    }
   }
 
   render() {
+    console.log('render')
     const borderWidth = this.props.dev ? 1 : 0
     return (
       <View

@@ -142,7 +142,7 @@ class TabbedPager extends PureComponent {
       ? (
         <View>
           <ViewPager
-            {...this._getContentProps()}
+            {...this.props}
             ref={tabbar => {
               this.tabbar = tabbar
             }}
