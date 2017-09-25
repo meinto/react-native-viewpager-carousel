@@ -16,7 +16,8 @@ export default class Page extends PureComponent {
     pageNumber: PropTypes.number,
     pageWidth: PropTypes.number,
     dev: PropTypes.bool,
-    lazyRenderCount: PropTypes.number
+    lazyRenderCount: PropTypes.number,
+    maxPageNumber: PropTypes.number,
   }
 
   static defaultProps = {
