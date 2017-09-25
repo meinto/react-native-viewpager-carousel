@@ -61,6 +61,8 @@ class ExampleCarousel extends PureComponent {
 | contentContainerStyle | style     | {}      | posibility to set styles to the content container (the entire scrollable area) |
 | data                  | array     | []      | a data array of objects |
 | dev                   | boolean   | false   | draws a black line around the pages and tabs for debugging |
+| lazyrender            | boolean   | false   | lazyrender renders the active page only when its in the viewport |
+| lazyrenderThreshold   | number    | 1       | determines how many threshold left and right the current visible page sould be rendered if lazyrender={true} |
 | renderAsCarousel      | boolean   | true    | renders the <ViewPager /> as endless carousel |
 | thresholdPages        | number    | 1       | number of pages left and right of the scrollable content (sneak preview) |
 | pageWidth             | number    | {{screen width of device}} | width of page |
@@ -116,6 +118,7 @@ class ExampleCarousel extends PureComponent {
 | dev                   | boolean   | false         | draws a black line around the pages and tabs for debugging |
 | fullScreen            | boolean   | true          | draws the <TabbedPager /> in full screen mode (flex 1) |
 | lazyrender            | boolean   | false         | lazyrender renders the active page only when its in the viewport |
+| lazyrenderThreshold   | number    | 1             | determines how many threshold left and right the current visible page sould be rendered if lazyrender={true} |
 | renderAsCarousel      | boolean   | true          | renders the <TabbedPager /> as endless carousel |
 | tabContainerPosition  | string    | 'top'         | could be 'top' \|\| 'bottom' - places the tab container on top of the viewpager or on the bottom side |  
 | scrollTabsEnabled     | boolean   | false         |  |
