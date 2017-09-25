@@ -20,7 +20,7 @@ export default class Page extends PureComponent {
   }
 
   static defaultProps = {
-    lazyRenderCount: 2,
+    lazyRenderCount: 1,
     dev: false,
     children: null,
     lazyrender: false,
@@ -32,80 +32,60 @@ export default class Page extends PureComponent {
 
   constructor(props) {
     super(props)
-    const isRendering = this._renderThisPage(this.props.pageNumber, 1)
+    const shouldRender = this._shouldPageRender(this.props.pageNumber, 1)
 
     this.state = {
-      render: isRendering,
+      render: shouldRender,
     }
   }
 
-  _getNextPage = (pageNumber, count) => {
-
-    const nextPage = pageNumber + count
+  _getNextPageNumber = (currentVisiblePageNumber, count) => {
+    const nextPage = currentVisiblePageNumber + count
     if (nextPage > this.props.maxPageNumber){
       return nextPage - this.props.maxPageNumber
     }
     return nextPage
   }
 
-  _getLastPage = (pageNumber, count) => {
-    const lastPage = pageNumber - count
+  _getLastPageNumber = (currentVisiblePageNumber, count) => {
+    const lastPage = currentVisiblePageNumber - count
     if (lastPage <= 0){
       return this.props.maxPageNumber + lastPage
     }
     return lastPage
   }
 
-  // _renderThisPage = (pageNumber, numberOfCurrentVisiblePage ) => {
-  //   if (!this.props.lazyrender){
-  //     return true
-  //   }
-  //
-  //   if (pageNumber === numberOfCurrentVisiblePage){
-  //     return true
-  //   }
-  //   if(pageNumber > numberOfCurrentVisiblePage){
-  //     if(pageNumber-numberOfCurrentVisiblePage === this.props.lazyRenderCount){
-  //       return true
-  //     }
-  //   }
-  //   if(pageNumber < numberOfCurrentVisiblePage){
-  //     console.log(this.props.maxPageNumber, numberOfCurrentVisiblePage, this.props.lazyRenderCount)
-  //     if(this.props.maxPageNumber - (this.props.maxPageNumber - numberOfCurrentVisiblePage) === this.props.lazyRenderCount){
-  //       return true
-  //     }
-  //   }
-  //
-  //
-  //
-  //   return false
-  // }
-
-  _renderThisPage = (pageNumber, numberOfCurrentVisiblePage ) => {
+  _shouldPageRender = (pageNumber, currentVisiblePageNumber) => {
     if (!this.props.lazyrender){
       return true
     }
 
-    if (pageNumber === numberOfCurrentVisiblePage){
+    if (pageNumber === currentVisiblePageNumber){
       return true
     }
 
     for (let i = 1; i <= this.props.lazyRenderCount; i++){
-
-      if (pageNumber === this._getNextPage(numberOfCurrentVisiblePage, i)){
+      if (pageNumber === this._getNextPageNumber(currentVisiblePageNumber, i)){
         return true
       }
-      if (pageNumber === this._getLastPage(numberOfCurrentVisiblePage, i)){
+      if (pageNumber === this._getLastPageNumber(currentVisiblePageNumber, i)){
         return true
       }
     }
+
     return false
   }
 
-  onPageChange = (pageNumber) => {
-    this.setState({
-      render: this._renderThisPage(this.props.pageNumber, pageNumber),
-    })
+  onPageChange = currentVisiblePageNumber => {
+    const shouldRender = this._shouldPageRender(this.props.pageNumber, currentVisiblePageNumber)
+    if (
+      this.props.lazyrender === true &&
+      this.state.render !== shouldRender
+    ) {
+      this.setState({
+        render: shouldRender,
+      })
+    }
   }
 
   render() {

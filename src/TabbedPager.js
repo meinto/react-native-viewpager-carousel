@@ -46,7 +46,7 @@ class TabbedPager extends PureComponent {
     experimentalMirroring: false,
     fullScreen: true,
     initialPage: {},
-    lazyRenderCount: 2,
+    lazyRenderCount: 1,
     tabContainerPosition: 'top',
     scrollTabsEnabled: false,
     staticTabWidth: VIEWPORT_WIDTH / 2,

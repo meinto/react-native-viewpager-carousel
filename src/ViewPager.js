@@ -31,7 +31,7 @@ class ViewPager extends PureComponent {
     showNativeScrollIndicator: false,
     lazyrender: false,
     initialPage: {},
-    lazyRenderCount: 2,
+    lazyRenderCount: 1,
   }
 
   static propTypes = {
