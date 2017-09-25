@@ -80,13 +80,13 @@ export default class RnViewPager extends Component {
           ref={tabbarPager => {
             this.tabbarPager = tabbarPager
           }}
-          experimentalMirroring={true}
+          experimentalMirroring={false}
           data={this.dataSource}
           thresholdPages={2}
           renderTab={this._renderTab}
           renderPage={this._renderPage}
-          lazyload={true}
-          lazyRenderCount={2}
+          lazyrender={true}
+          lazyrenderThreshold={2}
           scrollEnabled={this.state.shouldBeScrollable}
         />
       </View>
