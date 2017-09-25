@@ -87,6 +87,7 @@ class TabbedPager extends PureComponent {
   }
 
   _getContentProps = () => {
+    // TODO: refactor this!!!
     let contentProps = {}
 
     Object.keys(this.props).forEach(_key => {
