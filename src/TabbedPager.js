@@ -86,36 +86,6 @@ class TabbedPager extends PureComponent {
       > VIEWPORT_WIDTH
   }
 
-  _getContentProps = () => {
-    // TODO: refactor this!!!
-    let contentProps = {}
-
-    Object.keys(this.props).forEach(_key => {
-
-      let isContentProp = true
-      switch (_key) {
-        case 'data':
-        case 'contentContainerStyle':
-        case 'renderPage':
-        case 'onPageChange':
-        case 'onScroll':
-          isContentProp = false
-      }
-
-      Object.keys(TabbedPager.defaultProps).forEach(_defaultPropKey => {
-        if (_key === _defaultPropKey) isContentProp = false
-      })
-
-      if (isContentProp) {
-        contentProps = Object.assign({}, contentProps, {
-          [_key]: this.props[_key],
-        })
-      }
-    })
-
-    return contentProps
-  }
-
   scrollToPage = pageNumber => {
     if (this.contentPager)
       this.contentPager.scrollToPage(pageNumber)
@@ -143,7 +113,6 @@ class TabbedPager extends PureComponent {
       ? (
         <View>
           <ViewPager
-            {...this._getContentProps()}
             ref={tabbar => {
               this.tabbar = tabbar
             }}
@@ -209,7 +178,6 @@ class TabbedPager extends PureComponent {
           initialPage={this.props.initialPage}
           onPageChange={this._onPageChange}
           onScroll={this._onScroll}
-          {...this._getContentProps()}
           thresholdPages={this.contentThresholdPages}
           experimentalMirroring={this.props.experimentalMirroring}
         />
