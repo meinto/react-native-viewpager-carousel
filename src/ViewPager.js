@@ -31,11 +31,11 @@ class ViewPager extends PureComponent {
     showNativeScrollIndicator: false,
     lazyrender: false,
     initialPage: {},
-    lazyRenderCount: 1,
+    lazyrenderThreshold: 1,
   }
 
   static propTypes = {
-    lazyRenderCount: PropTypes.number,
+    lazyrenderThreshold: PropTypes.number,
     contentContainerStyle: PropTypes.any,
     containerStyle: PropTypes.any,
     data: PropTypes.arrayOf(
@@ -382,7 +382,7 @@ class ViewPager extends PureComponent {
                 pageNumber={item._pageNumber}
                 lazyrender={this.props.lazyrender}
                 pageWidth={this.props.pageWidth}
-                lazyRenderCount={this.props.lazyRenderCount}
+                lazyrenderThreshold={this.props.lazyrenderThreshold}
               >
                 {this._renderPage(item, index)}
               </Page>

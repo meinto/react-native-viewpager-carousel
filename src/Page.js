@@ -16,12 +16,12 @@ export default class Page extends PureComponent {
     pageNumber: PropTypes.number,
     pageWidth: PropTypes.number,
     dev: PropTypes.bool,
-    lazyRenderCount: PropTypes.number,
+    lazyrenderThreshold: PropTypes.number,
     maxPageNumber: PropTypes.number,
   }
 
   static defaultProps = {
-    lazyRenderCount: 1,
+    lazyrenderThreshold: 1,
     dev: false,
     children: null,
     lazyrender: false,
@@ -65,7 +65,7 @@ export default class Page extends PureComponent {
       return true
     }
 
-    for (let i = 1; i <= this.props.lazyRenderCount; i++){
+    for (let i = 1; i <= this.props.lazyrenderThreshold; i++){
       if (pageNumber === this._getNextPageNumber(currentVisiblePageNumber, i)){
         return true
       }
