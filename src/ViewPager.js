@@ -173,9 +173,12 @@ class ViewPager extends PureComponent {
   _getPageIndexByKeyValuePair = keyValuePair => {
     const key = Object.keys(keyValuePair)[0]
     const value = keyValuePair[key]
-    const pageWithKeyValuePair = this.state.dataSource.find(page => {
-      return page[key] && page[key] === value
-    })
+    const pageWithKeyValuePair = this.state.dataSource
+      .filter(page => page._pageIndex > this.props.thresholdPages - 1)
+      .filter(page => page._pageIndex < this.props.data.length + this.props.thresholdPages)
+      .find(page => {
+        return page[key] && page[key] === value
+      })
     let pageIndex = 0
     if (pageWithKeyValuePair)
       pageIndex = pageWithKeyValuePair._pageIndex
