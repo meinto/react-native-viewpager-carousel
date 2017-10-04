@@ -64,13 +64,13 @@ class ViewPager extends PureComponent {
     this._pageWithDelta = (VIEWPORT_WIDTH - this.props.pageWidth) / 2
 
     this.pageReferences = {}
-    this.pageNumberBeforeDrag = 1
     this.data = this.props.data || []
     this.pageCount = this.data.length
     this.thresholdPages =
       this.props.renderAsCarousel &&
       this.pageCount > 1
         ? this.props.thresholdPages : 0
+    this.pageIndexBeforeDrag = this.thresholdPages 
 
     this.state = {
       dataSource: [...this._prepareData(this.props.data || [])],
@@ -221,8 +221,7 @@ class ViewPager extends PureComponent {
   }
 
   _onScrollBeginDrag = () => {
-    const pageNumber = this._getPageNumberByIndex(this.pageIndex)
-    this.pageNumberBeforeDrag = pageNumber
+    this.pageIndexBeforeDrag = this.pageIndex
   }
 
   _onMomentumScrollEnd = () => {
@@ -231,8 +230,8 @@ class ViewPager extends PureComponent {
       if (this.pageReferences[key])
         this.pageReferences[key].onPageChange(pageNumber)
     }
-    if (this.pageNumberBeforeDrag !== pageNumber) {
-      this.pageNumberBeforeDrag = pageNumber
+    if (this.pageIndexBeforeDrag !== this.pageIndex) {
+      this.pageIndexBeforeDrag = this.pageIndex
       this.props.onPageChange(pageNumber)
     }
   }
