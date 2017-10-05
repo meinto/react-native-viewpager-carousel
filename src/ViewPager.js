@@ -70,6 +70,7 @@ class ViewPager extends PureComponent {
       this.props.renderAsCarousel &&
       this.pageCount > 1
         ? this.props.thresholdPages : 0
+    this.pageIndex = this.thresholdPages
     this.pageIndexBeforeDrag = this.thresholdPages 
 
     this.state = {
@@ -104,7 +105,6 @@ class ViewPager extends PureComponent {
     this.setState({
       dataSource: newDataSource,
     })
-
 
 
   }
