@@ -68,6 +68,7 @@ class ExampleCarousel extends PureComponent {
 | pageWidth             | number    | {{screen width of device}} | width of page |
 | initialPage           | object    | {}      | key value pair of initial page: e. g. data=[{key:'page-a'}, {key:'page-b'}] & initialPage={{key:'page-b}} |
 | scrollEnabled         | boolean   | true    | decleares wether the ViewPager sould be able to scroll by user or not |
+| firePageChangeIfPassedScreenCenter | boolean | false | toggle's if onPageChange sould already be called when the dragged page passed half of the screen |
 | pageingEnabled        | boolean   | true    |  |
 | experimentalMirroring | boolean   | false   | toggles the mirroring of the scrollposition of the threshold views - more information [here](https://github.com/tobiasMeinhardt/react-native-mirror) |
 | showNativeScrollIndicator | boolean | false | native ScrollView indicator is disabled by default |
@@ -122,6 +123,7 @@ class ExampleCarousel extends PureComponent {
 | renderAsCarousel      | boolean   | true          | renders the <TabbedPager /> as endless carousel |
 | tabContainerPosition  | string    | 'top'         | could be 'top' \|\| 'bottom' - places the tab container on top of the viewpager or on the bottom side |  
 | scrollTabsEnabled     | boolean   | false         |  |
+| firePageChangeIfPassedScreenCenter | boolean | false | toggle's if onPageChange sould already be called when the dragged page passed half of the screen |
 | staticTabWidth        | number    | {{screen width of device / 2}} | |
 | initialPage           | object    | {}      | key value pair of initial page: e. g. data=[{key:'page-a'}, {key:'page-b'}] & initialPage={{key:'page-b}} |
 | showTabIndicator      | boolean   | true          | toggles the tab indicator |
