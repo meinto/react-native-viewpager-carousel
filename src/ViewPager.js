@@ -225,6 +225,10 @@ class ViewPager extends PureComponent {
         })
 
       }
+
+      setTimeout(() => {
+        this._onMomentumScrollEnd()
+      }, 50)
     }
 
     this.pageIndex = Math.round(scrollIndex)
@@ -249,14 +253,6 @@ class ViewPager extends PureComponent {
         this.pageReferences[key].onPageChange(pageNumber)
     }
     this._onPageChange()
-  }
-
-  _triggerOnMomentumScrollEnd = () => {
-    if (this._onMomentumScrollEndTimeout)
-      clearTimeout(this._onMomentumScrollEndTimeout)
-    this._onMomentumScrollEndTimeout = setTimeout(() => {
-      this._onMomentumScrollEnd()
-    }, 500)
   }
 
   _getScrollEnabled = () => {
@@ -299,7 +295,6 @@ class ViewPager extends PureComponent {
   }
 
   scrollToPage = pageNumber => {
-    this._triggerOnMomentumScrollEnd()
     this._scrollTo({
       animated: true,
       x: ((pageNumber - 1) + this.thresholdPages) * VIEWPORT_WIDTH,
@@ -312,7 +307,6 @@ class ViewPager extends PureComponent {
   }
 
   scrollToIndex = pageIndex => {
-    this._triggerOnMomentumScrollEnd()
     this._scrollTo({
       animated: true,
       x: pageIndex * VIEWPORT_WIDTH,
