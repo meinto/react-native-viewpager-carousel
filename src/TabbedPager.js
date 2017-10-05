@@ -31,6 +31,7 @@ class TabbedPager extends PureComponent {
     tabIndicatorColor: PropTypes.string,
     tabIndicatorHeight: PropTypes.number,
     scrollEnabled: PropTypes.bool,
+    firePageChangeIfPassedScreenCenter: PropTypes.bool,
 
     DividerComponent: PropTypes.any,
 
@@ -55,6 +56,7 @@ class TabbedPager extends PureComponent {
     tabIndicatorColor: 'transparent',
     tabIndicatorHeight: 2,
     scrollEnabled: true,
+    firePageChangeIfPassedScreenCenter: false,
 
     onPageChange: () => {},
     forceRerenderOnPageChange: false,
@@ -178,6 +180,7 @@ class TabbedPager extends PureComponent {
           containerStyle={this.props.fullScreen ? styles.fullScreen : null}
           renderPage={this._renderPage}
           scrollEnabled={this.props.scrollEnabled}
+          firePageChangeIfPassedScreenCenter={this.props.firePageChangeIfPassedScreenCenter}
           initialPage={this.props.initialPage}
           onPageChange={this._onPageChange}
           onScroll={this._onScroll}

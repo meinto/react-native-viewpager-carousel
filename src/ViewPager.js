@@ -32,6 +32,7 @@ class ViewPager extends PureComponent {
     lazyrender: false,
     initialPage: {},
     lazyrenderThreshold: 1,
+    firePageChangeIfPassedScreenCenter: false,
   }
 
   static propTypes = {
@@ -52,6 +53,7 @@ class ViewPager extends PureComponent {
     experimentalMirroring: PropTypes.bool,
     showNativeScrollIndicator: PropTypes.bool,
     lazyrender: PropTypes.bool,
+    firePageChangeIfPassedScreenCenter: PropTypes.bool,
 
     renderPage: PropTypes.func,
     onPageChange: PropTypes.func,
@@ -196,18 +198,26 @@ class ViewPager extends PureComponent {
     this.props.onScroll(offsetX)
 
 
-    this.pageIndex = Math.ceil(((offsetX + this._pageWithDelta) / this.props.pageWidth) * 100) / 100
+    const scrollIndex = Math.ceil(((offsetX + this._pageWithDelta) / this.props.pageWidth) * 100) / 100
 
+    // fire onPageChange if the dragged page passed half of the screen
+    if (
+      (this.pageIndexBeforeDrag + 0.5 < scrollIndex || 
+      this.pageIndexBeforeDrag - 0.5 > scrollIndex) &&
+      this.props.firePageChangeIfPassedScreenCenter
+    ) {
+      this._onPageChange()
+    }
 
-    if (this.props.renderAsCarousel && this.pageIndex % 1 < 0.03) {
-      if (Math.trunc(this.pageIndex) === 0) {
+    if (this.props.renderAsCarousel && scrollIndex % 1 < 0.03) {
+      if (Math.trunc(scrollIndex) === 0) {
 
         this._scrollTo({
           animated: false,
           x: VIEWPORT_WIDTH * (this.state.dataSource.length - 2),
         })
 
-      } else if (Math.trunc(this.pageIndex) === this.state.dataSource.length - 1) {
+      } else if (Math.trunc(scrollIndex) === this.state.dataSource.length - 1) {
 
         this._scrollTo({
           animated: false,
@@ -217,7 +227,15 @@ class ViewPager extends PureComponent {
       }
     }
 
-    this.pageIndex = Math.round(this.pageIndex)
+    this.pageIndex = Math.round(scrollIndex)
+  }
+
+  _onPageChange = () => {
+    if (this.pageIndexBeforeDrag !== this.pageIndex) {
+      const pageNumber = this._getPageNumberByIndex(this.pageIndex)
+      this.pageIndexBeforeDrag = this.pageIndex
+      this.props.onPageChange(pageNumber)
+    }
   }
 
   _onScrollBeginDrag = () => {
@@ -230,10 +248,7 @@ class ViewPager extends PureComponent {
       if (this.pageReferences[key])
         this.pageReferences[key].onPageChange(pageNumber)
     }
-    if (this.pageIndexBeforeDrag !== this.pageIndex) {
-      this.pageIndexBeforeDrag = this.pageIndex
-      this.props.onPageChange(pageNumber)
-    }
+    this._onPageChange()
   }
 
   _triggerOnMomentumScrollEnd = () => {
