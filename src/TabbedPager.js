@@ -30,6 +30,7 @@ class TabbedPager extends PureComponent {
     showTabIndicator: PropTypes.bool,
     tabIndicatorColor: PropTypes.string,
     tabIndicatorHeight: PropTypes.number,
+    tabsVisible: PropTypes.bool,
     scrollEnabled: PropTypes.bool,
     firePageChangeIfPassedScreenCenter: PropTypes.bool,
 
@@ -55,6 +56,7 @@ class TabbedPager extends PureComponent {
     showTabIndicator: true,
     tabIndicatorColor: 'transparent',
     tabIndicatorHeight: 2,
+    tabsVisible: true,
     scrollEnabled: true,
     firePageChangeIfPassedScreenCenter: false,
 
@@ -113,7 +115,7 @@ class TabbedPager extends PureComponent {
 
 
   _renderTabsContainer = (position) => {
-    return position === this.props.tabContainerPosition
+    return position === this.props.tabContainerPosition && this.props.tabsVisible
       ? (
         <View>
           <ViewPager
@@ -150,13 +152,15 @@ class TabbedPager extends PureComponent {
   }
 
   _renderDividerComponent = (position) => {
-    return position === this.props.tabContainerPosition
+    return position === this.props.tabContainerPosition && this.props.tabsVisible
       ? this.props.DividerComponent
       : null
   }
 
   _renderTab = ({data, _pageIndex}) => {
-    return this.props.renderTab({data, _pageIndex})
+    return this.props.tabsVisible
+      ? this.props.renderTab({data, _pageIndex})
+      : null
   }
 
   _renderPage = (item) => {
