@@ -1,6 +1,6 @@
 {
   "name": "react-native-viewpager-carousel",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "author": "Tobias Meinhardt <tobias.meinhardt89@gmail.com>",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "react-native-mirror": "0.0.19"
+    "react-native-mirror": "0.0.20"
   },
   "peerDependencies": {
     "react": "*",
