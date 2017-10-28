@@ -1,8 +1,8 @@
 # React Native Viewpager Carousel
 
 [![npm version](https://badge.fury.io/js/react-native-viewpager-carousel.svg)](https://badge.fury.io/js/react-native-viewpager-carousel)
-[![dependencie status](https://david-dm.org/tobiasMeinhardt/react-native-viewpager-carousel.svg)](https://david-dm.org/tobiasMeinhardt/react-native-viewpager-carousel)
-[![dev-dependency status](https://david-dm.org/tobiasMeinhardt/react-native-viewpager-carousel/dev-status.svg)](https://david-dm.org/tobiasMeinhardt/react-native-viewpager-carousel?type=dev)
+[![dependencie status](https://david-dm.org/meinto/react-native-viewpager-carousel.svg)](https://david-dm.org/meinto/react-native-viewpager-carousel)
+[![dev-dependency status](https://david-dm.org/meinto/react-native-viewpager-carousel/dev-status.svg)](https://david-dm.org/meinto/react-native-viewpager-carousel?type=dev)
 [![npm](https://img.shields.io/npm/dm/react-native-viewpager-carousel.svg)](https://www.npmjs.com/package/react-native-viewpager-carousel)
 [![npm](https://img.shields.io/npm/dt/react-native-viewpager-carousel.svg)](https://www.npmjs.com/package/react-native-viewpager-carousel)
 
@@ -70,7 +70,7 @@ class ExampleCarousel extends PureComponent {
 | scrollEnabled         | boolean   | true    | decleares wether the ViewPager sould be able to scroll by user or not |
 | firePageChangeIfPassedScreenCenter | boolean | false | toggle's if onPageChange sould already be called when the dragged page passed half of the screen |
 | pageingEnabled        | boolean   | true    |  |
-| experimentalMirroring | boolean   | false   | toggles the mirroring of the scrollposition of the threshold views - more information [here](https://github.com/tobiasMeinhardt/react-native-mirror) |
+| experimentalMirroring | boolean   | false   | toggles the mirroring of the scrollposition of the threshold views - more information [here](https://github.com/meinto/react-native-mirror) |
 | showNativeScrollIndicator | boolean | false | native ScrollView indicator is disabled by default |
 | renderPage            | function | () => {} | render callback for content page |
 | onPageChange          | function | () => {} | callback when the page changes -> retuns the current pageNumber as first argument |
@@ -129,8 +129,9 @@ class ExampleCarousel extends PureComponent {
 | showTabIndicator      | boolean   | true          | toggles the tab indicator |
 | tabIndicatorColor     | string    | 'transparent' | changes the color of the tab indicator |
 | tabIndicatorHeight    | number    | 2             | height of tab indicator |
+| tabsVisible           | boolean   | true          | indicates if tabs should be visible or not |
 | DividerComponent      | any       | null          | renders a given Component between the tabs and the content area |
 | renderPage            | function  | () => {}      | render callback for content page |
 | renderTab             | function  | () => {}      | render callback for the tab |
 | onPageChange          | function  | () => {}      | callback when the page changes -> retuns the current pageNumber as first argument |
-| experimentalMirroring | boolean   | false         | toggles the mirroring of the scrollposition of the threshold views - more information [here](https://github.com/tobiasMeinhardt/react-native-mirror) |
+| experimentalMirroring | boolean   | false         | toggles the mirroring of the scrollposition of the threshold views - more information [here](https://github.com/meinto/react-native-mirror) |
