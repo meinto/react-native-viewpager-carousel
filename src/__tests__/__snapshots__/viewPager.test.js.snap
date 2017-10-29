@@ -1,5 +1,174 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<ViewPager /> tests method tests tests _getCurrentScrollIndex 1`] = `
+Array [
+  Object {
+    "input": 0,
+    "output": 0,
+  },
+  Object {
+    "input": 100,
+    "output": 0.13,
+  },
+  Object {
+    "input": 200,
+    "output": 0.25,
+  },
+  Object {
+    "input": 300,
+    "output": 0.38,
+  },
+  Object {
+    "input": 400,
+    "output": 0.5,
+  },
+  Object {
+    "input": 500,
+    "output": 0.63,
+  },
+  Object {
+    "input": 600,
+    "output": 0.75,
+  },
+  Object {
+    "input": 700,
+    "output": 0.88,
+  },
+  Object {
+    "input": 800,
+    "output": 1,
+  },
+  Object {
+    "input": 900,
+    "output": 1.13,
+  },
+  Object {
+    "input": 1000,
+    "output": 1.25,
+  },
+  Object {
+    "input": 1100,
+    "output": 1.38,
+  },
+  Object {
+    "input": 1200,
+    "output": 1.5,
+  },
+  Object {
+    "input": 1300,
+    "output": 1.63,
+  },
+  Object {
+    "input": 1400,
+    "output": 1.75,
+  },
+  Object {
+    "input": 1500,
+    "output": 1.88,
+  },
+  Object {
+    "input": 1600,
+    "output": 2,
+  },
+  Object {
+    "input": 1700,
+    "output": 2.13,
+  },
+  Object {
+    "input": 1800,
+    "output": 2.25,
+  },
+  Object {
+    "input": 1900,
+    "output": 2.38,
+  },
+  Object {
+    "input": 2000,
+    "output": 2.5,
+  },
+  Object {
+    "input": 2100,
+    "output": 2.63,
+  },
+  Object {
+    "input": 2200,
+    "output": 2.75,
+  },
+  Object {
+    "input": 2300,
+    "output": 2.88,
+  },
+  Object {
+    "input": 2400,
+    "output": 3,
+  },
+  Object {
+    "input": 2500,
+    "output": 3.13,
+  },
+  Object {
+    "input": 2600,
+    "output": 3.25,
+  },
+  Object {
+    "input": 2700,
+    "output": 3.38,
+  },
+  Object {
+    "input": 2800,
+    "output": 3.5,
+  },
+  Object {
+    "input": 2900,
+    "output": 3.63,
+  },
+  Object {
+    "input": 3000,
+    "output": 3.75,
+  },
+  Object {
+    "input": 3100,
+    "output": 3.88,
+  },
+  Object {
+    "input": 3200,
+    "output": 4,
+  },
+  Object {
+    "input": 3300,
+    "output": 4.13,
+  },
+  Object {
+    "input": 3400,
+    "output": 4.25,
+  },
+  Object {
+    "input": 3500,
+    "output": 4.38,
+  },
+  Object {
+    "input": 3600,
+    "output": 4.5,
+  },
+  Object {
+    "input": 3700,
+    "output": 4.63,
+  },
+  Object {
+    "input": 3800,
+    "output": 4.75,
+  },
+  Object {
+    "input": 3900,
+    "output": 4.88,
+  },
+  Object {
+    "input": 4000,
+    "output": 5,
+  },
+]
+`;
+
 exports[`<ViewPager /> tests property tests tests a set pageWidth of 50 1`] = `
 <View
   style={

@@ -284,28 +284,57 @@ describe('<ViewPager /> tests', () => {
     // it('tests _getPageIndexByKeyValuePair', () => {})
     // it('tests _scrollTo', () => {})
 
-    // it('tests _getCurrentScrollIndex', () => {
-    //   const instance = new ViewPager(props)
-    //   const curr = instance._getCurrentScrollIndex(12)
-    //   console.log(curr)
-    // })
+    it('tests _getCurrentScrollIndex', () => {
+      const instance = new ViewPager(props)
+      let snaps = []
+      for (let i = 0; i <= 4000; i += 100) {
+        snaps = [...snaps, { input: i, output: instance._getCurrentScrollIndex(i) }]
+      }
+      expect(snaps).toMatchSnapshot()
+    })
 
     describe('_onScroll tests', () => {
-      it('tests onScroll is called with current contentOffset.x', () => {
-        const instance = new ViewPager(props)
 
-        const nativeScrollEvent = {
+      let nativeScrollEvent = null
+      beforeEach(() => {
+        nativeScrollEvent = {
           nativeEvent: {
-            contentOffset: { x: 12 },
+            contentOffset: { x: 120 },
           },
         }
+      })
 
+      it('tests onScroll is called with current contentOffset.x', () => {
+        const instance = new ViewPager(props)
         instance._onScroll(nativeScrollEvent)
         expect(props.onScroll).toHaveBeenCalledWith(nativeScrollEvent.nativeEvent.contentOffset.x)
       })
 
-      // it(`tests _onPageChange is called property "firePageChangeIfPassedScreenCenter" is true and
-      //     the next visible page passes the half of the screen`, () => {})
+      it(`tests _onPageChange is called property "firePageChangeIfPassedScreenCenter" is true and
+          the next visible page passes the half of the screen`, () => {
+          props.firePageChangeIfPassedScreenCenter = true
+          const instance = new ViewPager({
+            ...ViewPager.initialProps,
+            ...props,
+          })
+          instance.pageIndexBeforeDrag = 1
+          instance._onPageChange = jest.fn()
+
+          nativeScrollEvent.nativeEvent.contentOffset.x = 400
+          instance._onScroll(nativeScrollEvent)
+          expect(instance._onPageChange).not.toHaveBeenCalled()
+
+          instance._onPageChange.mockReset()
+          nativeScrollEvent.nativeEvent.contentOffset.x = 390
+          instance._onScroll(nativeScrollEvent)
+          expect(instance._onPageChange).toHaveBeenCalled()
+
+          instance._onPageChange.mockReset()
+          nativeScrollEvent.nativeEvent.contentOffset.x = 1210
+          instance._onScroll(nativeScrollEvent)
+          expect(instance._onPageChange).toHaveBeenCalled()
+        })
+        
       // it(`tests that the position of the ScrollView jumps to the corresponding page
       //     at the end of the ScrollView when the  user scrolls in the front threshold page area`, () => {})
       // it(`tests that the position of the ScrollView jumps to the corresponding page
@@ -357,6 +386,7 @@ describe('<ViewPager /> tests', () => {
 
     //     this.pageIndex = Math.round(scrollIndex)
     //   }
+    
 
     // it('tests _onPageChange', () => {})
     // it('tests _onScrollBeginDrag', () => {})
