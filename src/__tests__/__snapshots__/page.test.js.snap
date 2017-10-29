@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`tests the Page Component snapshot standard component with props 1`] = `
+exports[`tests the Page Component snapshots standard component with props 1`] = `
 <View
   style={
     Object {
@@ -11,7 +11,7 @@ exports[`tests the Page Component snapshot standard component with props 1`] = `
 />
 `;
 
-exports[`tests the Page Component snapshot standard component without props 1`] = `
+exports[`tests the Page Component snapshots standard component without props 1`] = `
 <View
   style={
     Object {
