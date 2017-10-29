@@ -157,12 +157,17 @@ describe('<ViewPager /> tests', () => {
       }))
     })
 
-  //   _setPageIndex = data => {
-  //   return data.map((_data, index) => {
-  //     return Object.assign({}, _data, {
-  //       _pageIndex: index,
-  //     })
-  //   })
-  // }
+    it('tests that _setPageIndex extends given page data with the assosiated page index', () => {
+      const instance = new ViewPager(props)
+      const extendedPageData = instance._setPageIndex(props.data)
+      expect(extendedPageData).toEqual(props.data.map((data, index) => {
+        return {
+          ...data,
+          _pageIndex: index,
+        }
+      }))
+    })
+
+    
   })
 })
