@@ -3,9 +3,14 @@
 exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
 <View
   style={
-    Object {
-      "containerStyle": "containerStyle",
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+      },
+      Object {
+        "containerStyle": "containerStyle",
+      },
+    ]
   }
 >
   <RCTScrollView
@@ -35,7 +40,10 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
   >
     <View>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={4}
         pageWidth={750}
       >
@@ -62,7 +70,10 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={1}
         pageWidth={750}
       >
@@ -89,7 +100,10 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={2}
         pageWidth={750}
       >
@@ -116,7 +130,10 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={3}
         pageWidth={750}
       >
@@ -143,7 +160,10 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={4}
         pageWidth={750}
       >
@@ -170,7 +190,10 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={1}
         pageWidth={750}
       >
@@ -203,7 +226,14 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
 
 exports[`<ViewPager /> tests snapshots the component without props 1`] = `
 <View
-  style={undefined}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+      },
+      undefined,
+    ]
+  }
 >
   <RCTScrollView
     contentContainerStyle={
@@ -223,7 +253,7 @@ exports[`<ViewPager /> tests snapshots the component without props 1`] = `
     onScroll={[Function]}
     onScrollBeginDrag={[Function]}
     pagingEnabled={true}
-    scrollEnabled={true}
+    scrollEnabled={false}
     scrollEventThrottle={1}
     showsHorizontalScrollIndicator={false}
     showsVerticalScrollIndicator={false}
@@ -236,9 +266,14 @@ exports[`<ViewPager /> tests snapshots the component without props 1`] = `
 exports[`<ViewPager /> tests tests a set pageWidth of 50 1`] = `
 <View
   style={
-    Object {
-      "containerStyle": "containerStyle",
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+      },
+      Object {
+        "containerStyle": "containerStyle",
+      },
+    ]
   }
 >
   <RCTScrollView
@@ -261,14 +296,17 @@ exports[`<ViewPager /> tests tests a set pageWidth of 50 1`] = `
     onScroll={[Function]}
     onScrollBeginDrag={[Function]}
     pagingEnabled={true}
-    scrollEnabled={true}
+    scrollEnabled={false}
     scrollEventThrottle={1}
     showsHorizontalScrollIndicator={false}
     showsVerticalScrollIndicator={false}
   >
     <View>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={4}
         pageWidth={50}
       >
@@ -295,7 +333,10 @@ exports[`<ViewPager /> tests tests a set pageWidth of 50 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={1}
         pageWidth={50}
       >
@@ -322,7 +363,10 @@ exports[`<ViewPager /> tests tests a set pageWidth of 50 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={2}
         pageWidth={50}
       >
@@ -349,7 +393,10 @@ exports[`<ViewPager /> tests tests a set pageWidth of 50 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={3}
         pageWidth={50}
       >
@@ -376,7 +423,10 @@ exports[`<ViewPager /> tests tests a set pageWidth of 50 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={4}
         pageWidth={50}
       >
@@ -403,7 +453,10 @@ exports[`<ViewPager /> tests tests a set pageWidth of 50 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={1}
         pageWidth={50}
       >
@@ -437,9 +490,14 @@ exports[`<ViewPager /> tests tests a set pageWidth of 50 1`] = `
 exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the outer views within a <Mirror /> component 1`] = `
 <View
   style={
-    Object {
-      "containerStyle": "containerStyle",
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+      },
+      Object {
+        "containerStyle": "containerStyle",
+      },
+    ]
   }
 >
   <RCTScrollView
@@ -469,7 +527,10 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
   >
     <View>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={4}
         pageWidth={750}
       >
@@ -511,7 +572,10 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
         </Mirror>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={1}
         pageWidth={750}
       >
@@ -553,7 +617,10 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
         </Mirror>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={2}
         pageWidth={750}
       >
@@ -580,7 +647,10 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={3}
         pageWidth={750}
       >
@@ -607,7 +677,10 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={4}
         pageWidth={750}
       >
@@ -649,7 +722,10 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
         </Mirror>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={1}
         pageWidth={750}
       >
@@ -698,9 +774,14 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
 exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
 <View
   style={
-    Object {
-      "containerStyle": "containerStyle",
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+      },
+      Object {
+        "containerStyle": "containerStyle",
+      },
+    ]
   }
 >
   <RCTScrollView
@@ -730,7 +811,10 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
   >
     <View>
       <Page
+        dev={false}
         lazyrender={true}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={4}
         pageWidth={750}
       >
@@ -757,7 +841,10 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={true}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={1}
         pageWidth={750}
       >
@@ -784,7 +871,10 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={true}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={2}
         pageWidth={750}
       >
@@ -811,7 +901,10 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={true}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={3}
         pageWidth={750}
       >
@@ -838,7 +931,10 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={true}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={4}
         pageWidth={750}
       >
@@ -865,7 +961,10 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={true}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={1}
         pageWidth={750}
       >
@@ -899,9 +998,14 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
 exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
 <View
   style={
-    Object {
-      "containerStyle": "containerStyle",
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+      },
+      Object {
+        "containerStyle": "containerStyle",
+      },
+    ]
   }
 >
   <RCTScrollView
@@ -931,7 +1035,10 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
   >
     <View>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={4}
         pageWidth={750}
       >
@@ -958,7 +1065,10 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={1}
         pageWidth={750}
       >
@@ -985,7 +1095,10 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={2}
         pageWidth={750}
       >
@@ -1012,7 +1125,10 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={3}
         pageWidth={750}
       >
@@ -1039,7 +1155,10 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={4}
         pageWidth={750}
       >
@@ -1066,7 +1185,10 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={1}
         pageWidth={750}
       >
@@ -1100,9 +1222,14 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
 exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
 <View
   style={
-    Object {
-      "containerStyle": "containerStyle",
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+      },
+      Object {
+        "containerStyle": "containerStyle",
+      },
+    ]
   }
 >
   <RCTScrollView
@@ -1132,7 +1259,10 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
   >
     <View>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={4}
         pageWidth={750}
       >
@@ -1159,7 +1289,10 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={1}
         pageWidth={750}
       >
@@ -1186,7 +1319,10 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={2}
         pageWidth={750}
       >
@@ -1213,7 +1349,10 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={3}
         pageWidth={750}
       >
@@ -1240,7 +1379,10 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={4}
         pageWidth={750}
       >
@@ -1267,7 +1409,10 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={1}
         pageWidth={750}
       >
@@ -1301,9 +1446,14 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
 exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properly 1`] = `
 <View
   style={
-    Object {
-      "containerStyle": "containerStyle",
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+      },
+      Object {
+        "containerStyle": "containerStyle",
+      },
+    ]
   }
 >
   <RCTScrollView
@@ -1333,7 +1483,10 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
   >
     <View>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={4}
         pageWidth={750}
       >
@@ -1360,7 +1513,10 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={1}
         pageWidth={750}
       >
@@ -1387,7 +1543,10 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={2}
         pageWidth={750}
       >
@@ -1414,7 +1573,10 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={3}
         pageWidth={750}
       >
@@ -1441,7 +1603,10 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={4}
         pageWidth={750}
       >
@@ -1468,7 +1633,10 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
         </View>
       </Page>
       <Page
+        dev={false}
         lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
         pageNumber={1}
         pageWidth={750}
       >

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests the Page Component snapshot standard component with props 1`] = `
+<View
+  style={
+    Object {
+      "borderWidth": 0,
+      "width": 750,
+    }
+  }
+/>
+`;
+
+exports[`tests the Page Component snapshot standard component without props 1`] = `
+<View
+  style={
+    Object {
+      "borderWidth": 0,
+      "width": 750,
+    }
+  }
+/>
+`;
