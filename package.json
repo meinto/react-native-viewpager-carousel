@@ -29,7 +29,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "react-native-mirror": "0.0.20"
+    "react-native-mirror": "0.0.21"
   },
   "peerDependencies": {
     "react": "*",
