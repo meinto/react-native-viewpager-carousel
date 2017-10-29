@@ -110,6 +110,58 @@ export default class ViewPager extends PureComponent {
     })
   }
 
+  /*
+   * public methods
+   */
+  scroll = dx => {
+    const realPageWidth = VIEWPORT_WIDTH / this.props.pageWidth
+    const realPageWidthTrunc = Math.trunc(realPageWidth)
+    
+    const centerPageDelta = realPageWidthTrunc % 2 === 0
+      ? -(this.props.pageWidth / 2 + this.props.pageWidth * (realPageWidthTrunc / 2 - 1))
+      : -this.props.pageWidth * (Math.floor(realPageWidthTrunc / 2))
+      
+    const thresholdOffset = this.props.renderAsCarousel ? (this.props.pageWidth * this.thresholdPages + centerPageDelta) : 0
+
+    let centeredScrollX = dx / (realPageWidth) - this.props.pageWidth + thresholdOffset
+    const xBiggerThanZero = centeredScrollX > 0
+    const xBiggerThanScrollViewWitdh = (centeredScrollX + VIEWPORT_WIDTH)
+      > (this.pageCount + this.thresholdPages) * this.props.pageWidth
+
+    if (!xBiggerThanZero && !this.props.renderAsCarousel)
+      centeredScrollX = 0
+
+    if (xBiggerThanScrollViewWitdh && !this.props.renderAsCarousel)
+      centeredScrollX = ((this.pageCount + this.thresholdPages) * this.props.pageWidth) - VIEWPORT_WIDTH
+
+    this._scrollTo({
+      animated: false,
+      x: centeredScrollX,
+    })
+  }
+
+  scrollToPage = pageNumber => {
+    this._scrollTo({
+      animated: true,
+      x: ((pageNumber - 1) + this.thresholdPages) * VIEWPORT_WIDTH,
+    })
+  }
+
+  scrollToPageWithKeyValuePair = keyValuePair => {
+    const pageIndex = this._getPageIndexByKeyValuePair(keyValuePair)
+    this.scrollToIndex(pageIndex)
+  }
+
+  scrollToIndex = pageIndex => {
+    this._scrollTo({
+      animated: true,
+      x: pageIndex * VIEWPORT_WIDTH,
+    })
+  }
+
+  /*
+   * private methods
+   */
   _setPageNumber = (data) => {
     return data.map((_data, index) => {
       return Object.assign({}, _data, {
@@ -140,9 +192,7 @@ export default class ViewPager extends PureComponent {
     }
 
     const thresholdFront = thresholdDataFront.slice(0, this.thresholdPages).reverse()
-
     const thresholdEnd = thresholdDataEnd.slice(0, this.thresholdPages)
-
     preparedData = [...thresholdFront, ...data, ...thresholdEnd]
 
     return preparedData
@@ -152,11 +202,9 @@ export default class ViewPager extends PureComponent {
     const initializedData = this._setPageNumber(data)
 
     let preparedData = [...initializedData]
-
     if (this.props.renderAsCarousel) {
       preparedData = this._addThresholdPages(initializedData)
     }
-
     preparedData = this._setPageIndex(preparedData)
 
     return [...preparedData]
@@ -261,56 +309,6 @@ export default class ViewPager extends PureComponent {
       this.pageCount > 1 &&
       (this.pageCount + this.thresholdPages) * this.props.pageWidth > VIEWPORT_WIDTH
     )
-  }
-
-  /*
-   * public methods
-   */
-
-  scroll = dx => {
-    const realPageWidth = VIEWPORT_WIDTH / this.props.pageWidth
-    const realPageWidthTrunc = Math.trunc(realPageWidth)
-    
-    const centerPageDelta = realPageWidthTrunc % 2 === 0
-      ? -(this.props.pageWidth / 2 + this.props.pageWidth * (realPageWidthTrunc / 2 - 1))
-      : -this.props.pageWidth * (Math.floor(realPageWidthTrunc / 2))
-      
-    const thresholdOffset = this.props.renderAsCarousel ? (this.props.pageWidth * this.thresholdPages + centerPageDelta) : 0
-
-    let centeredScrollX = dx / (realPageWidth) - this.props.pageWidth + thresholdOffset
-    const xBiggerThanZero = centeredScrollX > 0
-    const xBiggerThanScrollViewWitdh = (centeredScrollX + VIEWPORT_WIDTH)
-      > (this.pageCount + this.thresholdPages) * this.props.pageWidth
-
-    if (!xBiggerThanZero && !this.props.renderAsCarousel)
-      centeredScrollX = 0
-
-    if (xBiggerThanScrollViewWitdh && !this.props.renderAsCarousel)
-      centeredScrollX = ((this.pageCount + this.thresholdPages) * this.props.pageWidth) - VIEWPORT_WIDTH
-
-    this._scrollTo({
-      animated: false,
-      x: centeredScrollX,
-    })
-  }
-
-  scrollToPage = pageNumber => {
-    this._scrollTo({
-      animated: true,
-      x: ((pageNumber - 1) + this.thresholdPages) * VIEWPORT_WIDTH,
-    })
-  }
-
-  scrollToPageWithKeyValuePair = keyValuePair => {
-    const pageIndex = this._getPageIndexByKeyValuePair(keyValuePair)
-    this.scrollToIndex(pageIndex)
-  }
-
-  scrollToIndex = pageIndex => {
-    this._scrollTo({
-      animated: true,
-      x: pageIndex * VIEWPORT_WIDTH,
-    })
   }
 
   /*
