@@ -8,6 +8,9 @@
 [![travis build](https://travis-ci.org/meinto/react-native-viewpager-carousel.svg?branch=master)](https://travis-ci.org/meinto/react-native-viewpager-carousel)
 
 
+## Contribution
+
+Feel free to make a pull request. I'm happy about every contribution.
 
 ## Installation
 
