@@ -168,6 +168,70 @@ describe('<ViewPager /> tests', () => {
       }))
     })
 
-    
+    describe('_prepareData tests', () => {
+      it('tests that _setPageNumber would be called with given page data', () => {
+        const instance = new ViewPager(props)
+
+        instance._setPageNumber = jest.fn(data => data)
+
+        instance._prepareData(props.data)
+        expect(instance._setPageNumber).toHaveBeenCalledWith(props.data)
+      })
+
+      describe('threshold page preperations', () => {
+        it(`tests that the prepared page data has threshold pages at the beginning and at the end of the returned array
+          if the component is used as a carousel and threshold pages are bigger than zero`, () => {
+            props.renderAsCarousel = true
+            props.thresholdPages = 2
+            const instance = new ViewPager(props)
+
+            const preparedPageData = instance._prepareData(props.data)
+            const preparedPageNumbers = preparedPageData.map(data => {
+              return data._pageNumber
+            })
+            expect(preparedPageNumbers).toEqual([3, 4, 1, 2, 3, 4, 1, 2])
+          })
+
+        it(`tests that the prepared page data is equal the given data
+            if the component is used as a carousel and threshold pages are zero`, () => {
+            props.renderAsCarousel = true
+            props.thresholdPages = 0
+            const instance = new ViewPager(props)
+
+            const preparedPageData = instance._prepareData(props.data)
+            const preparedPageNumbers = preparedPageData.map(data => {
+              return data._pageNumber
+            })
+            expect(preparedPageNumbers).toEqual([1, 2, 3, 4])
+          })
+      })
+
+      it('tests that prepared page data is as big as given page data when component is used without carousel option', () => {
+        props.renderAsCarousel = false
+        props.thresholdPages = 2
+        const instance = new ViewPager(props)
+
+        const preparedPageData = instance._prepareData(props.data)
+        const preparedPageNumbers = preparedPageData.map(data => {
+          return data._pageNumber
+        })
+        expect(preparedPageNumbers).toEqual([1, 2, 3, 4])
+      })
+
+      it('tests that prepared page data contains an index and a pageNumber', () => {
+        props.renderAsCarousel = true
+        props.thresholdPages = 2
+        const instance = new ViewPager(props)
+
+        const preparedPageData = instance._prepareData(props.data)
+        const expections = 3
+        expect.assertions(preparedPageData.length * expections)
+        preparedPageData.forEach((data, index) => {
+          expect(data.hasOwnProperty('_pageNumber')).toBeTruthy()    
+          expect(data.hasOwnProperty('_pageIndex')).toBeTruthy()    
+          expect(data._pageIndex).toBe(index)    
+        })
+      })
+    })
   })
 })
