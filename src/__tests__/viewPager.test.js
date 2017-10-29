@@ -40,6 +40,8 @@ describe('<ViewPager /> tests', () => {
       renderPage: ({data, _pageIndex}) => ( // eslint-disable-line
         <Text>{`${data.title} | pageIndex: ${_pageIndex}`}</Text>
       ),
+
+      onScroll: jest.fn(),
     }
   })
 
@@ -237,7 +239,74 @@ describe('<ViewPager /> tests', () => {
     // it('tests _getPageNumberByIndex', () => {})
     // it('tests _getPageIndexByKeyValuePair', () => {})
     // it('tests _scrollTo', () => {})
-    // it('tests _onScroll', () => {})
+
+    describe('_onScroll tests', () => {
+      it('tests onScroll is called with current contentOffset.x', () => {
+        const instance = new ViewPager(props)
+
+        const nativeScrollEvent = {
+          nativeEvent: {
+            contentOffset: { x: 12 },
+          },
+        }
+
+        instance._onScroll(nativeScrollEvent)
+        expect(props.onScroll).toHaveBeenCalledWith(nativeScrollEvent.nativeEvent.contentOffset.x)
+      })
+
+      // it(`tests _onPageChange is called property "firePageChangeIfPassedScreenCenter" is true and
+      //     the next visible page passes the half of the screen`, () => {})
+      // it(`tests that the position of the ScrollView jumps to the corresponding page
+      //     at the end of the ScrollView when the  user scrolls in the front threshold page area`, () => {})
+      // it(`tests that the position of the ScrollView jumps to the corresponding page
+      //     at the front of the ScrollView when the  user scrolls in the end threshold page area`, () => {})
+      // it('tests that _onMomentumScrollEnd would be called 50 ms after scroll event ends', () => {
+      //   // TODO: clear timeout
+      // })
+      // it('tests that the class inner pageIndex is set properly to an integer', () => {})
+    })
+
+    // _onScroll = (event) => {
+    //     const offsetX = event.nativeEvent.contentOffset.x
+    //     this.props.onScroll(offsetX)
+
+
+    //     const scrollIndex = Math.ceil(((offsetX + this._pageWithDelta) / this.props.pageWidth) * 100) / 100
+
+    //     // fire onPageChange if the dragged page passed half of the screen
+    //     if (
+    //       (this.pageIndexBeforeDrag + 0.5 < scrollIndex || 
+    //       this.pageIndexBeforeDrag - 0.5 > scrollIndex) &&
+    //       this.props.firePageChangeIfPassedScreenCenter
+    //     ) {
+    //       this._onPageChange()
+    //     }
+
+    //     if (this.props.renderAsCarousel && scrollIndex % 1 < 0.03) {
+    //       if (Math.trunc(scrollIndex) === 0) {
+
+    //         this._scrollTo({
+    //           animated: false,
+    //           x: VIEWPORT_WIDTH * (this.state.dataSource.length - 2),
+    //         })
+
+    //       } else if (Math.trunc(scrollIndex) === this.state.dataSource.length - 1) {
+
+    //         this._scrollTo({
+    //           animated: false,
+    //           x: VIEWPORT_WIDTH,
+    //         })
+
+    //       }
+
+    //       setTimeout(() => {
+    //         this._onMomentumScrollEnd()
+    //       }, 50)
+    //     }
+
+    //     this.pageIndex = Math.round(scrollIndex)
+    //   }
+
     // it('tests _onPageChange', () => {})
     // it('tests _onScrollBeginDrag', () => {})
     // it('tests _onMomentumScrollEnd', () => {})
