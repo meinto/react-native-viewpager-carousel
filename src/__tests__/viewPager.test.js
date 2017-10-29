@@ -233,5 +233,20 @@ describe('<ViewPager /> tests', () => {
         })
       })
     })
+    
+    // it('tests _getPageNumberByIndex', () => {})
+    // it('tests _getPageIndexByKeyValuePair', () => {})
+    // it('tests _scrollTo', () => {})
+    // it('tests _onScroll', () => {})
+    // it('tests _onPageChange', () => {})
+    // it('tests _onScrollBeginDrag', () => {})
+    // it('tests _onMomentumScrollEnd', () => {})
+    // it('tests _getScrollEnabled', () => {})
+
+    // it('tests scroll', () => {})
+    // it('tests scrollToPage', () => {})
+    // it('tests scrollToPageWithKeyValuePair', () => {})
+    // it('tests scrollToIndex', () => {})
+
   })
 })

@@ -126,34 +126,35 @@ export default class ViewPager extends PureComponent {
     })
   }
 
-  _prepareData = (data) => {
-
-    const initializedData = this._setPageNumber(data)
-
+  _addThresholdPages = data => {
     let preparedData = []
 
+    const multiplicator = data.length > 0 ? Math.ceil(this.thresholdPages / data.length) : 0
+
+    let thresholdDataFront = []
+    let thresholdDataEnd = []
+
+    for (let i = 0; i < multiplicator; i++) {
+      thresholdDataFront = [...thresholdDataFront, ...[...data].reverse()]
+      thresholdDataEnd = [...thresholdDataEnd, ...data]
+    }
+
+    const thresholdFront = thresholdDataFront.slice(0, this.thresholdPages).reverse()
+
+    const thresholdEnd = thresholdDataEnd.slice(0, this.thresholdPages)
+
+    preparedData = [...thresholdFront, ...data, ...thresholdEnd]
+
+    return preparedData
+  }
+
+  _prepareData = (data) => {
+    const initializedData = this._setPageNumber(data)
+
+    let preparedData = [...initializedData]
+
     if (this.props.renderAsCarousel) {
-
-      const multiplicator = data.length > 0 ? Math.ceil(this.thresholdPages / data.length) : 0
-
-      let thresholdDataFront = []
-      let thresholdDataEnd = []
-
-      for (let i = 0; i < multiplicator; i++) {
-        thresholdDataFront = [...thresholdDataFront, ...[...initializedData].reverse()]
-        thresholdDataEnd = [...thresholdDataEnd, ...initializedData]
-      }
-
-      const thresholdFront = thresholdDataFront.slice(0, this.thresholdPages).reverse()
-
-      const thresholdEnd = thresholdDataEnd.slice(0, this.thresholdPages)
-
-      preparedData = [...thresholdFront, ...initializedData, ...thresholdEnd]
-
-    } else {
-
-      preparedData = [...initializedData]
-
+      preparedData = this._addThresholdPages(initializedData)
     }
 
     preparedData = this._setPageIndex(preparedData)
