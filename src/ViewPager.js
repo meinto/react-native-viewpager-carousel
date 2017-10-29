@@ -66,6 +66,7 @@ export default class ViewPager extends PureComponent {
 
     this._pageWithDelta = (VIEWPORT_WIDTH - this.props.pageWidth) / 2
 
+
     this.pageReferences = {}
     this.data = this.props.data || []
     this.pageCount = this.data.length
@@ -241,12 +242,15 @@ export default class ViewPager extends PureComponent {
     }
   }
 
+  _getCurrentScrollIndex = offsetX => {
+    return Math.ceil(((offsetX + this._pageWithDelta) / this.props.pageWidth) * 100) / 100
+  }
+
   _onScroll = (event) => {
     const offsetX = event.nativeEvent.contentOffset.x
     this.props.onScroll(offsetX)
 
-
-    const scrollIndex = Math.ceil(((offsetX + this._pageWithDelta) / this.props.pageWidth) * 100) / 100
+    const scrollIndex = this._getCurrentScrollIndex(offsetX)
 
     // fire onPageChange if the dragged page passed half of the screen
     if (

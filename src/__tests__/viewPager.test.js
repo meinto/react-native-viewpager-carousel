@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { Text, Dimensions } from 'react-native'
 import renderer from 'react-test-renderer'
 
 import ViewPager from '../ViewPager'
@@ -26,11 +26,13 @@ jest.useFakeTimers()
 describe('<ViewPager /> tests', () => {
 
   let props = {}
+  const VIEWPORT_WIDTH = Dimensions.get('window').width
 
   beforeEach(() => {
     props = {
       contentContainerStyle: {},
       containerStyle: {},
+      pageWidth: VIEWPORT_WIDTH,
       data: [
         { title: 'mock page 1' },
         { title: 'mock page 2' },
@@ -40,7 +42,7 @@ describe('<ViewPager /> tests', () => {
       renderPage: ({data, _pageIndex}) => ( // eslint-disable-line
         <Text>{`${data.title} | pageIndex: ${_pageIndex}`}</Text>
       ),
-
+      thresholdPages: 2,
       onScroll: jest.fn(),
     }
   })
@@ -130,6 +132,48 @@ describe('<ViewPager /> tests', () => {
   })
   
   describe('method tests', () => {
+    describe('constructor tests', () => {
+      it('tests that all class variables are set properly after initialization with given props', () => {
+        const instance = new ViewPager({
+          ...ViewPager.defaultProps,
+          ...props,
+        })
+
+        expect(instance._pageWithDelta).toBe(0)
+        expect(instance.pageReferences).toEqual({})
+        expect(instance.data).toEqual(props.data)
+        expect(instance.pageCount).toEqual(props.data.length)
+        expect(instance.thresholdPages).toBe(props.thresholdPages)
+        expect(instance.pageIndex).toBe(props.thresholdPages)
+        expect(instance.pageIndexBeforeDrag).toBe(props.thresholdPages)
+
+        // TODO: test that this.state is set properly
+        // TODO: test that this.contentContainerStyle is set properly
+      })
+    
+      it('tests that instance variable "thresholdPages" will be zero if renderAsCarousel = false', () => {
+        props.renderAsCarousel = false
+        const instance = new ViewPager({
+          ...ViewPager.defaultProps,
+          ...props,
+        })
+        expect(instance.thresholdPages).toBe(0)
+        expect(instance.pageIndex).toBe(0)
+        expect(instance.pageIndexBeforeDrag).toBe(0)
+      })
+
+      it('tests that instance variable "thresholdPages" will be zero if pageCount = 1', () => {
+        props.data = [ { title: 'only one page' } ]
+        const instance = new ViewPager({
+          ...ViewPager.defaultProps,
+          ...props,
+        })
+        expect(instance.thresholdPages).toBe(0)
+        expect(instance.pageIndex).toBe(0)
+        expect(instance.pageIndexBeforeDrag).toBe(0)
+      })
+    })
+
     /**
      * TODO: How to mock Class Functions before they are executed by lifecyle methods
      */
@@ -240,6 +284,12 @@ describe('<ViewPager /> tests', () => {
     // it('tests _getPageIndexByKeyValuePair', () => {})
     // it('tests _scrollTo', () => {})
 
+    // it('tests _getCurrentScrollIndex', () => {
+    //   const instance = new ViewPager(props)
+    //   const curr = instance._getCurrentScrollIndex(12)
+    //   console.log(curr)
+    // })
+
     describe('_onScroll tests', () => {
       it('tests onScroll is called with current contentOffset.x', () => {
         const instance = new ViewPager(props)
@@ -265,6 +315,7 @@ describe('<ViewPager /> tests', () => {
       // })
       // it('tests that the class inner pageIndex is set properly to an integer', () => {})
     })
+
 
     // _onScroll = (event) => {
     //     const offsetX = event.nativeEvent.contentOffset.x
