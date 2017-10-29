@@ -5,6 +5,7 @@
 [![dev-dependency status](https://david-dm.org/meinto/react-native-viewpager-carousel/dev-status.svg)](https://david-dm.org/meinto/react-native-viewpager-carousel?type=dev)
 [![npm](https://img.shields.io/npm/dm/react-native-viewpager-carousel.svg)](https://www.npmjs.com/package/react-native-viewpager-carousel)
 [![npm](https://img.shields.io/npm/dt/react-native-viewpager-carousel.svg)](https://www.npmjs.com/package/react-native-viewpager-carousel)
+[![travis build](https://travis-ci.org/meinto/react-native-viewpager-carousel.svg?branch=master)](https://travis-ci.org/meinto/react-native-viewpager-carousel)
 
 
 
