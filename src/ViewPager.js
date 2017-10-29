@@ -12,7 +12,7 @@ import Page from './Page'
 
 const VIEWPORT_WIDTH = Dimensions.get('window').width
 
-class ViewPager extends PureComponent {
+export default class ViewPager extends PureComponent {
 
   static defaultProps = {
     dev: false,
@@ -22,6 +22,7 @@ class ViewPager extends PureComponent {
     pageWidth: VIEWPORT_WIDTH,
     pagingEnabled: true,
     contentContainerStyle: {},
+    containerStyle: {},
     renderPage: () => {},
     onPageChange: () => {},
     onScroll: () => {},
@@ -107,8 +108,6 @@ class ViewPager extends PureComponent {
     this.setState({
       dataSource: newDataSource,
     })
-
-
   }
 
   _setPageNumber = (data) => {
@@ -375,7 +374,7 @@ class ViewPager extends PureComponent {
   render() {
 
     this.pageReferences = {}
-
+    
     return (
       <View
         style={[styles.container, this.props.containerStyle]}
@@ -439,6 +438,3 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
 })
-
-
-export default ViewPager

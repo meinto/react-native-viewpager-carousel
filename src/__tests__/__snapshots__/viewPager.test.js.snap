@@ -1,237 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
+exports[`<ViewPager /> tests property tests tests a set pageWidth of 50 1`] = `
 <View
   style={
     Array [
       Object {
         "alignItems": "center",
       },
-      Object {
-        "containerStyle": "containerStyle",
-      },
-    ]
-  }
->
-  <RCTScrollView
-    contentContainerStyle={
-      Array [
-        Object {
-          "flexDirection": "row",
-          "overflow": "scroll",
-        },
-        Object {
-          "contentContainerStyle": "contentContainerStyle",
-        },
-        Object {
-          "width": 4500,
-        },
-      ]
-    }
-    horizontal={true}
-    onMomentumScrollEnd={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    pagingEnabled={true}
-    scrollEnabled={true}
-    scrollEventThrottle={1}
-    showsHorizontalScrollIndicator={false}
-    showsVerticalScrollIndicator={false}
-  >
-    <View>
-      <Page
-        dev={false}
-        lazyrender={false}
-        lazyrenderThreshold={1}
-        maxPageNumber={4}
-        pageNumber={4}
-        pageWidth={750}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "flexGrow": 1,
-              },
-              Object {
-                "width": 750,
-              },
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
-            mock page 4 | pageIndex: 0
-          </Text>
-        </View>
-      </Page>
-      <Page
-        dev={false}
-        lazyrender={false}
-        lazyrenderThreshold={1}
-        maxPageNumber={4}
-        pageNumber={1}
-        pageWidth={750}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "flexGrow": 1,
-              },
-              Object {
-                "width": 750,
-              },
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
-            mock page 1 | pageIndex: 1
-          </Text>
-        </View>
-      </Page>
-      <Page
-        dev={false}
-        lazyrender={false}
-        lazyrenderThreshold={1}
-        maxPageNumber={4}
-        pageNumber={2}
-        pageWidth={750}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "flexGrow": 1,
-              },
-              Object {
-                "width": 750,
-              },
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
-            mock page 2 | pageIndex: 2
-          </Text>
-        </View>
-      </Page>
-      <Page
-        dev={false}
-        lazyrender={false}
-        lazyrenderThreshold={1}
-        maxPageNumber={4}
-        pageNumber={3}
-        pageWidth={750}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "flexGrow": 1,
-              },
-              Object {
-                "width": 750,
-              },
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
-            mock page 3 | pageIndex: 3
-          </Text>
-        </View>
-      </Page>
-      <Page
-        dev={false}
-        lazyrender={false}
-        lazyrenderThreshold={1}
-        maxPageNumber={4}
-        pageNumber={4}
-        pageWidth={750}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "flexGrow": 1,
-              },
-              Object {
-                "width": 750,
-              },
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
-            mock page 4 | pageIndex: 4
-          </Text>
-        </View>
-      </Page>
-      <Page
-        dev={false}
-        lazyrender={false}
-        lazyrenderThreshold={1}
-        maxPageNumber={4}
-        pageNumber={1}
-        pageWidth={750}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "flexGrow": 1,
-              },
-              Object {
-                "width": 750,
-              },
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
-            mock page 1 | pageIndex: 5
-          </Text>
-        </View>
-      </Page>
-    </View>
-  </RCTScrollView>
-</View>
-`;
-
-exports[`<ViewPager /> tests snapshots the component without props 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-      },
-      undefined,
+      Object {},
     ]
   }
 >
@@ -243,49 +19,6 @@ exports[`<ViewPager /> tests snapshots the component without props 1`] = `
           "overflow": "scroll",
         },
         Object {},
-        Object {
-          "width": 0,
-        },
-      ]
-    }
-    horizontal={true}
-    onMomentumScrollEnd={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    pagingEnabled={true}
-    scrollEnabled={false}
-    scrollEventThrottle={1}
-    showsHorizontalScrollIndicator={false}
-    showsVerticalScrollIndicator={false}
-  >
-    <View />
-  </RCTScrollView>
-</View>
-`;
-
-exports[`<ViewPager /> tests tests a set pageWidth of 50 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-      },
-      Object {
-        "containerStyle": "containerStyle",
-      },
-    ]
-  }
->
-  <RCTScrollView
-    contentContainerStyle={
-      Array [
-        Object {
-          "flexDirection": "row",
-          "overflow": "scroll",
-        },
-        Object {
-          "contentContainerStyle": "contentContainerStyle",
-        },
         Object {
           "width": 300,
         },
@@ -487,16 +220,14 @@ exports[`<ViewPager /> tests tests a set pageWidth of 50 1`] = `
 </View>
 `;
 
-exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the outer views within a <Mirror /> component 1`] = `
+exports[`<ViewPager /> tests property tests tests that experimentalMirroring={true} renders the outer views within a <Mirror /> component 1`] = `
 <View
   style={
     Array [
       Object {
         "alignItems": "center",
       },
-      Object {
-        "containerStyle": "containerStyle",
-      },
+      Object {},
     ]
   }
 >
@@ -507,11 +238,9 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
           "flexDirection": "row",
           "overflow": "scroll",
         },
+        Object {},
         Object {
-          "contentContainerStyle": "contentContainerStyle",
-        },
-        Object {
-          "width": 4500,
+          "width": 4800,
         },
       ]
     }
@@ -532,7 +261,7 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={4}
-        pageWidth={750}
+        pageWidth={800}
       >
         <Mirror
           connectionId="mirror-0"
@@ -555,7 +284,7 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
                   "flexGrow": 1,
                 },
                 Object {
-                  "width": 750,
+                  "width": 800,
                 },
               ]
             }
@@ -577,7 +306,7 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={1}
-        pageWidth={750}
+        pageWidth={800}
       >
         <Mirror
           connectionId="mirror-1"
@@ -600,7 +329,7 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
                   "flexGrow": 1,
                 },
                 Object {
-                  "width": 750,
+                  "width": 800,
                 },
               ]
             }
@@ -622,7 +351,7 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={2}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -631,7 +360,7 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -652,7 +381,7 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={3}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -661,7 +390,7 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -682,7 +411,7 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={4}
-        pageWidth={750}
+        pageWidth={800}
       >
         <Mirror
           connectionId="mirror-0"
@@ -705,7 +434,7 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
                   "flexGrow": 1,
                 },
                 Object {
-                  "width": 750,
+                  "width": 800,
                 },
               ]
             }
@@ -727,7 +456,7 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={1}
-        pageWidth={750}
+        pageWidth={800}
       >
         <Mirror
           connectionId="mirror-1"
@@ -750,7 +479,7 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
                   "flexGrow": 1,
                 },
                 Object {
-                  "width": 750,
+                  "width": 800,
                 },
               ]
             }
@@ -771,16 +500,14 @@ exports[`<ViewPager /> tests tests that experimentalMirroring={true} renders the
 </View>
 `;
 
-exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
+exports[`<ViewPager /> tests property tests tests that lazyrender is set properly 1`] = `
 <View
   style={
     Array [
       Object {
         "alignItems": "center",
       },
-      Object {
-        "containerStyle": "containerStyle",
-      },
+      Object {},
     ]
   }
 >
@@ -791,11 +518,9 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
           "flexDirection": "row",
           "overflow": "scroll",
         },
+        Object {},
         Object {
-          "contentContainerStyle": "contentContainerStyle",
-        },
-        Object {
-          "width": 4500,
+          "width": 4800,
         },
       ]
     }
@@ -816,7 +541,7 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={4}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -825,7 +550,7 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -846,7 +571,7 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={1}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -855,7 +580,7 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -876,7 +601,7 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={2}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -885,7 +610,7 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -906,7 +631,7 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={3}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -915,7 +640,7 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -936,7 +661,7 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={4}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -945,7 +670,7 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -966,7 +691,7 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={1}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -975,7 +700,7 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -995,16 +720,14 @@ exports[`<ViewPager /> tests tests that lazyrender is set properly 1`] = `
 </View>
 `;
 
-exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
+exports[`<ViewPager /> tests property tests tests that pagingEnabled is set properly 1`] = `
 <View
   style={
     Array [
       Object {
         "alignItems": "center",
       },
-      Object {
-        "containerStyle": "containerStyle",
-      },
+      Object {},
     ]
   }
 >
@@ -1015,11 +738,9 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
           "flexDirection": "row",
           "overflow": "scroll",
         },
+        Object {},
         Object {
-          "contentContainerStyle": "contentContainerStyle",
-        },
-        Object {
-          "width": 4500,
+          "width": 4800,
         },
       ]
     }
@@ -1040,7 +761,7 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={4}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -1049,7 +770,7 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -1070,7 +791,7 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={1}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -1079,7 +800,7 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -1100,7 +821,7 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={2}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -1109,7 +830,7 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -1130,7 +851,7 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={3}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -1139,7 +860,7 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -1160,7 +881,7 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={4}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -1169,7 +890,7 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -1190,7 +911,7 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={1}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -1199,7 +920,7 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -1219,16 +940,14 @@ exports[`<ViewPager /> tests tests that pagingEnabled is set properly 1`] = `
 </View>
 `;
 
-exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
+exports[`<ViewPager /> tests property tests tests that scrollEnabled is set properly 1`] = `
 <View
   style={
     Array [
       Object {
         "alignItems": "center",
       },
-      Object {
-        "containerStyle": "containerStyle",
-      },
+      Object {},
     ]
   }
 >
@@ -1239,11 +958,9 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
           "flexDirection": "row",
           "overflow": "scroll",
         },
+        Object {},
         Object {
-          "contentContainerStyle": "contentContainerStyle",
-        },
-        Object {
-          "width": 4500,
+          "width": 4800,
         },
       ]
     }
@@ -1264,7 +981,7 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={4}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -1273,7 +990,7 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -1294,7 +1011,7 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={1}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -1303,7 +1020,7 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -1324,7 +1041,7 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={2}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -1333,7 +1050,7 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -1354,7 +1071,7 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={3}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -1363,7 +1080,7 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -1384,7 +1101,7 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={4}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -1393,7 +1110,7 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -1414,7 +1131,7 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={1}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -1423,7 +1140,7 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -1443,16 +1160,14 @@ exports[`<ViewPager /> tests tests that scrollEnabled is set properly 1`] = `
 </View>
 `;
 
-exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properly 1`] = `
+exports[`<ViewPager /> tests property tests tests that showNativeScrollIndicator is set properly 1`] = `
 <View
   style={
     Array [
       Object {
         "alignItems": "center",
       },
-      Object {
-        "containerStyle": "containerStyle",
-      },
+      Object {},
     ]
   }
 >
@@ -1463,11 +1178,9 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
           "flexDirection": "row",
           "overflow": "scroll",
         },
+        Object {},
         Object {
-          "contentContainerStyle": "contentContainerStyle",
-        },
-        Object {
-          "width": 4500,
+          "width": 4800,
         },
       ]
     }
@@ -1488,7 +1201,7 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={4}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -1497,7 +1210,7 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -1518,7 +1231,7 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={1}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -1527,7 +1240,7 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -1548,7 +1261,7 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={2}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -1557,7 +1270,7 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -1578,7 +1291,7 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={3}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -1587,7 +1300,7 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -1608,7 +1321,7 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={4}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -1617,7 +1330,7 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -1638,7 +1351,7 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
         lazyrenderThreshold={1}
         maxPageNumber={4}
         pageNumber={1}
-        pageWidth={750}
+        pageWidth={800}
       >
         <View
           style={
@@ -1647,7 +1360,7 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
                 "flexGrow": 1,
               },
               Object {
-                "width": 750,
+                "width": 800,
               },
             ]
           }
@@ -1667,7 +1380,7 @@ exports[`<ViewPager /> tests tests that showNativeScrollIndicator is set properl
 </View>
 `;
 
-exports[`<ViewPager /> tests tests threshold with 0 1`] = `
+exports[`<ViewPager /> tests property tests threshold tests tests threshold with 0 1`] = `
 Object {
   "dataSource": Array [
     Object {
@@ -1694,7 +1407,7 @@ Object {
 }
 `;
 
-exports[`<ViewPager /> tests tests threshold with 3 1`] = `
+exports[`<ViewPager /> tests property tests threshold tests tests threshold with 3 1`] = `
 Object {
   "dataSource": Array [
     Object {
@@ -1751,7 +1464,7 @@ Object {
 }
 `;
 
-exports[`<ViewPager /> tests tests threshold with 10 1`] = `
+exports[`<ViewPager /> tests property tests threshold tests tests threshold with 10 1`] = `
 Object {
   "dataSource": Array [
     Object {
@@ -1876,4 +1589,263 @@ Object {
     },
   ],
 }
+`;
+
+exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+      },
+      Object {},
+    ]
+  }
+>
+  <RCTScrollView
+    contentContainerStyle={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "overflow": "scroll",
+        },
+        Object {},
+        Object {
+          "width": 4800,
+        },
+      ]
+    }
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    pagingEnabled={true}
+    scrollEnabled={true}
+    scrollEventThrottle={1}
+    showsHorizontalScrollIndicator={false}
+    showsVerticalScrollIndicator={false}
+  >
+    <View>
+      <Page
+        dev={false}
+        lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
+        pageNumber={4}
+        pageWidth={800}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 800,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 4 | pageIndex: 0
+          </Text>
+        </View>
+      </Page>
+      <Page
+        dev={false}
+        lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
+        pageNumber={1}
+        pageWidth={800}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 800,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 1 | pageIndex: 1
+          </Text>
+        </View>
+      </Page>
+      <Page
+        dev={false}
+        lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
+        pageNumber={2}
+        pageWidth={800}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 800,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 2 | pageIndex: 2
+          </Text>
+        </View>
+      </Page>
+      <Page
+        dev={false}
+        lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
+        pageNumber={3}
+        pageWidth={800}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 800,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 3 | pageIndex: 3
+          </Text>
+        </View>
+      </Page>
+      <Page
+        dev={false}
+        lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
+        pageNumber={4}
+        pageWidth={800}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 800,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 4 | pageIndex: 4
+          </Text>
+        </View>
+      </Page>
+      <Page
+        dev={false}
+        lazyrender={false}
+        lazyrenderThreshold={1}
+        maxPageNumber={4}
+        pageNumber={1}
+        pageWidth={800}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexGrow": 1,
+              },
+              Object {
+                "width": 800,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            mock page 1 | pageIndex: 5
+          </Text>
+        </View>
+      </Page>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`<ViewPager /> tests snapshots the component without props 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+      },
+      Object {},
+    ]
+  }
+>
+  <RCTScrollView
+    contentContainerStyle={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "overflow": "scroll",
+        },
+        Object {},
+        Object {
+          "width": 0,
+        },
+      ]
+    }
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    pagingEnabled={true}
+    scrollEnabled={false}
+    scrollEventThrottle={1}
+    showsHorizontalScrollIndicator={false}
+    showsVerticalScrollIndicator={false}
+  >
+    <View />
+  </RCTScrollView>
+</View>
 `;
