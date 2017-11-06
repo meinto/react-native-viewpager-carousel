@@ -66,6 +66,7 @@ export default class ViewPager extends PureComponent {
 
     this._pageWithDelta = (VIEWPORT_WIDTH - this.props.pageWidth) / 2
 
+    this._onMomentumScrollEndTimeout = null
 
     this.pageReferences = {}
     this.data = this.props.data || []
@@ -247,6 +248,9 @@ export default class ViewPager extends PureComponent {
   }
 
   _onScroll = (event) => {
+    if (this._onMomentumScrollEndTimeout)
+      clearTimeout(this._onMomentumScrollEndTimeout)
+
     const offsetX = event.nativeEvent.contentOffset.x
     this.props.onScroll(offsetX)
 
@@ -277,11 +281,11 @@ export default class ViewPager extends PureComponent {
         })
 
       }
-
-      setTimeout(() => {
-        this._onMomentumScrollEnd()
-      }, 50)
     }
+
+    this._onMomentumScrollEndTimeout = setTimeout(() => {
+      this._onMomentumScrollEnd()
+    }, 50)
 
     this.pageIndex = Math.round(scrollIndex)
   }
