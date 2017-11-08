@@ -291,7 +291,7 @@ export default class ViewPager extends PureComponent {
   }
 
   _onPageChange = () => {
-    if (this.pageIndexBeforeDrag !== this.pageIndex) {
+    if (this.pageIndexBeforeDrag !== this.pageIndex || Object.keys(this.props.initialPage).length > 0) {
       const pageNumber = this._getPageNumberByIndex(this.pageIndex)
       this.pageIndexBeforeDrag = this.pageIndex
       this.props.onPageChange(pageNumber)
