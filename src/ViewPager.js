@@ -264,7 +264,7 @@ export default class ViewPager extends PureComponent {
     if (this._onMomentumScrollEndTimeout)
       clearTimeout(this._onMomentumScrollEndTimeout)
 
-    const offsetX = event.nativeEvent.contentOffset.x
+    let offsetX = event.nativeEvent.contentOffset.x
     this.props.onScroll(offsetX)
 
     const scrollIndex = this._getCurrentScrollIndex(offsetX)
@@ -280,18 +280,22 @@ export default class ViewPager extends PureComponent {
 
     if (this.props.renderAsCarousel && scrollIndex % 1 < 0.03) {
       if (Math.trunc(scrollIndex) === 0) {
-
+        
+        offsetX = VIEWPORT_WIDTH * (this.state.dataSource.length - 2)
         this._scrollTo({
           animated: false,
-          x: VIEWPORT_WIDTH * (this.state.dataSource.length - 2),
+          x: offsetX,
         })
+        this.props.onScroll(offsetX)
 
       } else if (Math.trunc(scrollIndex) === this.state.dataSource.length - 1) {
 
+        offsetX = VIEWPORT_WIDTH
         this._scrollTo({
           animated: false,
-          x: VIEWPORT_WIDTH,
+          x: offsetX,
         })
+        this.props.onScroll(offsetX)
 
       }
     }
