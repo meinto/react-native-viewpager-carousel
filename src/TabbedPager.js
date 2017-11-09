@@ -157,9 +157,9 @@ class TabbedPager extends PureComponent {
       : null
   }
 
-  _renderTab = ({data, _pageIndex}) => {
+  _renderTab = ({data, _pageIndex, _pageNumber}) => {
     return this.props.tabsVisible
-      ? this.props.renderTab({data, _pageIndex})
+      ? this.props.renderTab({data, _pageIndex, _pageNumber})
       : null
   }
 
