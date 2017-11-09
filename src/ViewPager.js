@@ -151,15 +151,15 @@ export default class ViewPager extends PureComponent {
 
   scrollToPageWithKeyValuePair = keyValuePair => {
     const pageIndex = this._getPageIndexByKeyValuePair(keyValuePair)
-    this.scrollToIndex(pageIndex)
+    this.scrollToIndex(pageIndex, false)
   }
 
-  scrollToIndex = pageIndex => {
+  scrollToIndex = (pageIndex, animated = true) => {
     let index = pageIndex < 0 ? 0 : pageIndex
     const lastIndex = this.state.dataSource.length - 1
     index = index > lastIndex ? lastIndex : index
     this._scrollTo({
-      animated: true,
+      animated,
       x: index * VIEWPORT_WIDTH,
     })
   }
