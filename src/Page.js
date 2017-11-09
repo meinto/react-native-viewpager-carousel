@@ -34,7 +34,7 @@ export default class Page extends PureComponent {
     const shouldRender = this._shouldPageRender(this.props.pageNumber, 1)
 
     this.state = {
-      render: shouldRender,
+      shouldRender,
     }
   }
 
@@ -42,10 +42,10 @@ export default class Page extends PureComponent {
     const shouldRender = this._shouldPageRender(this.props.pageNumber, currentVisiblePageNumber)
     if (
       this.props.lazyrender === true &&
-      this.state.render !== shouldRender
+      this.state.shouldRender !== shouldRender
     ) {
       this.setState({
-        render: shouldRender,
+        shouldRender,
       })
     }
   }
@@ -96,7 +96,7 @@ export default class Page extends PureComponent {
           borderWidth,
         }}
       >
-        {this.state.render && this.props.children}
+        {this.state.shouldRender && this.props.children}
       </View>
     )
   }
