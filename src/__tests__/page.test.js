@@ -24,29 +24,61 @@ describe('tests the Page Component', () => {
 
   describe('class method tests', () => {
 
-    it('tests that local state shouldRender is initialized with true if pageNumber is 1', () => {
-      const page = new Page(props)
-      expect(page.state.shouldRender).toBe(true)
-    })
-
-    it('tests that local state shouldRender is initialized with false if pageNumber is 1 and lazyrender = false', () => {
-      props.lazyrender = false
-      props.lazyrenderThreshold = 1
-      props.pageNumber = 2
-      const page = new Page(props)
-      expect(page.state.shouldRender).toBe(true)
-    })
-
-    it('tests that local state shouldRender is initialized with false if pageNumber is NOT 1 and lazyrender = true', () => {
-      props.lazyrender = true
-      props.lazyrenderThreshold = 0
-      props.pageNumber = 2
-      const page = new Page(props)
-      expect(page.state.shouldRender).toBe(false)
+    describe('constructor tests', () => {
+      it('tests that local state shouldRender is initialized with true if pageNumber is 1', () => {
+        const page = new Page(props)
+        expect(page.state.shouldRender).toBe(true)
+      })
+      
+      it('tests that local state shouldRender is initialized with false if pageNumber is 1 and lazyrender = false', () => {
+        props.lazyrender = false
+        props.lazyrenderThreshold = 1
+        props.pageNumber = 2
+        const page = new Page(props)
+        expect(page.state.shouldRender).toBe(true)
+      })
+      
+      it('tests that local state shouldRender is initialized with false if pageNumber is NOT 1 and lazyrender = true', () => {
+        props.lazyrender = true
+        props.lazyrenderThreshold = 0
+        props.pageNumber = 2
+        const page = new Page(props)
+        expect(page.state.shouldRender).toBe(false)
+      })
     })
     
-    it('tests onPageChange sets local shouldRender state propperly when page is active', () => {
+    describe('onPageChange tests', () => {
+      it('tests that setState is only called when lazyrender is true and local state shouldRender is not equal to new shouldRender state', () => {
+        props.lazyrender = true
+        props.lazyrenderThreshold = 0 
+        props.pageNumber = 2
+        const page = new Page(props)
 
+        page.setState = jest.fn()
+        expect(page.setState).not.toHaveBeenCalled()
+        page.onPageChange(2)
+        expect(page.setState).toHaveBeenCalledWith({
+          shouldRender: true,
+        })
+      })
+      
+      it('tests onPageChange sets local shouldRender state propperly when page is active', () => {
+        props.lazyrender = true
+        props.lazyrenderThreshold = 0 
+        props.pageNumber = 2
+        const page = new Page(props)
+
+        page.setState = jest.fn(state => page.state = state)
+        page.onPageChange(2)
+        expect(page.setState).toHaveBeenCalledWith({
+          shouldRender: true,
+        })
+        page.setState.mockReset()
+        page.onPageChange(3)
+        expect(page.setState).toHaveBeenCalledWith({
+          shouldRender: false,
+        })
+      })
     })
 
   })
