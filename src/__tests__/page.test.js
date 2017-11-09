@@ -8,6 +8,7 @@ describe('tests the Page Component', () => {
   beforeEach(() => {
     props = {
       pageNumber: 1,
+      children: React.createElement('ChildComponent')
     }
   })
 
@@ -20,6 +21,28 @@ describe('tests the Page Component', () => {
   it('snapshots standard component with props', () => {
     const json = renderer.create(<Page {...props}/>).toJSON()
     expect(json).toMatchSnapshot()
+  })
+
+  it('tests that child components are not rendered if lazyrender  = true and page is not the active page and not in lazyrenderThreshold', () => {
+    props.pageNumber = 3
+    props.lazyrender = true
+    const component = renderer.create(<Page {...props} />)
+    expect(component.toJSON()).toMatchSnapshot()
+  })
+
+  it('tests that child components are not rendered if lazyrender  = true and page is not the active page and lazyrenderThreshold = 0', () => {
+    props.pageNumber = 2
+    props.lazyrender = true
+    props.lazyrenderThreshold = 0
+    const component = renderer.create(<Page {...props} />)
+    expect(component.toJSON()).toMatchSnapshot()
+  })
+
+  it('tests that child components are rendered if lazyrender  = true and page is not the active page but is in lazyrenderThreshold', () => {
+    props.pageNumber = 2
+    props.lazyrender = true
+    const component = renderer.create(<Page {...props} />)
+    expect(component.toJSON()).toMatchSnapshot()
   })
 
   describe('class method tests', () => {

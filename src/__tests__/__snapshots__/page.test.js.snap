@@ -8,7 +8,9 @@ exports[`tests the Page Component snapshots standard component with props 1`] = 
       "width": 750,
     }
   }
-/>
+>
+  <ChildComponent />
+</View>
 `;
 
 exports[`tests the Page Component snapshots standard component without props 1`] = `
@@ -20,4 +22,39 @@ exports[`tests the Page Component snapshots standard component without props 1`]
     }
   }
 />
+`;
+
+exports[`tests the Page Component tests that child components are not rendered if lazyrender  = true and page is not the active page and lazyrenderThreshold = 0 1`] = `
+<View
+  style={
+    Object {
+      "borderWidth": 0,
+      "width": 750,
+    }
+  }
+/>
+`;
+
+exports[`tests the Page Component tests that child components are not rendered if lazyrender  = true and page is not the active page and not in lazyrenderThreshold 1`] = `
+<View
+  style={
+    Object {
+      "borderWidth": 0,
+      "width": 750,
+    }
+  }
+/>
+`;
+
+exports[`tests the Page Component tests that child components are rendered if lazyrender  = true and page is not the active page but is in lazyrenderThreshold 1`] = `
+<View
+  style={
+    Object {
+      "borderWidth": 0,
+      "width": 750,
+    }
+  }
+>
+  <ChildComponent />
+</View>
 `;
