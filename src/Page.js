@@ -29,14 +29,24 @@ export default class Page extends PureComponent {
     pageWidth: VIEWPORT_WIDTH,
   }
 
-
-
   constructor(props) {
     super(props)
     const shouldRender = this._shouldPageRender(this.props.pageNumber, 1)
 
     this.state = {
       render: shouldRender,
+    }
+  }
+
+  onPageChange = currentVisiblePageNumber => {
+    const shouldRender = this._shouldPageRender(this.props.pageNumber, currentVisiblePageNumber)
+    if (
+      this.props.lazyrender === true &&
+      this.state.render !== shouldRender
+    ) {
+      this.setState({
+        render: shouldRender,
+      })
     }
   }
 
@@ -75,18 +85,6 @@ export default class Page extends PureComponent {
     }
 
     return false
-  }
-
-  onPageChange = currentVisiblePageNumber => {
-    const shouldRender = this._shouldPageRender(this.props.pageNumber, currentVisiblePageNumber)
-    if (
-      this.props.lazyrender === true &&
-      this.state.render !== shouldRender
-    ) {
-      this.setState({
-        render: shouldRender,
-      })
-    }
   }
 
   render() {
