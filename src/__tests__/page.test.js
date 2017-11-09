@@ -45,6 +45,31 @@ describe('tests the Page Component', () => {
     expect(component.toJSON()).toMatchSnapshot()
   })
 
+  describe('tests that devThresholdOverlay is only displayed when dev = true and its a threshold page', () => {
+
+    it('test overlay is displayed when isThreshold', () => {
+      props.dev = true
+      props.isThresholdPage = true
+      const component = renderer.create(<Page {...props} />)
+      expect(component.toJSON()).toMatchSnapshot()
+    })
+
+    it('test overlay is displayed when not isThreshold', () => {
+      props.dev = true
+      props.isThresholdPage = false
+      const component = renderer.create(<Page {...props} />)
+      expect(component.toJSON()).toMatchSnapshot()
+    })
+
+    it('test overlay is displayed when isThreshold but not dev', () => {
+      props.dev = false
+      props.isThresholdPage = true
+      const component = renderer.create(<Page {...props} />)
+      expect(component.toJSON()).toMatchSnapshot()
+    })
+
+  })
+
   describe('class method tests', () => {
 
     describe('constructor tests', () => {

@@ -206,6 +206,7 @@ exports[`<ViewPager /> tests property tests tests a set pageWidth of 50 1`] = `
     <View>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -236,6 +237,7 @@ exports[`<ViewPager /> tests property tests tests a set pageWidth of 50 1`] = `
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -266,6 +268,7 @@ exports[`<ViewPager /> tests property tests tests a set pageWidth of 50 1`] = `
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -296,6 +299,7 @@ exports[`<ViewPager /> tests property tests tests a set pageWidth of 50 1`] = `
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -326,6 +330,7 @@ exports[`<ViewPager /> tests property tests tests a set pageWidth of 50 1`] = `
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -356,6 +361,7 @@ exports[`<ViewPager /> tests property tests tests a set pageWidth of 50 1`] = `
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -386,6 +392,7 @@ exports[`<ViewPager /> tests property tests tests a set pageWidth of 50 1`] = `
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -416,6 +423,7 @@ exports[`<ViewPager /> tests property tests tests a set pageWidth of 50 1`] = `
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -486,6 +494,7 @@ exports[`<ViewPager /> tests property tests tests that experimentalMirroring={tr
     <View>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -531,6 +540,7 @@ exports[`<ViewPager /> tests property tests tests that experimentalMirroring={tr
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -576,6 +586,7 @@ exports[`<ViewPager /> tests property tests tests that experimentalMirroring={tr
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -621,6 +632,7 @@ exports[`<ViewPager /> tests property tests tests that experimentalMirroring={tr
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -651,6 +663,7 @@ exports[`<ViewPager /> tests property tests tests that experimentalMirroring={tr
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -681,6 +694,7 @@ exports[`<ViewPager /> tests property tests tests that experimentalMirroring={tr
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -726,6 +740,7 @@ exports[`<ViewPager /> tests property tests tests that experimentalMirroring={tr
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -771,6 +786,7 @@ exports[`<ViewPager /> tests property tests tests that experimentalMirroring={tr
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -856,6 +872,7 @@ exports[`<ViewPager /> tests property tests tests that lazyrender is set properl
     <View>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={true}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -886,6 +903,7 @@ exports[`<ViewPager /> tests property tests tests that lazyrender is set properl
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={true}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -916,6 +934,7 @@ exports[`<ViewPager /> tests property tests tests that lazyrender is set properl
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={true}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -946,6 +965,7 @@ exports[`<ViewPager /> tests property tests tests that lazyrender is set properl
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={true}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -976,6 +996,7 @@ exports[`<ViewPager /> tests property tests tests that lazyrender is set properl
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={true}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1006,6 +1027,7 @@ exports[`<ViewPager /> tests property tests tests that lazyrender is set properl
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={true}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1036,6 +1058,7 @@ exports[`<ViewPager /> tests property tests tests that lazyrender is set properl
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={true}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1066,6 +1089,7 @@ exports[`<ViewPager /> tests property tests tests that lazyrender is set properl
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={true}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1136,6 +1160,7 @@ exports[`<ViewPager /> tests property tests tests that pagingEnabled is set prop
     <View>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1166,6 +1191,7 @@ exports[`<ViewPager /> tests property tests tests that pagingEnabled is set prop
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1196,6 +1222,7 @@ exports[`<ViewPager /> tests property tests tests that pagingEnabled is set prop
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1226,6 +1253,7 @@ exports[`<ViewPager /> tests property tests tests that pagingEnabled is set prop
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1256,6 +1284,7 @@ exports[`<ViewPager /> tests property tests tests that pagingEnabled is set prop
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1286,6 +1315,7 @@ exports[`<ViewPager /> tests property tests tests that pagingEnabled is set prop
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1316,6 +1346,7 @@ exports[`<ViewPager /> tests property tests tests that pagingEnabled is set prop
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1346,6 +1377,7 @@ exports[`<ViewPager /> tests property tests tests that pagingEnabled is set prop
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1416,6 +1448,7 @@ exports[`<ViewPager /> tests property tests tests that scrollEnabled is set prop
     <View>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1446,6 +1479,7 @@ exports[`<ViewPager /> tests property tests tests that scrollEnabled is set prop
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1476,6 +1510,7 @@ exports[`<ViewPager /> tests property tests tests that scrollEnabled is set prop
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1506,6 +1541,7 @@ exports[`<ViewPager /> tests property tests tests that scrollEnabled is set prop
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1536,6 +1572,7 @@ exports[`<ViewPager /> tests property tests tests that scrollEnabled is set prop
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1566,6 +1603,7 @@ exports[`<ViewPager /> tests property tests tests that scrollEnabled is set prop
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1596,6 +1634,7 @@ exports[`<ViewPager /> tests property tests tests that scrollEnabled is set prop
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1626,6 +1665,7 @@ exports[`<ViewPager /> tests property tests tests that scrollEnabled is set prop
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1696,6 +1736,7 @@ exports[`<ViewPager /> tests property tests tests that showNativeScrollIndicator
     <View>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1726,6 +1767,7 @@ exports[`<ViewPager /> tests property tests tests that showNativeScrollIndicator
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1756,6 +1798,7 @@ exports[`<ViewPager /> tests property tests tests that showNativeScrollIndicator
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1786,6 +1829,7 @@ exports[`<ViewPager /> tests property tests tests that showNativeScrollIndicator
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1816,6 +1860,7 @@ exports[`<ViewPager /> tests property tests tests that showNativeScrollIndicator
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1846,6 +1891,7 @@ exports[`<ViewPager /> tests property tests tests that showNativeScrollIndicator
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1876,6 +1922,7 @@ exports[`<ViewPager /> tests property tests tests that showNativeScrollIndicator
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1906,6 +1953,7 @@ exports[`<ViewPager /> tests property tests tests that showNativeScrollIndicator
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -1970,16 +2018,19 @@ exports[`<ViewPager /> tests property tests threshold tests tests threshold with
 Object {
   "dataSource": Array [
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 0,
       "_pageNumber": 2,
       "title": "mock page 2",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 1,
       "_pageNumber": 3,
       "title": "mock page 3",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 2,
       "_pageNumber": 4,
       "title": "mock page 4",
@@ -2005,16 +2056,19 @@ Object {
       "title": "mock page 4",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 7,
       "_pageNumber": 1,
       "title": "mock page 1",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 8,
       "_pageNumber": 2,
       "title": "mock page 2",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 9,
       "_pageNumber": 3,
       "title": "mock page 3",
@@ -2027,51 +2081,61 @@ exports[`<ViewPager /> tests property tests threshold tests tests threshold with
 Object {
   "dataSource": Array [
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 0,
       "_pageNumber": 3,
       "title": "mock page 3",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 1,
       "_pageNumber": 4,
       "title": "mock page 4",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 2,
       "_pageNumber": 1,
       "title": "mock page 1",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 3,
       "_pageNumber": 2,
       "title": "mock page 2",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 4,
       "_pageNumber": 3,
       "title": "mock page 3",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 5,
       "_pageNumber": 4,
       "title": "mock page 4",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 6,
       "_pageNumber": 1,
       "title": "mock page 1",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 7,
       "_pageNumber": 2,
       "title": "mock page 2",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 8,
       "_pageNumber": 3,
       "title": "mock page 3",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 9,
       "_pageNumber": 4,
       "title": "mock page 4",
@@ -2097,51 +2161,61 @@ Object {
       "title": "mock page 4",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 14,
       "_pageNumber": 1,
       "title": "mock page 1",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 15,
       "_pageNumber": 2,
       "title": "mock page 2",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 16,
       "_pageNumber": 3,
       "title": "mock page 3",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 17,
       "_pageNumber": 4,
       "title": "mock page 4",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 18,
       "_pageNumber": 1,
       "title": "mock page 1",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 19,
       "_pageNumber": 2,
       "title": "mock page 2",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 20,
       "_pageNumber": 3,
       "title": "mock page 3",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 21,
       "_pageNumber": 4,
       "title": "mock page 4",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 22,
       "_pageNumber": 1,
       "title": "mock page 1",
     },
     Object {
+      "_isThresholdPage": true,
       "_pageIndex": 23,
       "_pageNumber": 2,
       "title": "mock page 2",
@@ -2187,6 +2261,7 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
     <View>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -2217,6 +2292,7 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -2247,6 +2323,7 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -2277,6 +2354,7 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -2307,6 +2385,7 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -2337,6 +2416,7 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
       </Page>
       <Page
         dev={false}
+        isThresholdPage={false}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -2367,6 +2447,7 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}
@@ -2397,6 +2478,7 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
       </Page>
       <Page
         dev={false}
+        isThresholdPage={true}
         lazyrender={false}
         lazyrenderThreshold={1}
         maxPageNumber={4}

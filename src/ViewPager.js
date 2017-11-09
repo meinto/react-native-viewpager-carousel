@@ -193,8 +193,18 @@ export default class ViewPager extends PureComponent {
       thresholdDataEnd = [...thresholdDataEnd, ...data]
     }
 
-    const thresholdFront = thresholdDataFront.slice(0, this.thresholdPages).reverse()
-    const thresholdEnd = thresholdDataEnd.slice(0, this.thresholdPages)
+    let thresholdFront = thresholdDataFront.slice(0, this.thresholdPages).reverse()
+    let thresholdEnd = thresholdDataEnd.slice(0, this.thresholdPages)
+
+    thresholdFront = thresholdFront.map(thresholdPage => ({
+      ...thresholdPage,
+      _isThresholdPage: true,
+    }))
+    thresholdEnd = thresholdEnd.map(thresholdPage => ({
+      ...thresholdPage,
+      _isThresholdPage: true,
+    }))
+
     preparedData = [...thresholdFront, ...data, ...thresholdEnd]
 
     return preparedData
@@ -410,6 +420,7 @@ export default class ViewPager extends PureComponent {
                 dev={this.props.dev}
                 maxPageNumber={this.props.data.length}
                 pageNumber={item._pageNumber}
+                isThresholdPage={item._isThresholdPage || false}
                 lazyrender={this.props.lazyrender}
                 pageWidth={this.props.pageWidth}
                 lazyrenderThreshold={this.props.lazyrenderThreshold}

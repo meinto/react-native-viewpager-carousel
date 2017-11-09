@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import {
   View,
   Dimensions,
+  StyleSheet,
 } from 'react-native'
 import PropTypes from 'prop-types'
 
@@ -18,6 +19,7 @@ export default class Page extends PureComponent {
     dev: PropTypes.bool,
     lazyrenderThreshold: PropTypes.number,
     maxPageNumber: PropTypes.number,
+    isThresholdPage: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -27,6 +29,7 @@ export default class Page extends PureComponent {
     lazyrender: false,
     pageNumber: 0,
     pageWidth: VIEWPORT_WIDTH,
+    isThresholdPage: false,
   }
 
   constructor(props) {
@@ -97,7 +100,22 @@ export default class Page extends PureComponent {
         }}
       >
         {this.state.shouldRender && this.props.children}
+        {this.props.dev && this.props.isThresholdPage && (
+          <View style={styles.devThresholdOverlay}/>
+        )}
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  devThresholdOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    opacity: 0.4,
+    backgroundColor: 'red',
+  }
+})

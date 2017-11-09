@@ -58,3 +58,55 @@ exports[`tests the Page Component tests that child components are rendered if la
   <ChildComponent />
 </View>
 `;
+
+exports[`tests the Page Component tests that devThresholdOverlay is only displayed when dev = true and its a threshold page test overlay is displayed when isThreshold 1`] = `
+<View
+  style={
+    Object {
+      "borderWidth": 1,
+      "width": 750,
+    }
+  }
+>
+  <ChildComponent />
+  <View
+    style={
+      Object {
+        "backgroundColor": "red",
+        "bottom": 0,
+        "left": 0,
+        "opacity": 0.4,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`tests the Page Component tests that devThresholdOverlay is only displayed when dev = true and its a threshold page test overlay is displayed when isThreshold but not dev 1`] = `
+<View
+  style={
+    Object {
+      "borderWidth": 0,
+      "width": 750,
+    }
+  }
+>
+  <ChildComponent />
+</View>
+`;
+
+exports[`tests the Page Component tests that devThresholdOverlay is only displayed when dev = true and its a threshold page test overlay is displayed when not isThreshold 1`] = `
+<View
+  style={
+    Object {
+      "borderWidth": 1,
+      "width": 750,
+    }
+  }
+>
+  <ChildComponent />
+</View>
+`;
