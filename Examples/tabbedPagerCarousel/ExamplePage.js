@@ -96,11 +96,6 @@ const styles = StyleSheet.create({
   },
 })
 
-
-ExamplePage.propTypes = {
-  title: React.PropTypes.string,
-}
-
 export default ExamplePage
 
 const IMAGES = [

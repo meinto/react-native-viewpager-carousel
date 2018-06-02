@@ -12,16 +12,7 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native'
-
-/*
- * IMPORTANT
- * ---------
- * in live version import like follows:
- * >>> import { TabbedPager } from 'react-native-viewpager-carousel' <<<
- *
- * the following import is only to improve the developer experience
- */
-import TabbedPager from './react-native-viewpager-carousel/TabbedPager'
+import { TabbedPager } from 'react-native-viewpager-carousel'
 
 import ExamplePage from './ExamplePage'
 
