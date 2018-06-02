@@ -21,6 +21,7 @@ class TabbedPager extends PureComponent {
     renderAsCarousel: PropTypes.bool,
     experimentalMirroring: PropTypes.bool,
     fullScreen: PropTypes.bool,
+    contentContainerStyle: PropTypes.any,
     forceRerenderOnPageChange: PropTypes.bool,
     initialPage: PropTypes.object,
     lazyrenderThreshold: PropTypes.number,
@@ -182,6 +183,7 @@ class TabbedPager extends PureComponent {
           lazyrender={this.props.lazyrender}
           data={this.props.data}
           containerStyle={this.props.fullScreen ? styles.fullScreen : null}
+          contentContainerStyle={this.props.contentContainerStyle}
           renderPage={this._renderPage}
           scrollEnabled={this.props.scrollEnabled}
           firePageChangeIfPassedScreenCenter={this.props.firePageChangeIfPassedScreenCenter}
