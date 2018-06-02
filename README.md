@@ -48,10 +48,12 @@ class ExampleCarousel extends PureComponent {
     }
 
     render() {
-        <ViewPager
-            data={this.data}
-            renderPage={this._renderPage}
-        />
+        return (
+            <ViewPager
+                data={this.data}
+                renderPage={this._renderPage}
+            />
+        )
     }
 }
 
@@ -106,11 +108,13 @@ class ExampleCarousel extends PureComponent {
     }
 
     render() {
-        <ViewPager
-            data={this.data}
-            renderTab={this._renderTab}
-            renderPage={this._renderPage}
-        />
+        return (
+            <ViewPager
+                data={this.data}
+                renderTab={this._renderTab}
+                renderPage={this._renderPage}
+            />
+        )
     }
 }
 ```
