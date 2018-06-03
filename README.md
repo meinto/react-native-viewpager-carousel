@@ -24,7 +24,7 @@ npm install --save react-native-viewpager-carousel
 
 ## Preview
 
-![preview](http://i.imgur.com/urCJ6XR.gif)
+![preview](https://github.com/meinto/react-native-viewpager-carousel/tree/master/Examples/tabbedPagerCarousel/tabbed-pager.gif)
 
 ## ViewPager
 

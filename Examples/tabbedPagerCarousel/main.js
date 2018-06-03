@@ -23,15 +23,11 @@ export default class RnViewPager extends Component {
 
     this.dataSource = []
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 1; i < 12; i++) {
       this.dataSource = [...this.dataSource, {
         index: i,
-        title: 'Title Seite ' + i,
+        title: 'Page ' + i,
       }]
-    }
-
-    this.state = {
-      shouldBeScrollable: true,
     }
   }
 
@@ -50,7 +46,6 @@ export default class RnViewPager extends Component {
   _renderPage = ({data}) => {
     return (
       <ExamplePage
-        mirrorChildren={true}
         index={data.index}
         title={data.title}
       />
@@ -60,13 +55,6 @@ export default class RnViewPager extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableHighlight onPress={() => {
-          this.setState({
-            shouldBeScrollable: !this.state.shouldBeScrollable
-          })
-        }}>
-          <Text>toggle ScrollEnable: {this.state.shouldBeScrollable?'enable': 'disable'}</Text>
-        </TouchableHighlight>
         <TabbedPager
           ref={tabbarPager => {
             this.tabbarPager = tabbarPager
@@ -78,7 +66,6 @@ export default class RnViewPager extends Component {
           renderPage={this._renderPage}
           lazyrender={true}
           lazyrenderThreshold={2}
-          scrollEnabled={this.state.shouldBeScrollable}
         />
       </View>
     )
