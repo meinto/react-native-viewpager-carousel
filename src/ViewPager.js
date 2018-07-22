@@ -76,7 +76,7 @@ export default class ViewPager extends PureComponent {
       this.pageCount > 1
         ? this.props.thresholdPages : 0
     this.pageIndex = this.thresholdPages
-    this.pageIndexBeforeDrag = this.thresholdPages 
+    this.pageIndexBeforeDrag = this.thresholdPages
 
     this.state = {
       dataSource: [...this._prepareData(this.props.data || [])],
@@ -102,7 +102,7 @@ export default class ViewPager extends PureComponent {
 
   componentWillReceiveProps(nextProps) {
     const newDataSource = [...this._prepareData(nextProps.data || [])]
-    if (newDataSource.length !== this.state.dataSource.length && nextProps.pageWidth !== this.props.pageWidth){
+    if (newDataSource.length !== this.state.dataSource.length || nextProps.pageWidth !== this.props.pageWidth){
       this.contentContainerStyle = {
         width: nextProps.pageWidth * newDataSource.length,
       }
@@ -118,11 +118,11 @@ export default class ViewPager extends PureComponent {
   scroll = dx => {
     const realPageWidth = VIEWPORT_WIDTH / this.props.pageWidth
     const realPageWidthTrunc = Math.trunc(realPageWidth)
-    
+
     const centerPageDelta = realPageWidthTrunc % 2 === 0
       ? -(this.props.pageWidth / 2 + this.props.pageWidth * (realPageWidthTrunc / 2 - 1))
       : -this.props.pageWidth * (Math.floor(realPageWidthTrunc / 2))
-      
+
     const thresholdOffset = this.props.renderAsCarousel ? (this.props.pageWidth * this.thresholdPages + centerPageDelta) : 0
 
     let centeredScrollX = dx / (realPageWidth) - this.props.pageWidth + thresholdOffset
@@ -271,7 +271,7 @@ export default class ViewPager extends PureComponent {
 
     // fire onPageChange if the dragged page passed half of the screen
     if (
-      (this.pageIndexBeforeDrag + 0.5 < scrollIndex || 
+      (this.pageIndexBeforeDrag + 0.5 < scrollIndex ||
       this.pageIndexBeforeDrag - 0.5 > scrollIndex) &&
       this.props.firePageChangeIfPassedScreenCenter
     ) {
@@ -280,7 +280,7 @@ export default class ViewPager extends PureComponent {
 
     if (this.props.renderAsCarousel && scrollIndex % 1 < 0.03) {
       if (Math.trunc(scrollIndex) === 0) {
-        
+
         offsetX = VIEWPORT_WIDTH * (this.state.dataSource.length - 2)
         this._scrollTo({
           animated: false,
@@ -398,7 +398,7 @@ export default class ViewPager extends PureComponent {
   render() {
 
     this.pageReferences = {}
-    
+
     return (
       <View
         style={[styles.container, this.props.containerStyle]}
