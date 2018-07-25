@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "NODE_ENV=test jest --silent",
-    "testw": "NODE_ENV=test jest --watch",
+    "testw": "NODE_ENV=test jest --watch --runInBand",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "repository": {

@@ -335,8 +335,25 @@ describe('<ViewPager /> tests', () => {
           expect(instance._onPageChange).toHaveBeenCalled()
         })
         
-      // it(`tests that the position of the ScrollView jumps to the corresponding page
-      //     at the end of the ScrollView when the  user scrolls in the front threshold page area`, () => {})
+        it.skip(`tests that the position of the ScrollView jumps to the corresponding page
+        at the end of the ScrollView when the  user scrolls in the front threshold page area`, () => {
+          const instance = new ViewPager({
+            ...ViewPager.initialProps,
+            ...props,
+            renderAsCarousel: true,
+          })
+          
+          instance.scrollView = {
+            scrollTo: options => instance._onScroll({
+              nativeEvent: { contentOffset: { x: options.x } }
+            })
+          }
+
+          nativeScrollEvent.nativeEvent.contentOffset.x = 0
+          instance._onScroll(nativeScrollEvent)
+          expect(instance.pageIndex).toBe(6) // should be 6. why does the test say's its zero?
+        })
+
       // it(`tests that the position of the ScrollView jumps to the corresponding page
       //     at the front of the ScrollView when the  user scrolls in the end threshold page area`, () => {})
       // it('tests that _onMomentumScrollEnd would be called 50 ms after scroll event ends', () => {
