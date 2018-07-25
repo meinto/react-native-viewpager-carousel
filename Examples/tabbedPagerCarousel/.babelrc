@@ -1,5 +1,5 @@
 {
-"presets": ["react-native"],
+"presets": ["@babel/preset-env","react-native"],
 "plugins": [
   ["module-resolver", {
     "alias": {
