@@ -225,12 +225,7 @@ exports[`<ViewPager /> tests property tests tests a set pageWidth of 50 1`] = `
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 3 | pageIndex: 0
           </Text>
         </View>
@@ -256,12 +251,7 @@ exports[`<ViewPager /> tests property tests tests a set pageWidth of 50 1`] = `
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 4 | pageIndex: 1
           </Text>
         </View>
@@ -287,12 +277,7 @@ exports[`<ViewPager /> tests property tests tests a set pageWidth of 50 1`] = `
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 1 | pageIndex: 2
           </Text>
         </View>
@@ -318,12 +303,7 @@ exports[`<ViewPager /> tests property tests tests a set pageWidth of 50 1`] = `
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 2 | pageIndex: 3
           </Text>
         </View>
@@ -349,12 +329,7 @@ exports[`<ViewPager /> tests property tests tests a set pageWidth of 50 1`] = `
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 3 | pageIndex: 4
           </Text>
         </View>
@@ -380,12 +355,7 @@ exports[`<ViewPager /> tests property tests tests a set pageWidth of 50 1`] = `
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 4 | pageIndex: 5
           </Text>
         </View>
@@ -411,12 +381,7 @@ exports[`<ViewPager /> tests property tests tests a set pageWidth of 50 1`] = `
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 1 | pageIndex: 6
           </Text>
         </View>
@@ -442,12 +407,7 @@ exports[`<ViewPager /> tests property tests tests a set pageWidth of 50 1`] = `
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 2 | pageIndex: 7
           </Text>
         </View>
@@ -527,12 +487,7 @@ exports[`<ViewPager /> tests property tests tests that experimentalMirroring={tr
               ]
             }
           >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
-            >
+            <Text>
               mock page 3 | pageIndex: 0
             </Text>
           </View>
@@ -573,12 +528,7 @@ exports[`<ViewPager /> tests property tests tests that experimentalMirroring={tr
               ]
             }
           >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
-            >
+            <Text>
               mock page 4 | pageIndex: 1
             </Text>
           </View>
@@ -619,12 +569,7 @@ exports[`<ViewPager /> tests property tests tests that experimentalMirroring={tr
               ]
             }
           >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
-            >
+            <Text>
               mock page 1 | pageIndex: 2
             </Text>
           </View>
@@ -651,12 +596,7 @@ exports[`<ViewPager /> tests property tests tests that experimentalMirroring={tr
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 2 | pageIndex: 3
           </Text>
         </View>
@@ -682,12 +622,7 @@ exports[`<ViewPager /> tests property tests tests that experimentalMirroring={tr
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 3 | pageIndex: 4
           </Text>
         </View>
@@ -727,12 +662,7 @@ exports[`<ViewPager /> tests property tests tests that experimentalMirroring={tr
               ]
             }
           >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
-            >
+            <Text>
               mock page 4 | pageIndex: 5
             </Text>
           </View>
@@ -773,12 +703,7 @@ exports[`<ViewPager /> tests property tests tests that experimentalMirroring={tr
               ]
             }
           >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
-            >
+            <Text>
               mock page 1 | pageIndex: 6
             </Text>
           </View>
@@ -819,12 +744,7 @@ exports[`<ViewPager /> tests property tests tests that experimentalMirroring={tr
               ]
             }
           >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
-            >
+            <Text>
               mock page 2 | pageIndex: 7
             </Text>
           </View>
@@ -891,12 +811,7 @@ exports[`<ViewPager /> tests property tests tests that lazyrender is set properl
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 3 | pageIndex: 0
           </Text>
         </View>
@@ -922,12 +837,7 @@ exports[`<ViewPager /> tests property tests tests that lazyrender is set properl
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 4 | pageIndex: 1
           </Text>
         </View>
@@ -953,12 +863,7 @@ exports[`<ViewPager /> tests property tests tests that lazyrender is set properl
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 1 | pageIndex: 2
           </Text>
         </View>
@@ -984,12 +889,7 @@ exports[`<ViewPager /> tests property tests tests that lazyrender is set properl
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 2 | pageIndex: 3
           </Text>
         </View>
@@ -1015,12 +915,7 @@ exports[`<ViewPager /> tests property tests tests that lazyrender is set properl
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 3 | pageIndex: 4
           </Text>
         </View>
@@ -1046,12 +941,7 @@ exports[`<ViewPager /> tests property tests tests that lazyrender is set properl
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 4 | pageIndex: 5
           </Text>
         </View>
@@ -1077,12 +967,7 @@ exports[`<ViewPager /> tests property tests tests that lazyrender is set properl
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 1 | pageIndex: 6
           </Text>
         </View>
@@ -1108,12 +993,7 @@ exports[`<ViewPager /> tests property tests tests that lazyrender is set properl
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 2 | pageIndex: 7
           </Text>
         </View>
@@ -1179,12 +1059,7 @@ exports[`<ViewPager /> tests property tests tests that pagingEnabled is set prop
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 3 | pageIndex: 0
           </Text>
         </View>
@@ -1210,12 +1085,7 @@ exports[`<ViewPager /> tests property tests tests that pagingEnabled is set prop
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 4 | pageIndex: 1
           </Text>
         </View>
@@ -1241,12 +1111,7 @@ exports[`<ViewPager /> tests property tests tests that pagingEnabled is set prop
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 1 | pageIndex: 2
           </Text>
         </View>
@@ -1272,12 +1137,7 @@ exports[`<ViewPager /> tests property tests tests that pagingEnabled is set prop
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 2 | pageIndex: 3
           </Text>
         </View>
@@ -1303,12 +1163,7 @@ exports[`<ViewPager /> tests property tests tests that pagingEnabled is set prop
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 3 | pageIndex: 4
           </Text>
         </View>
@@ -1334,12 +1189,7 @@ exports[`<ViewPager /> tests property tests tests that pagingEnabled is set prop
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 4 | pageIndex: 5
           </Text>
         </View>
@@ -1365,12 +1215,7 @@ exports[`<ViewPager /> tests property tests tests that pagingEnabled is set prop
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 1 | pageIndex: 6
           </Text>
         </View>
@@ -1396,12 +1241,7 @@ exports[`<ViewPager /> tests property tests tests that pagingEnabled is set prop
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 2 | pageIndex: 7
           </Text>
         </View>
@@ -1467,12 +1307,7 @@ exports[`<ViewPager /> tests property tests tests that scrollEnabled is set prop
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 3 | pageIndex: 0
           </Text>
         </View>
@@ -1498,12 +1333,7 @@ exports[`<ViewPager /> tests property tests tests that scrollEnabled is set prop
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 4 | pageIndex: 1
           </Text>
         </View>
@@ -1529,12 +1359,7 @@ exports[`<ViewPager /> tests property tests tests that scrollEnabled is set prop
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 1 | pageIndex: 2
           </Text>
         </View>
@@ -1560,12 +1385,7 @@ exports[`<ViewPager /> tests property tests tests that scrollEnabled is set prop
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 2 | pageIndex: 3
           </Text>
         </View>
@@ -1591,12 +1411,7 @@ exports[`<ViewPager /> tests property tests tests that scrollEnabled is set prop
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 3 | pageIndex: 4
           </Text>
         </View>
@@ -1622,12 +1437,7 @@ exports[`<ViewPager /> tests property tests tests that scrollEnabled is set prop
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 4 | pageIndex: 5
           </Text>
         </View>
@@ -1653,12 +1463,7 @@ exports[`<ViewPager /> tests property tests tests that scrollEnabled is set prop
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 1 | pageIndex: 6
           </Text>
         </View>
@@ -1684,12 +1489,7 @@ exports[`<ViewPager /> tests property tests tests that scrollEnabled is set prop
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 2 | pageIndex: 7
           </Text>
         </View>
@@ -1755,12 +1555,7 @@ exports[`<ViewPager /> tests property tests tests that showNativeScrollIndicator
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 3 | pageIndex: 0
           </Text>
         </View>
@@ -1786,12 +1581,7 @@ exports[`<ViewPager /> tests property tests tests that showNativeScrollIndicator
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 4 | pageIndex: 1
           </Text>
         </View>
@@ -1817,12 +1607,7 @@ exports[`<ViewPager /> tests property tests tests that showNativeScrollIndicator
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 1 | pageIndex: 2
           </Text>
         </View>
@@ -1848,12 +1633,7 @@ exports[`<ViewPager /> tests property tests tests that showNativeScrollIndicator
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 2 | pageIndex: 3
           </Text>
         </View>
@@ -1879,12 +1659,7 @@ exports[`<ViewPager /> tests property tests tests that showNativeScrollIndicator
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 3 | pageIndex: 4
           </Text>
         </View>
@@ -1910,12 +1685,7 @@ exports[`<ViewPager /> tests property tests tests that showNativeScrollIndicator
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 4 | pageIndex: 5
           </Text>
         </View>
@@ -1941,12 +1711,7 @@ exports[`<ViewPager /> tests property tests tests that showNativeScrollIndicator
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 1 | pageIndex: 6
           </Text>
         </View>
@@ -1972,12 +1737,7 @@ exports[`<ViewPager /> tests property tests tests that showNativeScrollIndicator
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 2 | pageIndex: 7
           </Text>
         </View>
@@ -2280,12 +2040,7 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 3 | pageIndex: 0
           </Text>
         </View>
@@ -2311,12 +2066,7 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 4 | pageIndex: 1
           </Text>
         </View>
@@ -2342,12 +2092,7 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 1 | pageIndex: 2
           </Text>
         </View>
@@ -2373,12 +2118,7 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 2 | pageIndex: 3
           </Text>
         </View>
@@ -2404,12 +2144,7 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 3 | pageIndex: 4
           </Text>
         </View>
@@ -2435,12 +2170,7 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 4 | pageIndex: 5
           </Text>
         </View>
@@ -2466,12 +2196,7 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 1 | pageIndex: 6
           </Text>
         </View>
@@ -2497,12 +2222,7 @@ exports[`<ViewPager /> tests snapshots the component with initial props 1`] = `
             ]
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
+          <Text>
             mock page 2 | pageIndex: 7
           </Text>
         </View>

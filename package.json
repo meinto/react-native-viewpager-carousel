@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "babel-jest": "23.4.0",
-    "babel-preset-react-native": "5.0.0",
+    "babel-preset-react-native": "4.0.0",
     "coveralls": "3.0.2",
     "jasmine-reporters": "2.3.1",
     "jest-cli": "23.4.1",
