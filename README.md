@@ -14,7 +14,7 @@ Feel free to make a pull request. I'm happy about every contribution.
 
 ## Examples
 
-You can find example implementations for all use cases of this library in the repo [react-native-viewpager-carousel-example-app](https://github.com/meinto/react-native-viewpager-carousel-example-app).
+You can find example implementations for all use cases of this library in the repo [react-native-viewpager-carousel-example-app](https://github.com/meinto/react-native-viewpager-carousel-example-app). The example project is also linked as git submodule in this project.
 
 ## Installation
 
