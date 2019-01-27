@@ -7,6 +7,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "NODE_ENV=test jest --silent",
     "testw": "NODE_ENV=test jest --watch --runInBand",
+    "remove:example:app:modules": "cd example-app && rm -r node_modules; cd ..",
+    "init:local:example": "rm -r local-example-app; npm run remove:example:app:modules; cp -r example-app local-example-app && cd local-example-app && npm i",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "repository": {
@@ -38,16 +40,16 @@
     "prop-types": "*"
   },
   "devDependencies": {
-    "babel-jest": "23.4.0",
-    "babel-preset-react-native": "4.0.0",
+    "babel-jest": "24.0.0",
+    "babel-preset-react-native": "4.0.1",
     "coveralls": "3.0.2",
-    "jasmine-reporters": "2.3.1",
-    "jest-cli": "23.4.1",
+    "jasmine-reporters": "2.3.2",
+    "jest-cli": "24.0.0",
     "prop-types": "15.6.2",
-    "react": "16.4.1",
-    "react-native": "0.56.0",
+    "react": "16.7.0",
+    "react-native": "0.58.1",
     "react-native-cli": "2.0.1",
-    "react-test-renderer": "16.4.1"
+    "react-test-renderer": "16.7.0"
   },
   "jest": {
     "collectCoverage": true,

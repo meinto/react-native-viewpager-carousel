@@ -57,3 +57,6 @@ fastlane/screenshots
 *.log.*
 coverage/
 Examples/tabbedPagerCarousel/react-native-viewpager-carousel/
+
+# local example project
+local-example-app
