@@ -75,6 +75,7 @@ export default class ViewPager extends PureComponent {
       this.props.renderAsCarousel &&
       this.pageCount > 1
         ? this.props.thresholdPages : 0
+    this.scrollIndex = 0
     this.pageIndex = this.thresholdPages
     this.pageIndexBeforeDrag = this.thresholdPages
 
@@ -267,19 +268,13 @@ export default class ViewPager extends PureComponent {
     let offsetX = event.nativeEvent.contentOffset.x
     this.props.onScroll(offsetX)
 
-    const scrollIndex = this._getCurrentScrollIndex(offsetX)
+    this.scrollIndex = this._getCurrentScrollIndex(offsetX)
 
     // fire onPageChange if the dragged page passed half of the screen
-    if (
-      (this.pageIndexBeforeDrag + 0.5 < scrollIndex ||
-      this.pageIndexBeforeDrag - 0.5 > scrollIndex) &&
-      this.props.firePageChangeIfPassedScreenCenter
-    ) {
-      this._onPageChange()
-    }
+    this._triggerOnPageChange()
 
-    if (this.props.renderAsCarousel && scrollIndex % 1 < 0.03) {
-      if (Math.trunc(scrollIndex) === 0) {
+    if (this.props.renderAsCarousel && this.scrollIndex % 1 < 0.03) {
+      if (Math.trunc(this.scrollIndex) === 0) {
 
         offsetX = VIEWPORT_WIDTH * (this.state.dataSource.length - 2)
         this._scrollTo({
@@ -288,7 +283,7 @@ export default class ViewPager extends PureComponent {
         })
         this.props.onScroll(offsetX)
 
-      } else if (Math.trunc(scrollIndex) === this.state.dataSource.length - 1) {
+      } else if (Math.trunc(this.scrollIndex) === this.state.dataSource.length - 1) {
 
         offsetX = VIEWPORT_WIDTH
         this._scrollTo({
@@ -304,7 +299,7 @@ export default class ViewPager extends PureComponent {
       this._onMomentumScrollEnd()
     }, 50)
 
-    this.pageIndex = Math.round(scrollIndex)
+    this.pageIndex = Math.round(this.scrollIndex)
   }
 
   _onPageChange = () => {
@@ -325,7 +320,7 @@ export default class ViewPager extends PureComponent {
       if (this.pageReferences[key])
         this.pageReferences[key].onPageChange(pageNumber)
     }
-    this._onPageChange()
+    this._triggerOnPageChange()
   }
 
   _getScrollEnabled = () => {
@@ -334,6 +329,18 @@ export default class ViewPager extends PureComponent {
       this.pageCount > 1 &&
       (this.pageCount + this.thresholdPages) * this.props.pageWidth > VIEWPORT_WIDTH
     )
+  }
+
+  _triggerOnPageChange = () => {
+    if (!this.props.firePageChangeIfPassedScreenCenter && this.scrollIndex % 1 < 0.03) {
+      this._onPageChange()
+    } else if (
+      (this.pageIndexBeforeDrag + 0.5 < this.scrollIndex ||
+      this.pageIndexBeforeDrag - 0.5 > this.scrollIndex) &&
+      this.props.firePageChangeIfPassedScreenCenter
+    ) {
+      this._onPageChange()
+    }
   }
 
   /*
