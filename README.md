@@ -77,7 +77,7 @@ class ExampleCarousel extends PureComponent {
 | thresholdPages        | number    | 1       | number of pages left and right of the scrollable content (sneak preview) |
 | pageWidth             | number    | {{screen width of device}} | width of page |
 | initialPage           | object    | {}      | key value pair of initial page: e. g. data=[{key:'page-a'}, {key:'page-b'}] & initialPage={{key:'page-b}} |
-| scrollEnabled         | boolean   | true    | decleares wether the ViewPager sould be able to scroll by user or not |
+| scrollEnabled         | boolean   | true    | decleares wether the ViewPager should be able to scroll by user or not |
 | firePageChangeIfPassedScreenCenter | boolean | false | toggle's if onPageChange sould already be called when the dragged page passed half of the screen |
 | pagingEnabled        | boolean   | true    |  |
 | experimentalMirroring | boolean   | false   | toggles the mirroring of the scrollposition of the threshold views - more information [here](https://github.com/meinto/react-native-mirror) |
