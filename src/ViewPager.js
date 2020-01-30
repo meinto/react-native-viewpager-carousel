@@ -107,6 +107,9 @@ export default class ViewPager extends PureComponent {
       this.contentContainerStyle = {
         width: nextProps.pageWidth * newDataSource.length,
       }
+
+      this.data = nextProps.data;
+      this.pageCount = this.data.length;
     }
     this.setState({
       dataSource: newDataSource,
